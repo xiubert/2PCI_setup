@@ -10,6 +10,9 @@
 ## Microscope
 - [Sutter MOM (Moveable Objective Microscope)](https://www.sutter.com/microscopes/mom)
 - Objective moves rather than the stage (stage moves on Scientifica rig)
+- dichroic splitter (Di02-R561, Semrock)
+- green emission filter (FF03-525/50, Semrock)
+- objective: 40 0.8 NA objective (Olympus)
 
 ## DAQs
 1. [NI USB-6229](https://www.ni.com/en-us/support/model.usb-6229.html) (ID: `Dev2`)
@@ -32,6 +35,13 @@
 ## Galvo / Scan controller
 - [Sutter MDR MOM Scan Drive Controller](https://www.sutter.com/microscopes/mom)
 - Galvo / Galvo mirrors for laser scanning
+
+## Laser
+- MaiTai HP, Newport
+
+## Speaker and Speaker controller
+- freefield speaker (ES1, Tucker Davis)
+- ED1 speaker driver (Tucker Davis)
 
 ## Micromanipulator
 - [Sutter ROE-200](https://www.sutter.com/MICROMANIPULATION/mpc365_frame.html)

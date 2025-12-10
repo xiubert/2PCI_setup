@@ -19,6 +19,7 @@
 4. Ensure stimulator and acquirer are set to external and use PFI9 for triggering
 
 ## ScanImage
+- 145X145 mm images at 256X256 pixel resolution at an effective frame rate of 5 Hz
 
 ### Looping (cycles)
 
