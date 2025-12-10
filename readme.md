@@ -13,9 +13,7 @@
         - VSCode terminal defaults to PowerShell: `.\env\Scripts\Activate.ps1`
         - If in command prompt `.\env\bin\activate.bat`
 4. Install dependencies: `pip install -r requirements.txt`
-
-## New project
-- `mkdocs new Ca2plusDocs`
+5. ~~Create new project (DONE)~~: ~~`mkdocs new Ca2plusDocs`~~
 
 ## Serve site locally
 - `mkdocs serve`
