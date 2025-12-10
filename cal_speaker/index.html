@@ -81,6 +81,28 @@
               </ul>
               <ul class="current">
                 <li class="toctree-l1 current"><a class="reference internal current" href="#">Speaker calibration</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#tools">Tools</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#prerequisite-calibration-stimuli">Prerequisite: calibration stimuli</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#1-amp-setup">1. Amp setup</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#3-record-94-db-reference-voltage">3. Record 94 dB reference voltage</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#4-record-stimuli-voltage">4. Record stimuli voltage</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#reference">Reference</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#volt2db">Volt2dB</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#dbwant2voltage">dBwant2voltage</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#vwant2gain">Vwant2gain</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
                 </li>
               </ul>
               <ul>
@@ -114,7 +136,76 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                
+                <h1 id="speaker-calibration">Speaker calibration</h1>
+<ul>
+<li>Instructions for calibrating rig speaker</li>
+<li><strong>Purpose</strong>: Speaker has nonlinear response across frequencies, must ensure voltage delivered to speaker corresponds to desired dB output for various signals</li>
+<li><strong>Output</strong>: gain values corresponding to voltage needed to drive speaker to obtain desired dB SPL</li>
+</ul>
+<h2 id="tools">Tools</h2>
+<ul>
+<li>Oscilloscope: <a href="https://www.tek.com/en/oscilloscope/tds1001b-manual/tds1000b-and-tds2000b-series">Tektronix TDS2002B</a></li>
+<li>microphone with attached pre-amp (1/8 inch 4138-A-015; Brüel and Kjær / HBK)</li>
+<li>reference sound calibrator (Type 4231, Brüel and Kjær / HBK)</li>
+<li>amp (Nexus 2690-0S Brüel and Kjær / HBK)</li>
+<li>Brüel and Kjær / HBK tool contact: Isaac.farzaneh@hbkworld.com | 800-332-2040</li>
+</ul>
+<h2 id="prerequisite-calibration-stimuli">Prerequisite: calibration stimuli</h2>
+<ul>
+<li>Generate stimuli in MATLAB. See: <a href="https://github.com/xiubert/matlabPAC_general/tree/master/stimuliGeneration">stimuli generation code</a></li>
+</ul>
+<h2 id="1-amp-setup">1. Amp setup</h2>
+<ol>
+<li>Setup Menu: <img alt="Setup Menu" src="amp_setup1.png" /></li>
+<li>Amplifier Set-up: Output sensitivity from Nexus amp<ul>
+<li>Can set the output to 3.16 V/Pa as shown below. Make sure the band-pass filter is configured correctly so the system can read the 1000 Hz tone from the 4231 calibrator. Setting the filter to 0.1–100 kHz allows the full usable frequency range to pass through.</li>
+<li>1 Pa corresponds to 94 dB</li>
+<li><img alt="amp setup" src="amp_setup2.jpg" /></li>
+</ul>
+</li>
+<li>Transducer Set-up:  Microphone sensitivity<ul>
+<li>The nominal sensitivity of the 4939-A-011 is 4 mV/Pa, but if you have a calibration card for your specific microphone (inside microphone box), you should enter the actual calibrated sensitivity shown on the card.</li>
+<li><img alt="transducer setup" src="amp_setup3.png" /></li>
+</ul>
+</li>
+<li>Transducer Supply:  Microphone sensitivity<ul>
+<li>Set the polarization voltage to 200 V. The 4939-A-011 is an externally polarized microphone, so it requires a 200 V polarization supply.</li>
+<li><img alt="transducer supply" src="amp_setup4.jpg" /></li>
+</ul>
+</li>
+</ol>
+<h2 id="3-record-94-db-reference-voltage">3. Record 94 dB reference voltage</h2>
+<ul>
+<li>1 Pa corresponds to 94 dB. Type 4231 reference speaker outputs 1 kHz at 94 dB. Thus, if output sensitivity set to 3.16 V / Pa, should see 3.16 V RMS on oscilloscope with 'Autoset'</li>
+</ul>
+<h2 id="4-record-stimuli-voltage">4. Record stimuli voltage</h2>
+<ul>
+<li>Set gain to 1500 and record voltage for stimuli that are to be calibrated</li>
+<li>Can use scripts <a href="github.com/xiubert/matlabPAC_general/blob/master/speakerCalibration/speakerCal_oscDataFile.m">pure tones</a> and <a href="https://github.com/xiubert/matlabPAC_general/blob/master/speakerCalibration/speakerCal_oscToneCycleVrms.m">all other stimuli (BPN etc)</a></li>
+</ul>
+<h2 id="reference">Reference</h2>
+<ul>
+<li>see: <a href="https://github.com/xiubert/matlabPAC_general/tree/master/helperFcns/auditory">sound level equations</a></li>
+</ul>
+<h3 id="volt2db">Volt2dB</h3>
+<pre><code>dB = 20 · log₁₀(V_out/V_ref) + dB_ref
+</code></pre>
+<h3 id="dbwant2voltage">dBwant2voltage</h3>
+<pre><code>dB = 20 · log₁₀(V_want/V_ref) + dB_ref
+
+[  ] = (dB - dB_ref)/20
+
+10^[(dB - dB_ref)/20]
+
+V_want/V_ref = 10^((dB - dB_ref)/20)
+
+V_want = 10^((dB - dB_ref)/20) · V_ref
+</code></pre>
+<h3 id="vwant2gain">Vwant2gain</h3>
+<pre><code>V_Gref/G_ref = V_want/G_set
+
+G_set = G_ref · (V_want/V_Gref)
+</code></pre>
               
             </div>
           </div><footer>
