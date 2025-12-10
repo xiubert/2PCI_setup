@@ -37,6 +37,8 @@
 4. Tighten down barrel post bolt
 5. Ensure beam passes uninterrupted through shutter to 90deg mirrors
 6. **Adjusting 90deg mirrors: ignore the screw on the corner (middle screw at 90deg angle)**
+    - Top screw: up / down
+    - Bottom screw: left / right
 
 ### Key Points:
 - **Last stage at which beam is focal dot**: The horizontal enclosure (not the one labeled MOM) before the galvos (see [tutorial video](https://www.youtube.com/watch?v=hwCFtQ3WHoo&t=452)) — beam expands after that
