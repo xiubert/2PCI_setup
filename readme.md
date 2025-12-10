@@ -2,7 +2,7 @@
 - uses `mkdocs` for git tracked documentation
 
 ## Link to live site
-- [2PCI_setup](https://github.com/xiubert/2PCI_setup)
+- [2PCI_setup](https://xiubert.github.io/2PCI_setup/p)
 
 ## Setup
 1. Clone repository `https://github.com/xiubert/Ca2plusDocs.git` and change to respository directory (`cd Ca2plusDocs`).
