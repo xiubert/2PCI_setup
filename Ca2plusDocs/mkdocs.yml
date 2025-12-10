@@ -5,6 +5,7 @@ nav:
   - Hardware: hardware.md
   - Software: software.md
   - Configuration: configuration.md
+  - Operation: operation.md
   - Drivers: drivers.md
   - Code: code.md
   - 2P Laser Alignment: alignment.md

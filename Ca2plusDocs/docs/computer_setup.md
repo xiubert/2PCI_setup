@@ -46,12 +46,16 @@ Initial setup instructions for the Dell Precision Tower 5810 acquisition compute
 
 13. **Install MATLAB 2013b (32-bit)**
 14. **Install Ephus**
-    - Copy Ephus files to `C:/Rig/Ephus 2013b`
-    - Add to MATLAB 2013b path with subfolders
+    - Copy `Ephus 2013b_20250909_qcamFix.zip` from Sharepoint (Tzounopoulos Lab (2024) &rarr; `Documents` &rarr; `data` &rarr; `PAC` &rarr; `sutter_2P_rigConfig_PAC`) to `C:/Rig/`
+    - Unzip `Ephus 2013b_20250909_qcamFix.zip`
+    - Ephus should be in folder named `C:/Rig/Ephus 2013b`
+    - Add `C:/Rig/Ephus 2013b` to MATLAB 2013b path with subfolders
 15. **Install QCam Driver** (v2.0.13.1 64-bit)
     - `QCamInstaller-2-0-13-1-64bit.zip`
+    - see: Sharepoint: Tzounopoulos Lab (2024) &rarr; `Documents` &rarr; `data` &rarr; `PAC` &rarr; `sutter_2P_rigConfig_PAC` &rarr; `drivers`
 
     **Compatibility mode installation:**
+
     1. Right-click the installer
     2. Select "Troubleshoot compatibility"
     3. Choose "Custom"
@@ -60,7 +64,20 @@ Initial setup instructions for the Dell Precision Tower 5810 acquisition compute
     6. Continue with installation
 
     **Testing:**
+
     1. Turn on camera board
     2. Launch Ephus
     3. Add Ephus to MATLAB path
     4. Run `startQCam` to verify installation
+
+16. **Install MATLAB 2015b x64**
+17. **Install ScanImage**
+    - Copy `Scanimage5-3_20250905.zip` from Sharepoint (Tzounopoulos Lab (2024) &rarr; `Documents` &rarr; `data` &rarr; `PAC` &rarr; `sutter_2P_rigConfig_PAC`) to `C:/Rig/`
+    - Unzip `Scanimage5-3_20250905.zip`
+    - ScanImage should be in folder named `C:/Rig/Scanimage5-3`
+    - Add `C:/Rig/Scanimage5-3` to MATLAB 2015b path with subfolders
+
+18. **Configure Ephus and Scanimage**
+    - see: [Configuration](configuration.md)
+
+

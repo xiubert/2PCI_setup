@@ -5,7 +5,7 @@
 ### Startup file
 - [ephus_init_matlab2013b_32bit_250kHz_Camera_20250903.m](config/Ephus/ephus_init_matlab2013b_32bit_250kHz_Camera_20250903.m)
 
-Key configuration values:
+**Key configuration values**:
 ```matlab
 xsgStartDirectory = 'D:\Data\sutter2P\';
 
@@ -36,12 +36,16 @@ sampleClockDestination = 'PFI10';            % A DAQmx PFI terminal name (e.g. '
 
 ### Initial configuration state
 - `*.settings` for each Ephus window at startup: [config/Ephus/init_config](config/Ephus/init_config)
+- Chosen at Ephus start
+- Located in `C:/Rig/Ephus 2013b/startup/config/init_config`
 
 ### Custom user functions
+- Located in `C:/Rig/Ephus 2013b/custom_user_fcns`
+
 
 ![Ephus User Functions - Save Pulse Details](config/Ephus/ephus_userFunctions_savePulseDetails.png)
 
-- [savePulseDetails.m](config/Ephus/savePulseDetails.m): save stimulus pulse details to .mat file
+- [savePulseDetails.m](config/Ephus/savePulseDetails.m): Save stimulus pulse details to .mat file. This will save the pulse details and traceAcquired time in a mat file using the same path and naming convention as the xsg settings.
 
 ![Ephus User Functions - Select Random Pulse](config/Ephus/ephus_userFunctions_selectRandPulse.png)
 
@@ -52,7 +56,8 @@ sampleClockDestination = 'PFI10';            % A DAQmx PFI terminal name (e.g. '
 
 ![Ephus QCam Reset LED Pulse Width](config/Ephus/ephus_qcamReset_LED_pulseWidth.png)
 
-- [qcamExternalReset.m](config/Ephus/qcamExternalReset.m): resets QCam to External automatically to enable loops
+- [qcamExternalReset.m](config/Ephus/qcamExternalReset.m): Resets QCam to External automatically to enable loops. Otherwise would need to manually click External off and on.
+    - See: [Ephus looping](operation.md#ephus-looping)
 - [testusrfcn.m](config/Ephus/testusrfcn.m): for testing user functions
 
 ## ScanImage
@@ -60,7 +65,7 @@ sampleClockDestination = 'PFI10';            % A DAQmx PFI terminal name (e.g. '
 ### Machine Data File (startup)
 - [Machine_Data_File.m](config/ScanImage/Machine_Data_File.m)
 
-Key configuration values:
+**Key configuration values**:
 ```matlab
 shutterDaqDevices = {'Dev1'};  % Cell array specifying the DAQ device or RIO devices for each shutter eg {'PXI1Slot3' 'PXI1Slot4'}
 shutterChannelIDs = {'port0/line7'};      % Cell array specifying the corresponding channel on the device for each shutter eg {'PFI12'}
@@ -121,10 +126,33 @@ internalRefClockSrc = '';
 
 ![ScanImage User Functions](config/ScanImage/scanimage_user_functions.png)
 
-- [digtrig_stimPulse_train.m](config/ScanImage/digtrig_stimPulse_train.m): set ...
-- [digtrig_stimPulse_train_withCam.m](config/ScanImage/digtrig_stimPulse_train_withCam.m): with pupillometry camera
-- [scim5eventTest.m](config/ScanImage/scim5eventTest.m): for testing user functions
+- [digtrig_stimPulse_train.m](config/ScanImage/digtrig_stimPulse_train.m): Triggers Ephus stimulus pulse with configurable delay
+- [digtrig_stimPulse_train_withCam.m](config/ScanImage/digtrig_stimPulse_train_withCam.m): Version with pupillometry camera support
+- [scim5eventTest.m](config/ScanImage/scim5eventTest.m): For testing user functions
+
+**How the user functions work:**
+
+The `digtrig_stimPulse_train` function responds to three ScanImage events. The event name is passed as input to the function and handled via switch/case:
+
+1. **`acqModeArmed` event** - Triggered when acquisition starts
+    - Creates an NI-DAQ counter output task with configurable delay and pulse width
+    - After the delay, initiates a +5V pulse on counter 1 (ctr1) corresponding to PFI13
+    - Signal path: `PFI13` → `USER2` → BNC cable → NI USB-6229 `PFI0`
+    - Ephus stimulator and acquirer are configured to trigger on PFI0 (Dev2/USB-6229)
+    - The `stimDelay` and `stimWidth` parameters are saved to a .mat file matching the .tif filename
+
+2. **`acqModeDone` event** - Triggered when acquisition completes normally
+    - Clears the NI-DAQ counter output task so it can be reused
+
+3. **`acqAbort` event** - Triggered when acquisition is prematurely stopped
+    - Aborts and clears the NI-DAQ counter output task for safe reuse
 
 ## Ephus + ScanImage
-
+- File naming scheme for organized data files
 ![Ephus + ScanImage File Naming](config/ephus_scanimage_fileNaming.png)
+
+## Notes
+- `Ctr` corresponds to counter output channel
+- `Ctr0 = PFI12`; `Ctr1 = PFI13`
+- `PFI13` on Dev1/PCI-6110 goes to `User2` which goes to `PFI0` on Dev2/USB-6229
+- Counter output channels 0/1/2/3 correspond to terminals PFI 12/13/14/15 on the BNC breakouts for NI multifunction boards 
