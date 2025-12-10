@@ -4,3 +4,6 @@ env/
 #resources
 ref/
 .DS_Store
+
+#site build
+site/

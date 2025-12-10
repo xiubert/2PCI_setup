@@ -1,6 +1,9 @@
 # Docs generation for 2P and widefield Ca2+ imaging (on Sutter Rig)
 - uses `mkdocs` for git tracked documentation
 
+## Link to live site
+- [2PCI_setup](https://github.com/xiubert/2PCI_setup)
+
 ## Setup
 1. Clone repository `https://github.com/xiubert/Ca2plusDocs.git` and change to respository directory (`cd Ca2plusDocs`).
 2. Create python venv for running these scripts to isolate dependencies: `python -m venv env`
@@ -13,3 +16,6 @@
 
 ## New project:
 - `mkdocs new Ca2plusDocs`
+
+## Deploy site
+- `mkdocs gh-deploy`
