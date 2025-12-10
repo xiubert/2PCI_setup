@@ -106,9 +106,11 @@ YMirrorOffsetMaxVoltage = 1;        % maximum allowed voltage output for the cha
 internalRefClockSrc = '';
 ```
 
-### Configuration settings
-- [256pxSq_5Hz_acqModeArmed.cfg](config/ScanImage/256pxSq_5Hz_acqModeArmed.cfg): default
-- [256pxSq_5Hz_merge_acqModeArmed.cfg](config/ScanImage/256pxSq_5Hz_merge_acqModeArmed.cfg): both channels
+### User Settings File:
+- [working_acqModeArmed.cfg](config/ScanImage/working_acqModeArmed.usr): default
+
+### Additional configuration settings
+- [working_merge_acqModeArmed.cfg](config/ScanImage/working_merge_acqModeArmed.cfg): both channels
 
 ### Pulse Train Config
 - [PulseTrainPanelInit.m](config/ScanImage/PulseTrainPanelInit.m): ran at startup - initiates pulse train UI fig
