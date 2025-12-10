@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Drivers - Ca2+ imaging in vivo</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Drivers";
+        var mkdocs_page_input_path = "drivers.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Ca2+ imaging in vivo
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../about/">About</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../hardware/">Hardware</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../software/">Software</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../configuration/">Configuration</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../operation/">Operation</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Drivers</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#imaging">Imaging</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#computer">Computer</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../code/">Code</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../alignment/">2P Laser Alignment</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../cal_laser_power/">2P Laser Power calibration</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../cal_speaker/">Speaker calibration</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../computer_setup/">Rig Setup</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../pupillometry/">Pupillometry</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Ca2+ imaging in vivo</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Drivers</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="drivers">Drivers</h1>
+<ul>
+<li>required to interface with recording hardware</li>
+</ul>
+<h2 id="imaging">Imaging</h2>
+<ol>
+<li><a href="https://www.ni.com/en/support/downloads/drivers/download.ni-daq-mx.html">NI-DAQmx</a>: interface for the USB-6229 (Ephus) and NI PCI-6110 (ScanImage) DAQs<ul>
+<li><strong>v15.5.0</strong>: <code>NIDAQ1550f1.zip​</code></li>
+</ul>
+</li>
+<li>
+<p>QCam driver for widefield camera:</p>
+<ul>
+<li><code>QCamInstaller-2-0-13-1-64bit.zip</code></li>
+</ul>
+</li>
+<li>
+<p>Sutter CDM Controller Driver:</p>
+<ul>
+<li><a href="https://www.sutter.com/hubfs/SOFTWARE/SI_CDM_v2_12_36.zip?hsLang=en"><code>SI_CDM_v2_12_36.zip</code></a></li>
+<li><a href="https://www.sutter.com/hubfs/SOFTWARE/CDM_driver_Install_Guide.pdf?hsLang=en">Installation guide</a></li>
+</ul>
+</li>
+<li>
+<p>Driver for laser power adjustment (<a href="https://www.thorlabs.com/newgrouppage9.cfm?objectgroup_id=10285">Thorlabs Kinesis</a> controller of PRM1Z8)</p>
+<ul>
+<li><code>Thorlabs_Kinesis_Setup_25822_x64.exe</code></li>
+</ul>
+</li>
+</ol>
+<h2 id="computer">Computer</h2>
+<ul>
+<li>
+<p>Driver sources: <a href="https://www.dell.com/support/product-details/en-us/product/precision-t5810-workstation/drivers">Dell Precision T5810 Drivers &amp; Downloads</a></p>
+<ul>
+<li><code>DellSupportAssistinstaller.exe</code></li>
+</ul>
+</li>
+<li>
+<p>See: <a href="../computer_setup/">computer_setup.md</a> (<strong>first install Dell Support Assist to install relevant drivers</strong>)</p>
+<ul>
+<li><code>Audio_Driver_DDG39_WN32_6.0.1.6111_A06_01.EXE</code></li>
+<li><code>Chipset_Driver_8W65V_1.0.0.1024_A00_ZPE.exe</code></li>
+<li><code>Chipset_Driver_YV36W_WN32_10.1.2.10_A01.EXE</code></li>
+</ul>
+</li>
+<li>
+<p><code>Dell-Security-Advisory-Update-DSA-2020-059_1GWG9_WIN64_1.0.0.0_A00_03.EXE</code></p>
+</li>
+</ul>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../operation/" class="btn btn-neutral float-left" title="Operation"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../code/" class="btn btn-neutral float-right" title="Code">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../operation/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../code/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

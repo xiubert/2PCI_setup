@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>2P Laser Alignment - Ca2+ imaging in vivo</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "2P Laser Alignment";
+        var mkdocs_page_input_path = "alignment.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Ca2+ imaging in vivo
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../about/">About</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../hardware/">Hardware</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../software/">Software</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../configuration/">Configuration</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../operation/">Operation</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../drivers/">Drivers</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../code/">Code</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">2P Laser Alignment</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#references">References</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#safety">Safety</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#coarse-alignment-process">Coarse Alignment Process</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#prerequisites">Prerequisites:</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#steps">Steps</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#key-points">Key Points</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#fine-alignment-using-pollen-grains">Fine Alignment Using Pollen Grains</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#initial-setup">Initial Setup</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#histogram-settings">Histogram Settings</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#alignment-check">Alignment Check</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#beam-walking-if-intensity-drops">Beam Walking (if intensity drops)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#goal">Goal</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../cal_laser_power/">2P Laser Power calibration</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../cal_speaker/">Speaker calibration</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../computer_setup/">Rig Setup</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../pupillometry/">Pupillometry</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Ca2+ imaging in vivo</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">2P Laser Alignment</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="aligning-2p-laser-to-sutter-2p-rig">Aligning 2P laser to Sutter 2P rig</h1>
+<p><img alt="Sutter 2P Rig" src="../tz_2p.jpeg" /></p>
+<ul>
+<li>Best person to contact: Rick Ayer of Sutter Instruments: rick@sutter.com</li>
+<li>Herringbone artifact normal for End-On <a href="https://www.hamamatsu.com/us/en/product/optical-sensors/pmt/pmt-module/current-output-type/H10770PA-40.html">Hammamatsu PMT H10770PA-40</a></li>
+</ul>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=hwCFtQ3WHoo&amp;t=452">Sutter 2P Alignment Tutorial Video</a></li>
+</ul>
+<h2 id="safety">Safety</h2>
+<ul>
+<li><a href="https://www.thorlabs.com/newgrouppage9.cfm?objectgroup_id=762">Safety glasses (Thorlabs)</a></li>
+<li>For 2P laser alignment at 690nm: LG8 (green lens):<ul>
+<li><strong>LG8 series does NOT cover 920nm</strong><ul>
+<li>Wavelength coverage: Only 630-695nm (stops at 695nm)</li>
+<li>Does not provide protection at 920nm ❌</li>
+</ul>
+</li>
+<li>Higher OD (5+ vs 3+) provides better protection during alignment</li>
+<li>Still has reasonable VLT (24%) for seeing your alignment</li>
+<li>The slightly reduced visibility compared to LG9 is worth the extra 2 OD levels of protection</li>
+</ul>
+</li>
+<li>For 2P laser alignment at 920nm: LG9 (orange lens):<ul>
+<li>Wavelength coverage: 610-695nm AND &gt;740-1070nm (covers 920nm)</li>
+<li>Optical Density (OD): 7+ at 920nm</li>
+<li>Visible Light Transmission (VLT): 44%</li>
+<li>EN 207 Rating: D LB6 + IRM LB7 in the &gt;740-1070nm range</li>
+<li><strong>LG8 series does NOT cover 920nm</strong></li>
+</ul>
+</li>
+</ul>
+<h2 id="coarse-alignment-process">Coarse Alignment Process</h2>
+<h3 id="prerequisites">Prerequisites:</h3>
+<ul>
+<li>Wear LG8 safety glasses during alignment</li>
+<li><strong>Ensure bolts to table are secure</strong></li>
+</ul>
+<h3 id="steps">Steps</h3>
+<ol>
+<li>Set laser wavelength to 920nm</li>
+<li>Adjust <a href="https://www.newport.com/p/RSP-1T">Optic Rotation Mount (Newport RSP-1T)</a> so that power meters for both Scientifica and Sutter read about 50% (even split between 2 rigs)</li>
+<li>Slightly loosen post bolt of barrel at first split and twist such that both meters are at max for 50% split</li>
+<li>Tighten down barrel post bolt</li>
+<li>Ensure beam passes uninterrupted through shutter to 90deg mirrors</li>
+<li><strong>Adjusting 90deg mirrors: ignore the screw on the corner (middle screw at 90deg angle)</strong><ul>
+<li>Top screw: up / down</li>
+<li>Bottom screw: left / right</li>
+</ul>
+</li>
+</ol>
+<h3 id="key-points">Key Points</h3>
+<ul>
+<li><strong>Last stage at which beam is focal dot</strong>: The horizontal enclosure (not the one labeled MOM) before the galvos (see <a href="https://www.youtube.com/watch?v=hwCFtQ3WHoo&amp;t=452">tutorial video</a>) — beam expands after that</li>
+<li><strong>After laser reaches objective</strong>: For further alignment, adjust mirror closer to the laser (further from objective) for more angular movement</li>
+</ul>
+<h2 id="fine-alignment-using-pollen-grains">Fine Alignment Using Pollen Grains</h2>
+<h3 id="initial-setup">Initial Setup</h3>
+<ol>
+<li>Select a spikey pollen grain at 40X (via pollen grain slide) as your alignment target</li>
+<li>Navigate to the <strong>top surface</strong> of the pollen grain</li>
+<li>Enable the crosshair (right-click on image)</li>
+<li>Display the histogram</li>
+</ol>
+<h3 id="histogram-settings">Histogram Settings</h3>
+<ul>
+<li><strong>Left edge of histogram bar</strong>: Position at peak (should be near zero)</li>
+<li><strong>Right edge</strong>: Balance for good background noise contrast</li>
+</ul>
+<h3 id="alignment-check">Alignment Check</h3>
+<ol>
+<li>Focus through the pollen grain from top to bottom</li>
+<li>Monitor whether the pollen grain remains centered on the crosshair</li>
+<li><strong>If centered throughout</strong>: Laser is properly aligned ✓</li>
+<li><strong>If drifts off center</strong>: Adjustment needed → Use the mirror <strong>closest to the laser</strong></li>
+</ol>
+<h3 id="beam-walking-if-intensity-drops">Beam Walking (if intensity drops)</h3>
+<p>If you experience intensity loss, "walk the beam" back:
+- Adjust <strong>one direction on the first mirror</strong>
+- Compensate in the <strong>opposite direction on the second mirror</strong>
+  - Example: Right on first mirror → Left on second mirror
+- This keeps the beam <strong>parallel</strong> while translating it laterally</p>
+<p><strong>Why walk the beam?</strong>
+- Adjusting only one mirror changes the beam <strong>angle</strong>
+- Adjusting both mirrors together translates the beam <strong>position</strong> without changing angle
+- Proper alignment ensures the beam only moves in <strong>Z (focus)</strong>, not X-Y, when focusing</p>
+<h3 id="goal">Goal</h3>
+<p>The beam should remain stationary in X-Y position while scanning through the Z-axis (focus).</p>
+<h1 id="log">Log</h1>
+<ul>
+<li>12/9/2025</li>
+</ul>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../code/" class="btn btn-neutral float-left" title="Code"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../cal_laser_power/" class="btn btn-neutral float-right" title="2P Laser Power calibration">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../code/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../cal_laser_power/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

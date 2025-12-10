@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Configuration - Ca2+ imaging in vivo</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Configuration";
+        var mkdocs_page_input_path = "configuration.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Ca2+ imaging in vivo
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../about/">About</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../hardware/">Hardware</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../software/">Software</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Configuration</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#ephus">Ephus</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#startup-file">Startup file</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#initial-configuration-state">Initial configuration state</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#custom-user-functions">Custom user functions</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#scanimage">ScanImage</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#machine-data-file-startup">Machine Data File (startup)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#user-settings-file">User Settings File:</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#additional-configuration-settings">Additional configuration settings</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#pulse-train-config">Pulse Train Config</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#user-function">User function</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#ephus-scanimage">Ephus + ScanImage</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#notes">Notes</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../operation/">Operation</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../drivers/">Drivers</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../code/">Code</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../alignment/">2P Laser Alignment</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../cal_laser_power/">2P Laser Power calibration</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../cal_speaker/">Speaker calibration</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../computer_setup/">Rig Setup</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../pupillometry/">Pupillometry</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Ca2+ imaging in vivo</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Configuration</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="configuration">Configuration</h1>
+<h2 id="ephus">Ephus</h2>
+<h3 id="startup-file">Startup file</h3>
+<ul>
+<li><a href="../config/Ephus/ephus_init_matlab2013b_32bit_250kHz_Camera_20250903.m">ephus_init_matlab2013b_32bit_250kHz_Camera_20250903.m</a></li>
+</ul>
+<p><strong>Key configuration values</strong>:</p>
+<pre><code class="language-matlab">xsgStartDirectory = 'D:\Data\sutter2P\';
+
+%Acquirer channels (Analog Input)
+acqChannelNames = {'sound output check', 'Green LED output check'};                   % Cell array of descriptive names for analog input acquisition channels to configure, e.g. {'Lick Sensor' 'Nose Poke Sensor'}, 
+acqBoardIDs = [2 2];                       % A single number (e.g. 1 for 'Dev1') specifying DAQmx board for /all/ named acquisition channels; or, an array of numbers of length equal to 'acqChannelNames' (e.g. [1 1 1 2 2] indicating 'Dev1' for first 3 channels, 'Dev2' for last 2 channels) identifying DAQmx board on which each of the named acquisition channels appears. 
+acqChannelIDs =  [16 17];                    % Array of numbers, of length equal to 'acqChannelNames', identifying DAQmx channel number (e.g. 1 for AI1) for each of the named acquisition channels (e.g. [0 1 2 0 1] indicating AI0-2 for first 3 channels  and AI0-1 for last 2 channels, for case of multiple boards). 
+
+%Stimulator channels (Analog Output) 
+stimChannelNames = {'Sound output', 'Blue LED output', 'Camera trigger', 'Green LED output'};                  % Cell array of descriptive names for analog output stimulus channels to configure, e.g. {'Whisker Stimulator' 'Position Encoder'}, 
+stimBoardIDs = [2 2 2 2];                      % A single number (e.g. 1 for 'Dev1') specifying DAQmx board for /all/ named analog stimulus channels; or, an array of numbers of length equal to 'stimChannelNames' (e.g. [1 1 1 2 2] indicating 'Dev1' for first 3 channels, 'Dev2' for last 2 channels) identifying DAQmx board on which each of the named analog stimulus channels appears. 
+stimChannelIDs = [1 2 3 0];                    % Array of numbers, of length equal to 'stimChannelNames', identifying DAQmx channel number (e.g. 1 for AI1) for each of the named analog stimulus channels (e.g. [0 1 2 0 1] indicating AI0-2 for first 3 channels  and AI0-1 for last 2 channels, for case of multiple boards). 
+
+
+initialSampleRate = 250000;              %(REQUIRED) Initial rate, in Hz, to use for all analog and digital input/output channels configured for use in Ephus
+
+
+triggerOrigin = '/dev2/port0/line2';                     %(REQUIRED) Full DAQmx specification of single digital line on /one/ board (e.g. '/dev1/port0/line0') used as the Ephus default trigger pulse to synchronize the one or more boards.
+triggerDestinations = {'PFI9','PFI0'}; %PFIO is external trigger-CTA            %(REQUIRED) Cell array of one or more DAQmx PFI terminal names configured as the choice of PFI terminals on which Ephus must receive a trigger input signal, on /all/ of the DAQmx boards configured for use by Ephus.
+
+sampleClockOrigin = '/dev2/ctr0'; %this is ctr0 is PFI12, ctr1 is PFI13 CTA                % Full DAQmx specification of single counter output channel on /one/ board (e.g. '/dev1/ctr0') on which the sample clock generated by Ephus appears. Ephus employs the default DAQmx routing of counter output channels to PFI output terminals (PFI12 for CTR0, PFI13 for CTR1; refer to DAQmx documentation for further information), Full DAQmx specification of counter output channel on /one/ board (e.g. '/dev1/ctr0') on which the sample clock is generated.
+sampleClockDestination = 'PFI10';            % A DAQmx PFI terminal name (e.g. 'PFI1') on which sample clock is input on /all/ of the boards used by Ephus
+</code></pre>
+<ul>
+<li>Internal <code>triggerOrigin</code> <code>P0.2</code> goes to <code>PFI9</code> – <code>PFI9</code> is for triggering internal to Ephus​</li>
+<li><code>PFI0</code> of Dev2/USB-6229 (BNC port) is connected to Dev1/PCI-6110 USER2 BNC port.​</li>
+<li>Dev1/USER2 is connected to Dev1/PFI13​</li>
+</ul>
+<h3 id="initial-configuration-state">Initial configuration state</h3>
+<ul>
+<li><code>*.settings</code> for each Ephus window at startup: <a href="config/Ephus/init_config">config/Ephus/init_config</a></li>
+<li>Chosen at Ephus start</li>
+<li>Located in <code>C:/Rig/Ephus 2013b/startup/config/init_config</code></li>
+</ul>
+<h3 id="custom-user-functions">Custom user functions</h3>
+<ul>
+<li>Located in <code>C:/Rig/Ephus 2013b/custom_user_fcns</code></li>
+</ul>
+<p><img alt="Ephus User Functions - Save Pulse Details" src="../config/Ephus/ephus_userFunctions_savePulseDetails.png" /></p>
+<ul>
+<li><a href="../config/Ephus/savePulseDetails.m">savePulseDetails.m</a>: Save stimulus pulse details to .mat file. This will save the pulse details and traceAcquired time in a mat file using the same path and naming convention as the xsg settings.</li>
+</ul>
+<p><img alt="Ephus User Functions - Select Random Pulse" src="../config/Ephus/ephus_userFunctions_selectRandPulse.png" /></p>
+<ul>
+<li><a href="../config/Ephus/randPulseFromSetWOrepl.m">randPulseFromSetWOrepl.m</a>: update selected pulse to random in list (without replacement)</li>
+<li><a href="../config/Ephus/randPulseFromSetWrepl.m">randPulseFromSetWrepl.m</a>: update selected pulse to random in list (with replacement)</li>
+</ul>
+<p><img alt="Ephus User Functions - QCam Reset" src="../config/Ephus/ephus_userFunctions_qcamReset.png" /></p>
+<p><img alt="Ephus QCam Reset LED Pulse Width" src="../config/Ephus/ephus_qcamReset_LED_pulseWidth.png" /></p>
+<ul>
+<li><a href="../config/Ephus/qcamExternalReset.m">qcamExternalReset.m</a>: Resets QCam to External automatically to enable loops. Otherwise would need to manually click External off and on.<ul>
+<li>See: <a href="../operation/#ephus-looping">Ephus looping</a></li>
+</ul>
+</li>
+<li><a href="../config/Ephus/testusrfcn.m">testusrfcn.m</a>: for testing user functions</li>
+</ul>
+<h2 id="scanimage">ScanImage</h2>
+<h3 id="machine-data-file-startup">Machine Data File (startup)</h3>
+<ul>
+<li><a href="../config/ScanImage/Machine_Data_File.m">Machine_Data_File.m</a></li>
+</ul>
+<p><strong>Key configuration values</strong>:</p>
+<pre><code class="language-matlab">shutterDaqDevices = {'Dev1'};  % Cell array specifying the DAQ device or RIO devices for each shutter eg {'PXI1Slot3' 'PXI1Slot4'}
+shutterChannelIDs = {'port0/line7'};      % Cell array specifying the corresponding channel on the device for each shutter eg {'PFI12'}
+
+motors(1).controllerType = 'sutter.mpc200';           % If supplied, one of {'sutter.mp285', 'sutter.mpc200', 'thorlabs.mcm3000', 'thorlabs.mcm5000', 'scientifica', 'pi.e665', 'pi.e816', 'npoint.lc40x'}.
+motors(1).dimensions = 'XYZ';               % Assignment of stage dimensions to SI dimensions. Can be any combination of X,Y,Z, and R.
+motors(1).comPort = 3;                  % Integer identifying COM port for controller, if using serial communication
+motors(1).customArgs = {};               % Additional arguments to stage controller. Some controller require a valid stageType be specified
+motors(1).invertDim = '+++';                % string with one character for each dimension specifying if the dimension should be inverted. '+' for normal, '-' for inverted
+
+motors(1).moveCompleteDelay = 5;        % Delay from when stage controller reports move is complete until move is actually considered complete. Allows settling time for motor
+
+%% LinScan (LinScanner)
+deviceNameAcq = 'Dev1';      % string identifying NI DAQ board for PMT channels input
+deviceNameGalvo = 'Dev1';      % string identifying NI DAQ board for controlling X/Y galvo. leave empty if same as deviceNameAcq
+
+shutterIDs = 1;                     % Array of the shutter IDs that must be opened for linear scan system to operate
+
+%Acquisition
+channelIDs = [0 1 2 3];                    % Array of numeric channel IDs for PMT inputs. Leave empty for default channels (AI0...AIN-1)
+
+%Scanner control
+XMirrorChannelID = 0;               % The numeric ID of the Analog Output channel to be used to control the X Galvo.
+YMirrorChannelID = 1;               % The numeric ID of the Analog Output channel to be used to control the y Galvo.
+
+xGalvoAngularRange = 30;            % max range in optical degrees (pk-pk) for x galvo
+yGalvoAngularRange = 30;            % max range in optical degrees (pk-pk) for y galvo
+
+voltsPerOpticalDegreeX = 0.333;         % galvo conversion factor from optical degrees to volts (negative values invert scan direction)
+voltsPerOpticalDegreeY = 0.333;         % galvo conversion factor from optical degrees to volts (negative values invert scan direction)
+
+scanParkAngleX = 7.5;              % Numeric [deg]: Optical degrees from center position for X galvo to park at when scanning is inactive
+scanParkAngleY = 7.5;              % Numeric [deg]: Optical degrees from center position for Y galvo to park at when scanning is inactive
+
+%Optional: mirror position offset outputs for motion correction
+deviceNameOffset = '';              % string identifying NI DAQ board that hosts the offset analog outputs
+XMirrorOffsetChannelID = 0;         % numeric ID of the Analog Output channel to be used to control the X Galvo offset.
+YMirrorOffsetChannelID = 1;         % numeric ID of the Analog Output channel to be used to control the y Galvo offset.
+
+XMirrorOffsetMaxVoltage = 1;        % maximum allowed voltage output for the channel specified in XMirrorOffsetChannelID
+YMirrorOffsetMaxVoltage = 1;        % maximum allowed voltage output for the channel specified in YMirrorOffsetChannelID
+
+internalRefClockSrc = '';
+</code></pre>
+<h3 id="user-settings-file">User Settings File:</h3>
+<ul>
+<li><a href="../config/ScanImage/working_acqModeArmed.usr">working_acqModeArmed.cfg</a>: default</li>
+</ul>
+<h3 id="additional-configuration-settings">Additional configuration settings</h3>
+<ul>
+<li><a href="config/ScanImage/working_merge_acqModeArmed.cfg">working_merge_acqModeArmed.cfg</a>: both channels</li>
+</ul>
+<h3 id="pulse-train-config">Pulse Train Config</h3>
+<ul>
+<li><a href="../config/ScanImage/PulseTrainPanelInit.m">PulseTrainPanelInit.m</a>: ran at startup - initiates pulse train UI fig</li>
+<li><a href="../config/ScanImage/pcPulseTrainTriggerPanel.fig">pcPulseTrainTriggerPanel.fig</a>: UI .fig file</li>
+<li><a href="../config/ScanImage/pcPulseTrainTriggerPanel.m">pcPulseTrainTriggerPanel.m</a>: Pulse train script</li>
+</ul>
+<h3 id="user-function">User function</h3>
+<p><img alt="ScanImage User Functions" src="../config/ScanImage/scanimage_user_functions.png" /></p>
+<ul>
+<li><a href="../config/ScanImage/digtrig_stimPulse_train.m">digtrig_stimPulse_train.m</a>: Triggers Ephus stimulus pulse with configurable delay</li>
+<li><a href="../config/ScanImage/digtrig_stimPulse_train_withCam.m">digtrig_stimPulse_train_withCam.m</a>: Version with pupillometry camera support</li>
+<li><a href="../config/ScanImage/scim5eventTest.m">scim5eventTest.m</a>: For testing user functions</li>
+</ul>
+<p><strong>How the user functions work:</strong></p>
+<p>The <code>digtrig_stimPulse_train</code> function responds to three ScanImage events. The event name is passed as input to the function and handled via switch/case:</p>
+<ol>
+<li>
+<p><strong><code>acqModeArmed</code> event</strong> - Triggered when acquisition starts</p>
+<ul>
+<li>Creates an NI-DAQ counter output task with configurable delay and pulse width</li>
+<li>After the delay, initiates a +5V pulse on counter 1 (ctr1) corresponding to PFI13</li>
+<li>Signal path: <code>PFI13</code> → <code>USER2</code> → BNC cable → NI USB-6229 <code>PFI0</code></li>
+<li>Ephus stimulator and acquirer are configured to trigger on PFI0 (Dev2/USB-6229)</li>
+<li>The <code>stimDelay</code> and <code>stimWidth</code> parameters are saved to a .mat file matching the .tif filename</li>
+</ul>
+</li>
+<li>
+<p><strong><code>acqModeDone</code> event</strong> - Triggered when acquisition completes normally</p>
+<ul>
+<li>Clears the NI-DAQ counter output task so it can be reused</li>
+</ul>
+</li>
+<li>
+<p><strong><code>acqAbort</code> event</strong> - Triggered when acquisition is prematurely stopped</p>
+<ul>
+<li>Aborts and clears the NI-DAQ counter output task for safe reuse</li>
+</ul>
+</li>
+</ol>
+<h2 id="ephus-scanimage">Ephus + ScanImage</h2>
+<ul>
+<li>File naming scheme for organized data files
+<img alt="Ephus + ScanImage File Naming" src="../config/ephus_scanimage_fileNaming.png" /></li>
+</ul>
+<h2 id="notes">Notes</h2>
+<ul>
+<li><code>Ctr</code> corresponds to counter output channel</li>
+<li><code>Ctr0 = PFI12</code>; <code>Ctr1 = PFI13</code></li>
+<li><code>PFI13</code> on Dev1/PCI-6110 goes to <code>User2</code> which goes to <code>PFI0</code> on Dev2/USB-6229</li>
+<li>Counter output channels 0/1/2/3 correspond to terminals PFI 12/13/14/15 on the BNC breakouts for NI multifunction boards </li>
+</ul>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../software/" class="btn btn-neutral float-left" title="Software"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../operation/" class="btn btn-neutral float-right" title="Operation">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../software/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../operation/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
