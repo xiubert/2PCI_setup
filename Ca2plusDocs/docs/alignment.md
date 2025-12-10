@@ -40,7 +40,7 @@
     - Top screw: up / down
     - Bottom screw: left / right
 
-### Key Points:
+### Key Points
 - **Last stage at which beam is focal dot**: The horizontal enclosure (not the one labeled MOM) before the galvos (see [tutorial video](https://www.youtube.com/watch?v=hwCFtQ3WHoo&t=452)) — beam expands after that
 - **After laser reaches objective**: For further alignment, adjust mirror closer to the laser (further from objective) for more angular movement
 

@@ -8,15 +8,14 @@
 - Global Protect (for connecting to PittNet): `WIN-GlobalProtect64-6.2.7.msi`
 
 ## Matlab
-- For Ephus: Matlab 2013b 32bit
+- For Ephus 2.1.0: Matlab 2013b 32bit
 - For ScanImage 5.3.1 / 2017: Matlab 2015b x64
 
 ## Ephus:
-- widefield
+- Use: Widefield imaging and sound stimulus delivery
 - Version: 2.1.0
-- sound stimuli
 
 ## ScanImage
-- 2P
+- Use: 2P
 - Version: 5.3.1 / 2017
 - Docs: https://archive.scanimage.org/SI2017/index.html
