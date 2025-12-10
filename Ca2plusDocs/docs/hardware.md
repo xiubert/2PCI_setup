@@ -8,13 +8,13 @@
     - NVIDIA NVS 310 Graphics
 
 ## Microscope:
-- Sutter MOM (Moveable Objective Microscope): https://www.sutter.com/microscopes/mom
+- [Sutter MOM (Moveable Objective Microscope)](https://www.sutter.com/microscopes/mom)
 - Objective moves rather than the stage (stage moves on Scientifica rig)
 
 ## DAQs:
-1. NI USB-6299 (ID: `Dev2`)
+1. [NI USB-6229](https://www.ni.com/en-us/support/model.usb-6229.html) (ID: `Dev2`)
     - Ephus acquire / sound stimulation
-2. NI PCI-6110 (BNC-2090A breakout) (ID: `Dev1`)
+2. [NI PCI-6110](https://www.ni.com/en-us/support/model.pci-6110.html) ([BNC-2090A breakout](https://www.ni.com/en-us/support/model.bnc-2090a.html?srsltid=AfmBOopdQvoEFCozmqVA2Lt85ZS6px0Op_LTcsLxxTvu_3GcCVlb8_pU)) (ID: `Dev1`)
     - ScanImage 2P:
         - Galvo Mirrors (Channels: `AO0`,`AO1`)​
         - PMT (Channels: `AI8`, `AI9`)
@@ -23,19 +23,19 @@
             - Path: `PFI13` (Digital I/O PFI terminal block) &rArr; `USER 2` &rArr; BNC cable &rArr; NI USB 6229 &rArr; PFI0/P1.0​ &rArr; PFI10 (terminal block)
 
 ## PMT
-- Controller: Sutter PS-2LV
-- Hamamatsu H10770PA-40
+- Controller: [Sutter PS-2LV](https://www.sutter.com/MICROSCOPES/pmt.html)
+- [Hamamatsu H10770PA-40](https://www.hamamatsu.com/jp/en/product/optical-sensors/pmt/pmt-module/current-output-type/H10770PA-40.html)
 
 ## Shutter
-- Controller: ThorLabs SC10 shutter controller
+- Controller: [ThorLabs SC10 Shutter Controller](https://www.thorlabs.com/thorproduct.cfm?partnumber=SC10)
 
 ## Galvo / Scan controller
-- Sutter MDR MOM Scan Drive Controller
-- Galvo / Galvo mirrors
+- [Sutter MDR MOM Scan Drive Controller](https://www.sutter.com/microscopes/mom)
+- Galvo / Galvo mirrors for laser scanning
 
 ## Micromanipulator
-- Sutter ROE-200
+- [Sutter ROE-200](https://www.sutter.com/MICROMANIPULATION/mpc365_frame.html)
 
 ## Power Intensity Controller
-- ThorLabs Kinesis Motor Controller KDC101
-- rotates PRM1Z8
+- [ThorLabs Kinesis Motor Controller KDC101](https://www.thorlabs.com/thorproduct.cfm?partnumber=KDC101)
+- Rotates [PRM1Z8](https://www.thorlabs.com/thorproduct.cfm?partnumber=PRM1Z8) to adjust laser intensity entering Sutter enclosure

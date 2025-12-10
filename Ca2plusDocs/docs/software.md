@@ -1,4 +1,4 @@
-# Software on Sutter 2P rig for in vivo 2PCI (2 Photon Calcium Imaging)
+# Software
 
 ## OS
 - WINDOWS 10 (21H2 x64)
