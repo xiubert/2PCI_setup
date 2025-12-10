@@ -1,0 +1,6 @@
+#environment
+env/
+
+#resources
+ref/
+.DS_Store

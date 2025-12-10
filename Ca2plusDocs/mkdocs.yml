@@ -1,0 +1,15 @@
+site_name: Ca2+ imaging in vivo 
+nav:
+  - Home: index.md
+  - About: about.md
+  - Hardware: hardware.md
+  - Software: software.md
+  - Configuration: configuration.md
+  - Drivers: drivers.md
+  - Code: code.md
+  - 2P Laser Alignment: alignment.md
+  - 2P Laser Power calibration: cal_laser_power.md
+  - Speaker calibration: cal_speaker.md
+  - Rig Setup: computer_setup.md
+  - Pupillometry: pupillometry.md
+theme: readthedocs
