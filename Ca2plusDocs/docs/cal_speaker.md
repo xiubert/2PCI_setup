@@ -32,6 +32,7 @@
 
 ## 4. Record stimuli voltage
 - Set gain to 1500 and record voltage for stimuli that are to be calibrated
+- Can use scripts [pure tones](github.com/xiubert/matlabPAC_general/blob/master/speakerCalibration/speakerCal_oscDataFile.m) and [all other stimuli (BPN etc)](https://github.com/xiubert/matlabPAC_general/blob/master/speakerCalibration/speakerCal_oscToneCycleVrms.m)
 
 ## Reference
 - see: [sound level equations](https://github.com/xiubert/matlabPAC_general/tree/master/helperFcns/auditory)

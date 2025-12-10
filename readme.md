@@ -19,4 +19,4 @@
 - `mkdocs serve`
 
 ## Deploy site
-- `mkdocs gh-deploy`
+- `mkdocs gh-deploy` (same for updates)
