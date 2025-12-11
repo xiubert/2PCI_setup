@@ -112,10 +112,11 @@ internalRefClockSrc = '';
 ```
 
 ### User Settings File:
-- [working_acqModeArmed.cfg](config/ScanImage/working_acqModeArmed.usr): default
+- [working_acqModeArmed.cfg](config/ScanImage/working_acqModeArmed.usr): Default for startup. Corresponds to [256pxSq_5Hz_acqModeArmed.cfg](config/ScanImage/256pxSq_5Hz_acqModeArmed.cfg) configuration file.
 
-### Additional configuration settings
-- [working_merge_acqModeArmed.cfg](config/ScanImage/working_merge_acqModeArmed.cfg): both channels
+
+### Additional user settings
+- [working_merge_acqModeArmed.usr](config/ScanImage/working_merge_acqModeArmed.usr): Both channels (green and red) with merge view. Corresponds to [256pxSq_5Hz_merge_acqModeArmed.cfg](config/ScanImage/256pxSq_5Hz_merge_acqModeArmed.cfg) configuration file.
 
 ### Pulse Train Config
 - [PulseTrainPanelInit.m](config/ScanImage/PulseTrainPanelInit.m): ran at startup - initiates pulse train UI fig
