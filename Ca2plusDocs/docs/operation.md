@@ -19,7 +19,7 @@
 4. Ensure stimulator and acquirer are set to external and use PFI9 for triggering
 
 ## ScanImage
-- 145X145 mm images at 256X256 pixel resolution at an effective frame rate of 5 Hz
+- 145×145 μm images at 256×256 pixel resolution at an effective frame rate of 5 Hz
 
 ### Looping (cycles)
 
@@ -46,4 +46,4 @@ Multiple iterations can exist for each cycle, with each iteration preceded by a 
 6. Check **Auto-reset iteration/count**
 7. Click **CYCLE** to begin cycle
 
-**Note:** There is a timing delay of ~97-99ms (occasionally up to 700ms) between the ScanImage acquisition start message (e.g., "Starting '1 x zoom 5 Hz' at 6/13/2018 12:33:16.136") and the `acquisitionStarted` timestamp in the `digtrig_stim` user function.
+**Note:** There is a timing delay of ~97-99 ms (occasionally up to 700 ms) between the ScanImage acquisition start message (e.g., "Starting '1 x zoom 5 Hz' at 6/13/2018 12:33:16.136") and the `acquisitionStarted` timestamp in the `digtrig_stim` user function.
