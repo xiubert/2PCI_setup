@@ -12,7 +12,7 @@
 - For Ephus 2.1.0: Matlab 2013b 32bit
 - For ScanImage 5.3.1 / 2017: Matlab 2015b x64
 
-## Ephus:
+## Ephus
 - Use: Widefield imaging and sound stimulus delivery
 - Version: 2.1.0
 
