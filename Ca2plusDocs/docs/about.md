@@ -103,9 +103,4 @@ This documentation is maintained as a living document. Updates should include:
 
 ## Version History
 
-Last updated: December 9, 2025
-
-Major configuration files:
-
-- Ephus init: `ephus_init_matlab2013b_32bit_250kHz_Camera_20250903.m`
-- ScanImage configs: `256pxSq_5Hz_acqModeArmed.cfg`, `256pxSq_5Hz_merge_acqModeArmed.cfg`
+Last updated: December 11, 2025

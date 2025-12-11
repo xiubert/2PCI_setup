@@ -1,4 +1,4 @@
-# Docs generation for 2P and widefield Ca2+ imaging (on Sutter Rig)
+# Docs generation for 2P and widefield Ca<sup>2+</sup> imaging (on Sutter Rig)
 - uses `mkdocs` for git tracked documentation
 
 ## Link to live site
