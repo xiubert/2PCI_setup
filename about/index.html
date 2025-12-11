@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>About - Ca2+ imaging in vivo</title>
+    <title>About - Ca<sup>2+</sup> imaging in vivo</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
@@ -30,7 +30,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
     <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
-          <a href=".." class="icon icon-home"> Ca2+ imaging in vivo
+          <a href=".." class="icon icon-home"> Ca<sup>2+</sup> imaging in vivo
         </a><div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
       <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
@@ -50,27 +50,15 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#system-overview">System Overview</a>
         <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#hardware">Hardware</a>
+    <li class="toctree-l3"><a class="reference internal" href="#hardware-components">Hardware Components</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#software-stack">Software Stack</a>
     </li>
         </ul>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#documentation-structure">Documentation Structure</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#setup-documentation">Setup Documentation</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#configuration">Configuration</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#operational-procedures">Operational Procedures</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#development">Development</a>
-    </li>
-        </ul>
-    </li>
     <li class="toctree-l2"><a class="reference internal" href="#key-features">Key Features</a>
         <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#synchronized-acquisition">Synchronized Acquisition</a>
+    <li class="toctree-l3"><a class="reference internal" href="#synchronized-dual-daq-acquisition">Synchronized Dual-DAQ Acquisition</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#custom-user-functions">Custom User Functions</a>
     </li>
@@ -78,15 +66,11 @@
     </li>
         </ul>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#maintenance-support">Maintenance &amp; Support</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#known-issues">Known Issues</a>
+    <li class="toctree-l2"><a class="reference internal" href="#known-issues">Known Issues</a>
     </li>
-        </ul>
+    <li class="toctree-l2"><a class="reference internal" href="#maintenance-support">Maintenance &amp; Support</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#contributing">Contributing</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#version-history">Version History</a>
     </li>
     </ul>
                 </li>
@@ -142,7 +126,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
       <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="..">Ca2+ imaging in vivo</a>
+          <a href="..">Ca<sup>2+</sup> imaging in vivo</a>
         
       </nav>
       <div class="wy-nav-content">
@@ -160,92 +144,68 @@
               
                 <h1 id="about-this-documentation">About This Documentation</h1>
 <h2 id="purpose">Purpose</h2>
-<p>This documentation provides comprehensive information for operating and maintaining the Sutter 2P microscopy system for in vivo 2-photon calcium imaging (2PCI). It serves as a reference for:</p>
-<ul>
-<li>System setup and configuration</li>
-<li>Daily operation procedures</li>
-<li>Troubleshooting and maintenance</li>
-<li>Custom software configurations</li>
-</ul>
+<p>This documentation provides comprehensive information for operating and maintaining the Sutter 2P microscopy system for in vivo 2-photon calcium imaging (2PCI). It serves as a reference for system setup, daily operation, troubleshooting, and custom software configurations.</p>
 <h2 id="system-overview">System Overview</h2>
-<h3 id="hardware">Hardware</h3>
-<p>The rig is built around a <strong>Sutter MOM (Moveable Objective Microscope)</strong>, which features a moveable objective rather than a moveable stage (unlike the Scientifica rig configuration).</p>
-<p><strong>Key Components:</strong></p>
+<h3 id="hardware-components">Hardware Components</h3>
+<p>The rig is built around a <strong>Sutter MOM (Moveable Objective Microscope)</strong>, which features a moveable objective rather than a moveable stage.</p>
+<p><strong>Key components:</strong></p>
 <ul>
-<li>Sutter MOM microscope</li>
-<li>Sutter ROE-200 micromanipulator</li>
+<li>Sutter MOM microscope with 40× 0.8 NA objective (Olympus)</li>
+<li>MaiTai HP laser (Newport) for 2-photon excitation</li>
 <li>Two National Instruments DAQ boards:<ul>
-<li>NI USB-6299 (Dev2) - Ephus acquire/sound stimulation</li>
+<li>NI USB-6229 (Dev2) - Ephus acquire/sound stimulation</li>
 <li>NI PCI-6110 with BNC-2090A breakout (Dev1) - ScanImage 2P</li>
 </ul>
 </li>
-<li>Hamamatsu PMT (H10770PA-40)</li>
-<li>2-photon laser system</li>
+<li>Hamamatsu H10770PA-40 PMT with Sutter PS-2LV controller</li>
+<li>Tucker Davis ES1 freefield speaker with ED1 driver</li>
+<li>Sutter ROE-200 micromanipulator</li>
+<li>ThorLabs KDC101 motor controller with PRM1Z8 for laser power control</li>
+<li>Dell Precision Tower 5810 workstation (Windows 10)</li>
 </ul>
 <h3 id="software-stack">Software Stack</h3>
 <ul>
-<li><strong>Ephus</strong>: Data acquisition and stimulus delivery</li>
-<li><strong>ScanImage</strong>: 2-photon microscopy control</li>
-<li><strong>MATLAB</strong>: Runtime environment for both systems</li>
+<li><strong>Operating System</strong>: Windows 10 (21H2 x64)</li>
+<li><strong>Ephus 2.1.0</strong>: Widefield imaging and sound stimulus delivery (MATLAB 2013b 32-bit)</li>
+<li><strong>ScanImage 5.3.1 (2017)</strong>: 2-photon microscopy control (MATLAB 2015b x64)</li>
 <li><strong>Custom user functions</strong>: Automated workflows and experiment control</li>
-</ul>
-<h2 id="documentation-structure">Documentation Structure</h2>
-<p>This documentation is organized into several key sections:</p>
-<h3 id="setup-documentation">Setup Documentation</h3>
-<ul>
-<li><strong><a href="../hardware/">Hardware</a></strong>: Detailed specifications and wiring diagrams</li>
-<li><strong><a href="../software/">Software</a></strong>: Software requirements and installation</li>
-<li><strong><a href="../drivers/">Drivers</a></strong>: Required drivers and compatibility information</li>
-<li><strong><a href="../computer_setup/">Computer Setup</a></strong>: System configuration and optimization</li>
-</ul>
-<h3 id="configuration">Configuration</h3>
-<ul>
-<li><strong><a href="../configuration/">Configuration</a></strong>: Ephus and ScanImage configuration files with detailed parameter explanations</li>
-</ul>
-<h3 id="operational-procedures">Operational Procedures</h3>
-<ul>
-<li><strong><a href="../alignment/">Alignment</a></strong>: Step-by-step laser alignment procedures with safety protocols</li>
-<li><strong><a href="../cal_laser_power/">Calibration Procedures</a></strong>: Laser power and speaker calibration</li>
-<li><strong><a href="../pupillometry/">Pupillometry</a></strong>: Pupil tracking configuration</li>
-</ul>
-<h3 id="development">Development</h3>
-<ul>
-<li><strong><a href="../code/">Code</a></strong>: Custom MATLAB functions and user scripts</li>
+<li><strong>Acquisition specs</strong>: 145×145 μm images at 256×256 pixels, 5 Hz effective frame rate</li>
 </ul>
 <h2 id="key-features">Key Features</h2>
-<h3 id="synchronized-acquisition">Synchronized Acquisition</h3>
-<p>The system uses two DAQ boards synchronized via:</p>
+<h3 id="synchronized-dual-daq-acquisition">Synchronized Dual-DAQ Acquisition</h3>
+<p>The system synchronizes two DAQ boards for coordinated 2P imaging and stimulus delivery:</p>
 <ul>
-<li>Trigger routing: Dev2 &rarr; Dev1 via PFI connections</li>
+<li>Trigger routing from ScanImage (Dev1/PFI13) to Ephus (Dev2/PFI0) via USER2 BNC connection</li>
 <li>Sample clock sharing for precise temporal coordination</li>
-<li>Custom user functions for automated experiment control</li>
+<li>Custom user functions respond to ScanImage events (<code>acqModeArmed</code>, <code>acqModeDone</code>, <code>acqAbort</code>)</li>
 </ul>
 <h3 id="custom-user-functions">Custom User Functions</h3>
-<p>The documentation includes several custom MATLAB functions for:</p>
+<p><strong>Ephus user functions:</strong></p>
 <ul>
-<li>Saving stimulus pulse details</li>
+<li>Save stimulus pulse details to .mat files</li>
 <li>Random pulse selection (with/without replacement)</li>
-<li>Camera reset automation</li>
-<li>Pulse train generation</li>
+<li>Automatic QCam reset for looping acquisitions</li>
+</ul>
+<p><strong>ScanImage user functions:</strong></p>
+<ul>
+<li><code>digtrig_stimPulse_train</code>: Triggers Ephus stimulus with configurable delay</li>
+<li><code>digtrig_stimPulse_train_withCam</code>: Version with pupillometry camera support</li>
 </ul>
 <h3 id="safety-protocols">Safety Protocols</h3>
-<p>Comprehensive safety information including:</p>
 <ul>
-<li>Laser safety glasses specifications (LG8 for 690nm, LG9 for 920nm)</li>
-<li>Alignment procedures with proper protective equipment</li>
-<li>Power monitoring and control</li>
+<li><strong>Laser safety glasses</strong>: LG8 (630-695nm) for 690nm alignment, LG9 (610-695nm + &gt;740-1070nm) for 920nm</li>
+<li>Proper alignment procedures with protective equipment</li>
+<li>Power monitoring and control via motorized rotation mount</li>
+</ul>
+<h2 id="known-issues">Known Issues</h2>
+<ul>
+<li><strong>Herringbone artifact</strong>: Normal for End-On Hamamatsu PMT (H10770PA-40) configuration</li>
+<li><strong>Timing delay</strong>: ~97-99ms (occasionally up to 700ms) between ScanImage acquisition start and <code>acquisitionStarted</code> timestamp in user function</li>
 </ul>
 <h2 id="maintenance-support">Maintenance &amp; Support</h2>
-<p><strong>Primary Technical Contact:</strong></p>
-<ul>
-<li>Rick Ayer, Sutter Instruments</li>
-<li>Email: rick@sutter.com</li>
-</ul>
-<h3 id="known-issues">Known Issues</h3>
-<ul>
-<li><strong>Herringbone artifact</strong>: Normal for End-On Hamamatsu PMT configuration</li>
-<li>See individual documentation pages for specific troubleshooting</li>
-</ul>
+<p><strong>Primary Technical Contact:</strong>
+- Rick Ayer, Sutter Instruments
+- Email: rick@sutter.com</p>
 <h2 id="contributing">Contributing</h2>
 <p>This documentation is maintained as a living document. Updates should include:</p>
 <ul>
@@ -254,13 +214,8 @@
 <li>Troubleshooting solutions for common issues</li>
 <li>Hardware or software modifications</li>
 </ul>
-<h2 id="version-history">Version History</h2>
-<p>Last updated: December 9, 2025</p>
-<p>Major configuration files:</p>
-<ul>
-<li>Ephus init: <code>ephus_init_matlab2013b_32bit_250kHz_Camera_20250903.m</code></li>
-<li>ScanImage configs: <code>256pxSq_5Hz_acqModeArmed.cfg</code>, <code>256pxSq_5Hz_merge_acqModeArmed.cfg</code></li>
-</ul>
+<hr />
+<p><strong>Last updated:</strong> December 11, 2025</p>
               
             </div>
           </div><footer>

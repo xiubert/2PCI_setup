@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="description" content="None" />
       <link rel="shortcut icon" href="img/favicon.ico" />
-    <title>Ca2+ imaging in vivo</title>
+    <title>Ca<sup>2+</sup> imaging in vivo</title>
     <link rel="stylesheet" href="css/theme.css" />
     <link rel="stylesheet" href="css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
@@ -30,7 +30,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
     <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
-          <a href="." class="icon icon-home"> Ca2+ imaging in vivo
+          <a href="." class="icon icon-home"> Ca<sup>2+</sup> imaging in vivo
         </a><div role="search">
   <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
       <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
@@ -42,23 +42,23 @@
               <ul class="current">
                 <li class="toctree-l1 current"><a class="reference internal current" href="#">Home</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#quick-links">Quick Links</a>
+    <li class="toctree-l2"><a class="reference internal" href="#documentation-sections">Documentation Sections</a>
         <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#setup-configuration">Setup &amp; Configuration</a>
+    <li class="toctree-l3"><a class="reference internal" href="#reference">Reference</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#operation">Operation</a>
+    <li class="toctree-l3"><a class="reference internal" href="#alignment-and-calibration">Alignment and calibration</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#development">Development</a>
+    <li class="toctree-l3"><a class="reference internal" href="#setup-and-installation">Setup and installation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#daily-operation">Daily Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#data-analysis-and-operation-code">Data analysis and operation code</a>
     </li>
         </ul>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#getting-started">Getting Started</a>
-    </li>
     <li class="toctree-l2"><a class="reference internal" href="#support">Support</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#resources">Resources</a>
+    <li class="toctree-l2"><a class="reference internal" href="#external-resources">External Resources</a>
     </li>
     </ul>
                 </li>
@@ -118,7 +118,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
       <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href=".">Ca2+ imaging in vivo</a>
+          <a href=".">Ca<sup>2+</sup> imaging in vivo</a>
         
       </nav>
       <div class="wy-nav-content">
@@ -135,48 +135,40 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="sutter-2p-rig-documentation">Sutter 2P Rig Documentation</h1>
-<p>Welcome to the documentation for the Sutter 2P rig for in vivo 2-photon calcium imaging (2PCI).</p>
+<p>This documentation covers the setup, configuration, and operation of the Sutter 2P microscopy system for in vivo 2-photon calcium imaging (2PCI).</p>
 <p><img alt="Sutter 2P Rig" src="tz_2p.jpeg" /></p>
-<h2 id="overview">Overview</h2>
-<p>This documentation covers the setup, configuration, and operation of the Sutter 2P microscopy system, including:</p>
+<h2 id="documentation-sections">Documentation Sections</h2>
+<h3 id="reference">Reference</h3>
 <ul>
-<li><strong>Hardware</strong>: Sutter MOM microscope, DAQs, and peripheral equipment</li>
-<li><strong>Software</strong>: Ephus and ScanImage configuration</li>
-<li><strong>Alignment</strong>: Laser alignment procedures and best practices</li>
-<li><strong>Calibration</strong>: Laser power and speaker calibration protocols</li>
-<li><strong>Operation</strong>: Daily workflows and troubleshooting</li>
-</ul>
-<h2 id="quick-links">Quick Links</h2>
-<h3 id="setup-configuration">Setup &amp; Configuration</h3>
-<ul>
-<li><a href="hardware/">Hardware</a> - Equipment specifications and connections</li>
+<li><a href="about/">About</a> - Brief overview</li>
+<li><a href="hardware/">Hardware</a> - Understand system components and wiring</li>
 <li><a href="software/">Software</a> - Software installation and setup</li>
-<li><a href="configuration/">Configuration</a> - Ephus and ScanImage configuration files</li>
-<li><a href="computer_setup/">Computer Setup</a> - Computer and driver installation</li>
 <li><a href="drivers/">Drivers</a> - Required drivers and installation</li>
+<li><a href="pupillometry/">Pupillometry</a> - Details for capturing pupillometry</li>
 </ul>
-<h3 id="operation">Operation</h3>
+<h3 id="alignment-and-calibration">Alignment and calibration</h3>
 <ul>
-<li><a href="alignment/">Alignment</a> - Laser alignment procedures</li>
-<li><a href="cal_laser_power/">Laser Power Calibration</a> - Calibrating laser power</li>
-<li><a href="cal_speaker/">Speaker Calibration</a> - Calibrating audio stimulation</li>
-<li><a href="pupillometry/">Pupillometry</a> - Pupil tracking setup</li>
+<li><a href="alignment/">2P Laser Alignment</a> - Laser alignment procedures with safety protocols</li>
+<li><a href="cal_speaker/">Speaker Calibration</a> - Procedures for calibrating the free-field speaker</li>
+<li><a href="cal_laser_power/">Laser Power Calibration</a> - Laser power measurement</li>
 </ul>
-<h3 id="development">Development</h3>
+<h3 id="setup-and-installation">Setup and installation</h3>
 <ul>
-<li><a href="code/">Code</a> - Custom scripts and functions</li>
+<li><a href="computer_setup/">Computer Setup</a> - Install drivers and software to configure rig after reinstalling Windows</li>
+<li><a href="configuration/">Configuration</a> - Ephus (widefield + sound stimuli) and ScanImage (2P) settings and detailed parameter explanations</li>
 </ul>
-<h2 id="getting-started">Getting Started</h2>
-<ol>
-<li>Review the <a href="hardware/">Hardware</a> documentation to understand the system components</li>
-<li>Follow the <a href="alignment/">Alignment</a> guide to align the 2P laser</li>
-<li>Check the <a href="configuration/">Configuration</a> for Ephus and ScanImage settings</li>
-<li>Refer to calibration procedures before each experiment</li>
-</ol>
+<h3 id="daily-operation">Daily Operation</h3>
+<ul>
+<li><a href="operation/">Operation</a> - Reference for acquisition loops etc.</li>
+</ul>
+<h3 id="data-analysis-and-operation-code">Data analysis and operation code</h3>
+<ul>
+<li><a href="code/">Code</a> - Custom scripts and analysis tools</li>
+</ul>
 <h2 id="support">Support</h2>
 <p><strong>Primary Contact</strong>: Rick Ayer (Sutter Instruments)
 Email: rick@sutter.com</p>
-<h2 id="resources">Resources</h2>
+<h2 id="external-resources">External Resources</h2>
 <ul>
 <li><a href="https://www.sutter.com/microscopes/mom">Sutter MOM Microscope</a></li>
 <li><a href="https://www.youtube.com/watch?v=hwCFtQ3WHoo&amp;t=452">Alignment Tutorial Video</a></li>
@@ -229,5 +221,5 @@ Email: rick@sutter.com</p>
 
 <!--
 MkDocs version : 1.6.1
-Build Date UTC : 2025-12-11 18:24:51.404489+00:00
+Build Date UTC : 2025-12-11 18:57:58.686765+00:00
 -->
