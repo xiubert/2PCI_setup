@@ -5,7 +5,7 @@
 - [2PCI_setup](https://xiubert.github.io/2PCI_setup)
 
 ## Setup
-1. Clone repository `https://github.com/xiubert/Ca2plusDocs.git` and change to respository directory (`cd Ca2plusDocs`).
+1. Clone repository `git@github.com:xiubert/2PCI_setup.git` and change to respository directory (`cd Ca2plusDocs`).
 2. Create python venv for running these scripts to isolate dependencies: `python -m venv env`
 3. Activate virtual environment:
     - Unix: `source env/bin/activate`
