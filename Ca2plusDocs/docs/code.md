@@ -7,9 +7,9 @@
 - [DRC stimuli (CGC_DRC)](https://github.com/xiubert/CGC_DRC)
 
 ## 2P data analysis
-- [Non-Rigid Motion Correction: NoRMCorre](https://github.com/flatironinstitute/NoRMCorre)
+- [Non-Rigid Motion Correction (MATLAB): NoRMCorre](https://github.com/flatironinstitute/NoRMCorre)
 - [Analysis pipeline (MATLAB): matlabPAC_process2P](https://github.com/xiubert/matlabPAC_process2P)
-- [Neuropil correction (fissa_env_legacy)](https://github.com/xiubert/fissa_env_legacy)
+- [Neuropil correction (Python: fissa_env_legacy)](https://github.com/xiubert/fissa_env_legacy)
 
 ## Widefield analysis
 - [pyFluo](https://github.com/xiubert/pyFluo)
