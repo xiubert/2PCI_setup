@@ -21,7 +21,7 @@
     - 1 Pa corresponds to 94 dB
     - ![amp setup](cal_speaker/amp_setup2.jpg)
 2. Transducer Set-up:  Microphone sensitivity
-    - The nominal sensitivity of the 4939-A-011 is 4 mV/Pa, but if you have a calibration card for your specific microphone (inside microphone box), you should enter the actual calibrated sensitivity shown on the card.
+    - The nominal sensitivity of the 4939-A-011 is 4.419 mV/Pa, but if you have a calibration card for your specific microphone (inside microphone box), you should enter the actual calibrated sensitivity shown on the card.
     - ![transducer setup](cal_speaker/amp_setup3.png)
 2. Transducer Supply:  Microphone sensitivity
     - Set the polarization voltage to 200 V. The 4939-A-011 is an externally polarized microphone, so it requires a 200 V polarization supply.
@@ -31,7 +31,7 @@
 - 1 Pa corresponds to 94 dB. Type 4231 reference speaker outputs 1 kHz at 94 dB. Thus, if output sensitivity set to 3.16 V / Pa, should see 3.16 V RMS on oscilloscope with 'Autoset'
 
 ## 4. Record stimuli voltage
-- Set gain to 1500 and record voltage for stimuli that are to be calibrated
+- Set gain to 1800 and record voltage for stimuli that are to be calibrated
 - Can use scripts [pure tones](github.com/xiubert/matlabPAC_general/blob/master/speakerCalibration/speakerCal_oscDataFile.m) and [all other stimuli (BPN etc)](https://github.com/xiubert/matlabPAC_general/blob/master/speakerCalibration/speakerCal_oscToneCycleVrms.m)
 
 ## Reference
