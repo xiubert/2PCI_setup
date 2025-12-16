@@ -31,7 +31,8 @@
 - 1 Pa corresponds to 94 dB. Type 4231 reference speaker outputs 1 kHz at 94 dB. Thus, if output sensitivity set to 3.16 V / Pa, should see 3.16 V RMS on oscilloscope with 'Autoset'
 
 ## 4. Record stimuli voltage
-- Set gain to 1800 and record voltage for stimuli that are to be calibrated
+- Set gain to 1800 and record voltage to oscilloscope for stimuli that are to be calibrated
+    - **Ensure oscilloscope channel set to 1X (eg. Ch 1 Menu): Probe 1X Voltage**
 - Can use scripts [pure tones](github.com/xiubert/matlabPAC_general/blob/master/speakerCalibration/speakerCal_oscDataFile.m) and [all other stimuli (BPN etc)](https://github.com/xiubert/matlabPAC_general/blob/master/speakerCalibration/speakerCal_oscToneCycleVrms.m)
 
 ## Reference
