@@ -78,27 +78,31 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#safety">Safety</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#coarse-alignment-process">Coarse Alignment Process</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#prerequisites">Prerequisites:</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#steps">Steps</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#key-points">Key Points</a>
-    </li>
-        </ul>
+    <li class="toctree-l2"><a class="reference internal" href="#key-points">Key Points</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#fine-alignment-using-pollen-grains">Fine Alignment Using Pollen Grains</a>
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#initial-setup">Initial Setup</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#histogram-settings">Histogram Settings</a>
-    </li>
     <li class="toctree-l3"><a class="reference internal" href="#alignment-check">Alignment Check</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#beam-walking-if-intensity-drops">Beam Walking (if intensity drops)</a>
+    <li class="toctree-l3"><a class="reference internal" href="#angular-alignment-z">Angular alignment (Z)</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#goal">Goal</a>
+    <li class="toctree-l3"><a class="reference internal" href="#translational-alignment-x-y">Translational alignment (X-Y)</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#option-a-beam-walking">OPTION A: Beam Walking</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#option-b-adjust-mirror-closest-to-objective">OPTION B: Adjust mirror closest to objective</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#coarse-alignment-process-only-if-pollen-grain-not-visible">Coarse Alignment Process (ONLY IF POLLEN GRAIN NOT VISIBLE)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#prerequisites">Prerequisites:</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#steps">Steps</a>
     </li>
         </ul>
     </li>
@@ -168,7 +172,7 @@
 <li>The slightly reduced visibility compared to LG9 is worth the extra 2 OD levels of protection</li>
 </ul>
 </li>
-<li>For 2P laser alignment at 920nm: LG9 (orange lens):<ul>
+<li>For 2P laser alignment at 920 nm: LG9 (orange lens):<ul>
 <li>Wavelength coverage: 610-695nm AND &gt;740-1070nm (covers 920nm)</li>
 <li>Optical Density (OD): 7+ at 920nm</li>
 <li>Visible Light Transmission (VLT): 44%</li>
@@ -177,52 +181,55 @@
 </ul>
 </li>
 </ul>
-<h2 id="coarse-alignment-process">Coarse Alignment Process</h2>
-<h3 id="prerequisites">Prerequisites:</h3>
-<ul>
-<li>Wear LG8 safety glasses during alignment</li>
-<li><strong>Ensure bolts to table are secure</strong></li>
-</ul>
-<h3 id="steps">Steps</h3>
-<ol>
-<li>Set laser wavelength to 920nm</li>
-<li>Adjust <a href="https://www.newport.com/p/RSP-1T">Optic Rotation Mount (Newport RSP-1T)</a> so that power meters for both Scientifica and Sutter read about 50% (even split between 2 rigs)</li>
-<li>Slightly loosen post bolt of barrel at first split and twist such that both meters are at max for 50% split</li>
-<li>Tighten down barrel post bolt</li>
-<li>Ensure beam passes uninterrupted through shutter to 90deg mirrors</li>
-<li><strong>Adjusting 90deg mirrors: ignore the screw on the corner (middle screw at 90deg angle)</strong><ul>
-<li>Top screw: up / down</li>
-<li>Bottom screw: left / right</li>
-</ul>
-</li>
-</ol>
-<h3 id="key-points">Key Points</h3>
+<h2 id="key-points">Key Points</h2>
 <ul>
 <li><strong>Last stage at which beam is focal dot</strong>: The horizontal enclosure (not the one labeled MOM) before the galvos (see <a href="https://www.youtube.com/watch?v=hwCFtQ3WHoo&amp;t=452">tutorial video</a>) — beam expands after that</li>
-<li><strong>After laser reaches objective</strong>: For further alignment, adjust mirror closer to the laser (further from objective) for more angular movement</li>
+<li><strong>After laser reaches objective</strong>: <ol>
+<li>For <a href="#angular-alignment-z">angular alignment</a>: adjust mirror closer to the laser (further from objective) at 920 nm and try to align pollen across Z-axis.</li>
+<li>For <a href="#Translational-alignment-x-y">Translational alignment</a> in center of objective use crosshair objective adapter (in alignment case). Either a) walk beam (<a href="#option-a-beam-walking">see Beam Walking</a>) or b) adjust mirror(s) closest to objective (<a href="#option-b-adjust-mirror-closest-to-objective">see Option B</a>)</li>
+</ol>
+</li>
 </ul>
 <h2 id="fine-alignment-using-pollen-grains">Fine Alignment Using Pollen Grains</h2>
 <h3 id="initial-setup">Initial Setup</h3>
-<ol>
-<li>Select a spikey pollen grain at 40X (via pollen grain slide) as your alignment target</li>
-<li>Navigate to the <strong>top surface</strong> of the pollen grain</li>
-<li>Enable the crosshair (right-click on image)</li>
-<li>Display the histogram</li>
-</ol>
-<h3 id="histogram-settings">Histogram Settings</h3>
 <ul>
+<li>Use LG9 orange lens safety glasses</li>
+<li>Select a spikey pollen grain at 40X (via pollen grain slide) as your alignment target with epifluorescence (LED + QCam)</li>
+<li>Navigate to the <strong>top surface</strong> of the pollen grain under 2P with both green and red channels enabled</li>
+<li>Enable the crosshair in ScanImage (right-click on image)</li>
+<li>Display the histogram (right-click on image)<ul>
+<li>Histogram Settings<ul>
 <li><strong>Left edge of histogram bar</strong>: Position at peak (should be near zero)</li>
 <li><strong>Right edge</strong>: Balance for good background noise contrast</li>
 </ul>
+</li>
+</ul>
+</li>
+</ul>
 <h3 id="alignment-check">Alignment Check</h3>
 <ol>
-<li>Focus through the pollen grain from top to bottom</li>
+<li>Focus through the pollen grain from top to bottom through Z-axis</li>
 <li>Monitor whether the pollen grain remains centered on the crosshair</li>
-<li><strong>If centered throughout</strong>: Laser is properly aligned ✓</li>
-<li><strong>If drifts off center</strong>: Adjustment needed → Use the mirror <strong>closest to the laser</strong></li>
+<li><strong>If centered through Z-axis</strong>: Laser angle is properly aligned and reaches sample at a reasonably orthogonal orientation ✓</li>
+<li><strong>If drifts off center through Z-axis</strong>: Angular adjustment needed → Use the mirror <strong>closest to the laser</strong> (<a href="#angular-alignment-z">see angular alignment</a>)</li>
+<li>Monitor whether the brightness of the pollen grain changes if it is moved around X-Y with objective (on Sutter) or stage (on Scientifica Rig)</li>
+<li><strong>If brightness consistent about X-Y axes</strong>: Laser is centered in the objective ✓</li>
+<li><strong>If brightness changes about X-Y axes</strong>: Translational adjustment needed → see <a href="#Translational-alignment-x-y">Translational alignment</a></li>
 </ol>
-<h3 id="beam-walking-if-intensity-drops">Beam Walking (if intensity drops)</h3>
-<p>If you experience intensity loss, "walk the beam" back:
+<h3 id="angular-alignment-z">Angular alignment (Z)</h3>
+<ul>
+<li>Done at 920 nm (Use LG9 orange lens safety glasses)</li>
+<li><strong>Goal</strong>: The beam should remain stationary in X-Y position while scanning through the Z-axis (focus).</li>
+<li><strong>If drifts off center through Z-axis</strong>: Make slight adjustments using the mirror <strong>closest to the laser</strong> </li>
+</ul>
+<h3 id="translational-alignment-x-y">Translational alignment (X-Y)</h3>
+<ul>
+<li><strong>CRITICAL</strong>: First use PRM1Z8 (controlled via jog wheel near Sutter Rig) to adjust power to lowest setting at 920 nm to avoid burning anything in the beam path</li>
+<li>Done at 690 nm (Use LG8 green lens safety glasses)</li>
+<li>Requires crosshair objective adapter in alignment case (want beam to fill around center of the cross hair projected from adapter to white paper)</li>
+</ul>
+<h4 id="option-a-beam-walking">OPTION A: Beam Walking</h4>
+<p>If you experience intensity loss, "walk the beam":
 - Adjust <strong>one direction on the first mirror</strong>
 - Compensate in the <strong>opposite direction on the second mirror</strong>
   - Example: Right on first mirror → Left on second mirror
@@ -231,11 +238,34 @@
 - Adjusting only one mirror changes the beam <strong>angle</strong>
 - Adjusting both mirrors together translates the beam <strong>position</strong> without changing angle
 - Proper alignment ensures the beam only moves in <strong>Z (focus)</strong>, not X-Y, when focusing</p>
-<h3 id="goal">Goal</h3>
-<p>The beam should remain stationary in X-Y position while scanning through the Z-axis (focus).</p>
+<h4 id="option-b-adjust-mirror-closest-to-objective">OPTION B: Adjust mirror closest to objective</h4>
+<ul>
+<li>Assumes laser angle is aligned, thus mirror closest to the objective should allow translational changes about X-Y without drastic changes to laser angle</li>
+<li>Adjust mirror closest to objective such that laser fills center of cross hair through crosshair objective</li>
+<li>May need to make subtle re-adjustments to the laser angle (see above)</li>
+</ul>
+<h2 id="coarse-alignment-process-only-if-pollen-grain-not-visible">Coarse Alignment Process (ONLY IF POLLEN GRAIN NOT VISIBLE)</h2>
+<h3 id="prerequisites">Prerequisites:</h3>
+<ul>
+<li>Wear LG8 safety glasses during alignment</li>
+<li><strong>Ensure bolts to table are secure</strong></li>
+</ul>
+<h3 id="steps">Steps</h3>
+<ol>
+<li>Set laser wavelength to 920 nm (use LG9 orange lens safety glasses)</li>
+<li>Adjust <a href="https://www.newport.com/p/RSP-1T">Optic Rotation Mount (Newport RSP-1T)</a> so that power meters for both Scientifica and Sutter read about 50% (even split between 2 rigs)</li>
+<li>Slightly loosen post bolt of barrel at first split and twist such that both meters are at max for 50% split</li>
+<li>Tighten down barrel post bolt</li>
+<li>Ensure beam passes uninterrupted through shutter to 90&deg; mirrors</li>
+<li><strong>Adjusting 90&deg; mirrors: ignore the screw on the corner (middle screw at 90&deg; angle)</strong><ul>
+<li>Top screw: up / down</li>
+<li>Bottom screw: left / right</li>
+</ul>
+</li>
+</ol>
 <h1 id="log">Log</h1>
 <ul>
-<li>12/9/2025</li>
+<li>1/20/2025</li>
 </ul>
               
             </div>
