@@ -21,6 +21,9 @@
 ## ScanImage
 - 145×145 μm images at 256×256 pixel resolution at an effective frame rate of 5 Hz
 
+### Maintaining cells in field-of-view
+- Use screen annotation software (such as [gInk](https://github.com/geovens/gInk/releases/tag/v1.1.1)) to annotate cells so that they may be kept in focus in the field-of-view throughout the experiment.
+
 ### Looping (cycles)
 
 Cycles allow multiple iterations with defined delays between acquisitions. Cycles are saved in: `C:\Rig\Scanimage5-3\cycles`
