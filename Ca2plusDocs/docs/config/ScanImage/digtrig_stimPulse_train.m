@@ -1,11 +1,11 @@
 function digtrig_stimPulse_train(source,event,varargin)
 
-if strcmp(source.hSI.acqState,'grab') && source.hSI.hStackManager.framesPerSlice ~= source.hSI.hScan2D.logFramesPerFile
+if (strcmp(source.hSI.acqState,'grab') || strcmp(source.hSI.acqState,'loop')) && source.hSI.hStackManager.framesPerSlice ~= source.hSI.hScan2D.logFramesPerFile
     disp('######################################################################################')
     disp('###################################### LOOK HERE #####################################')
     disp('######################################################################################')
 
-    error('Lower frames per tif file than total frames, will end up with multiple tifs for same acquisition')
+    error('Lower or higher frames per tif file than total frames, will end up with multiple tifs for same acquisition or wrong number of frames in tif header')%higher also causes problem
 end
 
 %CAMERA IS TRIGGERED 2 SECONDS BEFORE STIM IS TRIGGERED:
@@ -269,8 +269,18 @@ switch event.EventName
                 end
                 
                 %if stim button OFF
-            elseif get(pulseTrainParams.ephusTriggerButton, 'Value')==0 %if stim button OFF
+            elseif get(pulseTrainParams.ephusTriggerButton, 'Value')==0 %save totalPulses = 0 in PulseParams.mat if ephus not triggered
+                filename = fullfile(source.hSI.hScan2D.logFilePath,[source.hSI.hScan2D.logFileStem...
+                    '_' num2str(source.hSI.hScan2D.logFileCounter,'%05u') '_00001']);
+                filenameWext = [filename '.tif'];
+                disp(filename)
                 disp('No stim pulse delivered')
+                acquisitionStartTime = clock;
+                totalPulses = 0;
+                save([filename '_PulseParams.mat'],...
+                    'filenameWext',...
+                    'acquisitionStartTime',...
+                    'totalPulses');
             end %if trigger on
             
         end %if pulseTrainFig not open
@@ -547,16 +557,17 @@ switch event.EventName
         
         %Sort 2P frame numbers at each stim pulse and save to _PulseParams
         %file
-        [frameOnFallingEdge, frameOnRisingEdge] = deal(zeros(1,totalPulses));
-        pulseFrameNo = struct('frameOnRisingEdge',frameOnRisingEdge,...
-            'frameOnFallingEdge',frameOnFallingEdge,...
-            'all',pulseFrameCounter);
-        pulseFrameNo.frameOnRisingEdge = pulseFrameCounter(rem(1:length(pulseFrameCounter),2)==1);
-        pulseFrameNo.frameOnFallingEdge = pulseFrameCounter(rem(1:length(pulseFrameCounter),2)==0);
-        %IMPORTANT NOTE: state.files.fullFileName would be for the next
-        %file already, thus using the variable from persistent function call memory
-        save([filename '_PulseParams.mat'],'pulseFrameNo','-append')
-        
+        if totalPulses>1% Don't save pulseFrameNo if ephus not triggered
+            [frameOnFallingEdge, frameOnRisingEdge] = deal(zeros(1,totalPulses));
+            pulseFrameNo = struct('frameOnRisingEdge',frameOnRisingEdge,...
+                'frameOnFallingEdge',frameOnFallingEdge,...
+                'all',pulseFrameCounter);
+            pulseFrameNo.frameOnRisingEdge = pulseFrameCounter(rem(1:length(pulseFrameCounter),2)==1);
+            pulseFrameNo.frameOnFallingEdge = pulseFrameCounter(rem(1:length(pulseFrameCounter),2)==0);
+            %IMPORTANT NOTE: state.files.fullFileName would be for the next
+            %file already, thus using the variable from persistent function call memory
+            save([filename '_PulseParams.mat'],'pulseFrameNo','-append')
+        end
         %%%%%%%%%%%%% FOR STIM TASK (END) %%%%%%%%%%%%%%%
         
 %         disp('line 426')
