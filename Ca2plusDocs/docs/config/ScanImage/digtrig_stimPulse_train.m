@@ -5,7 +5,7 @@ if (strcmp(source.hSI.acqState,'grab') || strcmp(source.hSI.acqState,'loop')) &&
     disp('###################################### LOOK HERE #####################################')
     disp('######################################################################################')
 
-    error('Lower or higher frames per tif file than total frames, will end up with multiple tifs for same acquisition or wrong number of frames in tif header')%higher also causes problem
+    error('Lower frames per tif file than total frames will result in with multiple tifs for same acquisition; higher frames per tif will lead to a wrong number of frames in the tif header')
 end
 
 %CAMERA IS TRIGGERED 2 SECONDS BEFORE STIM IS TRIGGERED:
@@ -557,7 +557,7 @@ switch event.EventName
         
         %Sort 2P frame numbers at each stim pulse and save to _PulseParams
         %file
-        if totalPulses>1% Don't save pulseFrameNo if ephus not triggered
+        if totalPulses>0% Don't save pulseFrameNo if ephus not triggered
             [frameOnFallingEdge, frameOnRisingEdge] = deal(zeros(1,totalPulses));
             pulseFrameNo = struct('frameOnRisingEdge',frameOnRisingEdge,...
                 'frameOnFallingEdge',frameOnFallingEdge,...
