@@ -5,7 +5,7 @@ if (strcmp(source.hSI.acqState,'grab') || strcmp(source.hSI.acqState,'loop')) &&
     disp('###################################### LOOK HERE #####################################')
     disp('######################################################################################')
 
-    error('Lower frames per tif file than total frames will result in with multiple tifs for same acquisition; higher frames per tif will lead to a wrong number of frames in the tif header')
+    error('Lower frames per tif file than total frames will result in multiple tifs for same acquisition; higher frames per tif will lead to a wrong number of frames in the tif header')
 end
 
 %CAMERA IS TRIGGERED 2 SECONDS BEFORE STIM IS TRIGGERED:
