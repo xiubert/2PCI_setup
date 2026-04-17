@@ -45,7 +45,7 @@ sampleClockDestination = 'PFI10';            % A DAQmx PFI terminal name (e.g. '
 
 ![Ephus User Functions - Save Pulse Details](config/Ephus/ephus_userFunctions_savePulseDetails.png)
 
-- [savePulseDetails.m](config/Ephus/savePulseDetails.m): Save stimulus pulse details to .mat file. This will save the pulse details and traceAcquired time in a mat file using the same path and naming convention as the xsg settings.
+- [savePulseDetails.m](config/Ephus/savePulseDetails.m): Save stimulus pulse details to .mat file. This will save the pulse details and traceAcquired time in a mat file using the same path and naming convention as the xsg settings. If Ephus trigger set to external (PFI0 / ScanImage), save path corresponds to most recent .tif, otherwise if trigger set to internal (PFI9), filename corresponds to XSG settings.
 
 ![Ephus User Functions - Select Random Pulse](config/Ephus/ephus_userFunctions_selectRandPulse.png)
 
