@@ -13,6 +13,8 @@
 
 4. Driver for laser power adjustment ([Thorlabs Kinesis](https://www.thorlabs.com/newgrouppage9.cfm?objectgroup_id=10285) controller of PRM1Z8)
     - `Thorlabs_Kinesis_Setup_25822_x64.exe`
+    - Provides both the Kinesis application and the USB driver for the KDC101
+    - See: [2P Laser Power control](laser_power_control.md)
 
 
 ## Computer

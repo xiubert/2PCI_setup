@@ -15,6 +15,7 @@ This documentation covers the setup, configuration, and operation of the Sutter 
 
 ### Alignment and calibration
 - [2P Laser Alignment](alignment.md) - Laser alignment procedures with safety protocols
+- [2P Laser Power Control](laser_power_control.md) - PRM1Z8 rotation mount and KDC101 controller for setting excitation power
 - [Speaker Calibration](cal_speaker.md) - Procedures for calibrating the free-field speaker
 - [Laser Power Calibration](cal_laser_power.md) - Laser power measurement
 

@@ -47,8 +47,11 @@
 - [Sutter ROE-200](https://www.sutter.com/MICROMANIPULATION/mpc365_frame.html)
 
 ## Power Intensity Controller
-- [ThorLabs Kinesis Motor Controller KDC101](https://www.thorlabs.com/thorproduct.cfm?partnumber=KDC101)
-- Rotates [PRM1Z8](https://www.thorlabs.com/thorproduct.cfm?partnumber=PRM1Z8) to adjust laser intensity entering Sutter enclosure
+- [ThorLabs Kinesis Motor Controller KDC101](https://www.thorlabs.com/thorproduct.cfm?partnumber=KDC101) (K-Cube brushed DC servo motor controller)
+- Rotates [PRM1Z8](https://www.thorlabs.com/thorproduct.cfm?partnumber=PRM1Z8) motorized precision rotation mount to adjust laser intensity entering Sutter enclosure
+- Driven manually via the jog wheel on the KDC101, or digitally via Thorlabs Kinesis software
+- Connection: PRM1Z8 &rArr; KDC101 (motor cable) &rArr; USB &rArr; acquisition computer
+- See: [2P Laser Power control](laser_power_control.md)
 
 ## Temperature control
 - FHC DC Temperature controller with heat pad and rectal thermister 

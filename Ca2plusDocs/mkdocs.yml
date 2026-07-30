@@ -9,6 +9,7 @@ nav:
   - Drivers: drivers.md
   - Code: code.md
   - 2P Laser Alignment: alignment.md
+  - 2P Laser Power control: laser_power_control.md
   - 2P Laser Power calibration: cal_laser_power.md
   - Speaker calibration: cal_speaker.md
   - Rig Setup: computer_setup.md
