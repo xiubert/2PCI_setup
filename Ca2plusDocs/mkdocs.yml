@@ -6,6 +6,7 @@ nav:
   - Software: software.md
   - Configuration: configuration.md
   - Operation: operation.md
+  - Widefield Epifluorescence: widefield.md
   - Drivers: drivers.md
   - Code: code.md
   - 2P Laser Alignment: alignment.md

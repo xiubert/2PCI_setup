@@ -57,8 +57,12 @@ sampleClockDestination = 'PFI10';            % A DAQmx PFI terminal name (e.g. '
 ![Ephus QCam Reset LED Pulse Width](config/Ephus/ephus_qcamReset_LED_pulseWidth.png)
 
 - [qcamExternalReset.m](config/Ephus/qcamExternalReset.m): Resets QCam to External automatically to enable loops. Otherwise would need to manually click External off and on.
-    - See: [Ephus looping](operation.md#ephus-looping)
+    - See: [Ephus looping](operation.md#looping)
 - [testusrfcn.m](config/Ephus/testusrfcn.m): for testing user functions
+
+### QCam (widefield camera)
+- [qcam_mod_retiga_w1600_h1200.m](config/Ephus/qcam_mod_retiga_w1600_h1200.m): `qcam.m` modified for the Retiga 2000R (1600 &times; 1200). Rename to `qcam.m` when deploying to `C:/Rig/Ephus 2013b/Programs/qcam/`.
+- Camera trigger pulse, QCam control panel settings, and the resolution edits are documented in: [Widefield Epifluorescence](widefield.md)
 
 ## ScanImage
 

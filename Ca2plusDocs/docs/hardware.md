@@ -25,6 +25,13 @@
         - Trigger output to trigger Ephus sound delivery (Channels: `USER 2`)
             - Path: `PFI13` (Digital I/O PFI terminal block) &rArr; `USER 2` &rArr; BNC cable &rArr; NI USB 6229 &rArr; PFI0/P1.0​ &rArr; PFI10 (terminal block)
 
+## Widefield epifluorescence camera
+- QImaging Retiga 2000R (1600 &times; 1200), FireWire (IEEE 1394)
+- Image data connects **directly to the computer** via FireWire
+- Camera trigger input driven by a QCam board, which is driven by the NI USB-6229 (`Dev2`, `AO3`)
+- Used for widefield Ca<sup>2+</sup> imaging to map cortical subfields and target A1 for 2P imaging
+- See: [Widefield Epifluorescence](widefield.md)
+
 ## PMT
 - Controller: [Sutter PS-2LV](https://www.sutter.com/MICROSCOPES/pmt.html)
 - [Hamamatsu H10770PA-40](https://www.hamamatsu.com/jp/en/product/optical-sensors/pmt/pmt-module/current-output-type/H10770PA-40.html)

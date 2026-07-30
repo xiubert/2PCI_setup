@@ -18,6 +18,7 @@ The rig is built around a **Sutter MOM (Moveable Objective Microscope)**, which 
     - NI USB-6229 (Dev2) - Ephus acquire/sound stimulation
     - NI PCI-6110 with BNC-2090A breakout (Dev1) - ScanImage 2P
 - Hamamatsu H10770PA-40 PMT with Sutter PS-2LV controller
+- QImaging Retiga 2000R FireWire camera (1600 × 1200) for widefield epifluorescence imaging
 - Tucker Davis ES1 freefield speaker with ED1 driver
 - Sutter ROE-200 micromanipulator
 - ThorLabs KDC101 motor controller with PRM1Z8 for laser power control
@@ -29,7 +30,8 @@ The rig is built around a **Sutter MOM (Moveable Objective Microscope)**, which 
 - **Ephus 2.1.0**: Widefield imaging and sound stimulus delivery (MATLAB 2013b 32-bit)
 - **ScanImage 5.3.1 (2017)**: 2-photon microscopy control (MATLAB 2015b x64)
 - **Custom user functions**: Automated workflows and experiment control
-- **Acquisition specs**: 145×145 μm images at 256×256 pixels, 5 Hz effective frame rate
+- **Acquisition specs (2P)**: 145×145 μm images at 256×256 pixels, 5 Hz effective frame rate
+- **Acquisition specs (widefield)**: Retiga 2000R triggered at 20 Hz (50 ms ISI) with 20 ms exposure
 
 ## Key Features
 
