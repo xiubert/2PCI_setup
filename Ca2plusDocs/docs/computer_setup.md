@@ -72,4 +72,24 @@ Initial setup instructions for the Dell Precision Tower 5810 acquisition compute
 18. **Configure Ephus and Scanimage**
     - see: [Configuration](configuration.md)
 
+## Laser Control Software
+
+Needed to operate the MaiTai — wavelength, shutter, and laser on/off are set from the computer,
+not from the laser itself.
+
+19. **Install MaiTai USB communication driver** (Silicon Labs CP210x Virtual COM Port)
+    - `maitai_mks_usb_comm_CP210x_VCP_Windows.zip`
+    - Unzip and run `CP210x_VCP_Windows/CP210xVCPInstaller_x64.exe`
+    - **Install before the GUI** — it creates the virtual COM port the GUI connects through
+    - Connect the laser over USB, then confirm the port appears under Device Manager &rarr; Ports (COM & LPT)
+        - Note the COM number: `COM3` is already taken by the Sutter MPC200 micromanipulator
+          (`motors(1).comPort = 3` in [Machine_Data_File.m](config/ScanImage/Machine_Data_File.m)),
+          so the laser will be on a different port
+20. **Install MaiTai Customer GUI** (v1.03.01)
+    - `MaiTai Customer GUI 1.03.01 (1).zip`
+    - Unzip and run `MaiTai Customer GUI SW077-1.03.01/setup.exe`
+    - This is a National Instruments distribution (`nidist.id`), so it may also install the
+      LabVIEW Run-Time Engine
+    - See: [Software &rarr; MaiTai laser control](software.md#maitai-laser-control)
+
 

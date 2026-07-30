@@ -45,6 +45,8 @@
 
 ## Laser
 - MaiTai HP, Newport
+- No front-panel controls for wavelength, shutter, or laser on/off &mdash; operated from the computer via the MaiTai Customer GUI over USB (virtual COM port)
+- See: [Software &rarr; MaiTai laser control](software.md#maitai-laser-control)
 
 ## Speaker and Speaker controller
 - freefield speaker (ES1, Tucker Davis)

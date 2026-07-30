@@ -19,6 +19,21 @@
     - See: [2P Laser Power control](laser_power_control.md)
 
 
+## Laser
+- Required to control the MaiTai. The laser has **no front-panel controls** for wavelength, shutter, or laser on/off &mdash; these are set from the computer via the MaiTai GUI.
+
+1. MaiTai USB communication driver (Silicon Labs CP210x USB-to-UART Virtual COM Port):
+    - `maitai_mks_usb_comm_CP210x_VCP_Windows.zip`
+    - Unzips to `CP210x_VCP_Windows/`; run `CP210xVCPInstaller_x64.exe` on Windows 10 x64
+    - Makes the laser enumerate as a virtual COM port, which the MaiTai GUI connects to
+    - **Install this before the GUI**
+
+2. MaiTai control GUI:
+    - `MaiTai Customer GUI 1.03.01 (1).zip` (unzips to `MaiTai Customer GUI SW077-1.03.01/`)
+    - Run `setup.exe`
+    - See: [Software &rarr; MaiTai laser control](software.md#maitai-laser-control)
+
+
 ## Computer
 - Driver sources: [Dell Precision T5810 Drivers & Downloads](https://www.dell.com/support/product-details/en-us/product/precision-t5810-workstation/drivers)
     - `DellSupportAssistinstaller.exe`
