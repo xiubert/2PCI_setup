@@ -29,12 +29,12 @@ See: [pyFluo](code.md#widefield-analysis) for widefield map analysis.
 |---|---|---|
 | Camera | QImaging **Retiga 2000R**, FireWire (IEEE 1394) | QImaging **Rolera-XR**, FireWire (IEEE 1394) |
 | Sensor | 1600 wide × 1200 high | **696 wide × 520 high** |
-| `qcam.m` variant | [qcam_mod_retiga_w1600_h1200.m](config/Ephus/qcam_mod_retiga_w1600_h1200.m) | `qcam_raw_rolera_w696_h520.m` |
+| `qcam.m` variant | [qcam_mod_retiga_w1600_h1200.m](config/Ephus/qcam_mod_retiga_w1600_h1200.m) | [qcam_raw_rolera_w696_h520.m](config/Ephus/qcam_raw_rolera_w696_h520.m) |
 | Exposure | 20 ms | **38 ms** |
 | Spatial bin factor | 8 | **4** |
 | Resulting frame | 200 × 150 px | **174 × 130 px** |
 | QCam driver | `QCamInstaller-2-0-13-1-64bit.zip` | **same** |
-| `namingScheme` default | `'Manual'` | `'XSG'` |
+| `namingScheme` default | `'XSG'` | `'XSG'` |
 
 Frame size follows the same rule on both rigs, against each camera's hardcoded sensor size:
 
@@ -44,7 +44,8 @@ width  = 1600 / 8 = 200;         width  = 696 / 4 = 174;
 height = 1200 / 8 = 150;         height = 520 / 4 = 130;
 ```
 
-`namingScheme` is not saved in `qcam.settings`, so the `.m` default governs.
+`namingScheme` is **`'XSG'` on both rigs**. It is not saved in `qcam.settings`, so the `.m`
+default governs — if a restored `qcam.m` comes up naming files manually, check this line.
 
 ## Hardware
 
@@ -156,10 +157,17 @@ camera**:
 | Rig | Camera | `qcam.m` variant | Resolution |
 |---|---|---|---|
 | Sutter | Retiga 2000R | [qcam_mod_retiga_w1600_h1200.m](config/Ephus/qcam_mod_retiga_w1600_h1200.m) | 1600 × 1200 |
-| Scientifica | Rolera-XR | `qcam_raw_rolera_w696_h520.m` | 696 × 520 |
+| Scientifica | Rolera-XR | [qcam_raw_rolera_w696_h520.m](config/Ephus/qcam_raw_rolera_w696_h520.m) | 696 × 520 |
 
-- Rig location on both: `C:/Rig/Ephus 2013b/Programs/qcam/qcam.m`
-- **Rename the variant to `qcam.m` when deploying to the rig**
+On the rig the file is deployed as:
+
+```
+C:/Rig/Ephus 2013b/Programs/qcam/qcam.m
+```
+
+i.e. `Ephus 2013b` &rarr; `Programs` &rarr; `qcam` &rarr; `qcam.m` — the same path on both rigs.
+The copies above carry descriptive names only so the two can be told apart in this repo;
+**rename the rig's variant to `qcam.m` when deploying**.
 
 > **Restore hazard.** Copying Ephus between the two rigs, or restoring from the wrong backup,
 > overwrites `qcam.m` with the other camera's resolution and **silently crops or over-runs the
@@ -168,8 +176,9 @@ camera**:
 
 ### Changes between the two variants
 
-The resolution appears in three code locations, plus a header changelog entry. The example below
-is the Retiga variant (the Rolera variant carries 696 / 520 in the same places):
+The two variants are **otherwise identical** — the resolution appears in three code locations,
+plus a header changelog entry, and nothing else differs. The example below is the Retiga variant
+(the Rolera variant carries 696 / 520 in the same places):
 
 **1. Header changelog**
 

@@ -50,5 +50,7 @@ From Sharepoint: Tzounopoulos Lab (2024) &rarr; `Documents` &rarr; `data` &rarr;
 ## Camera
 
 `qcam.m` must be the **Retiga 2000R** variant (1600 × 1200) —
-[qcam_mod_retiga_w1600_h1200.m](config/Ephus/qcam_mod_retiga_w1600_h1200.m), renamed to `qcam.m`.
+[qcam_mod_retiga_w1600_h1200.m](config/Ephus/qcam_mod_retiga_w1600_h1200.m), renamed to `qcam.m`
+and placed at `C:/Rig/Ephus 2013b/Programs/qcam/qcam.m`.
+
 See: [Widefield Epifluorescence](widefield.md#qcamm-modification).

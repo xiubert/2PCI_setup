@@ -51,5 +51,8 @@ and vice versa.
 
 ## Camera
 
-`qcam.m` must be the **Rolera-XR** variant (696 × 520) — `qcam_raw_rolera_w696_h520.m`, renamed
-to `qcam.m`. See: [Widefield Epifluorescence](widefield.md#qcamm-modification).
+`qcam.m` must be the **Rolera-XR** variant (696 × 520) —
+[qcam_raw_rolera_w696_h520.m](config/Ephus/qcam_raw_rolera_w696_h520.m), renamed to `qcam.m` and
+placed at `C:/Rig/Ephus 2013b/Programs/qcam/qcam.m`.
+
+See: [Widefield Epifluorescence](widefield.md#qcamm-modification).

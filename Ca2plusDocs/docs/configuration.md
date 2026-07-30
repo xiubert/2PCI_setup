@@ -109,12 +109,20 @@ sampleClockDestination = 'PFI10';            % A DAQmx PFI terminal name (e.g. '
 ### QCam (widefield camera)
 
 `qcam.m` hardcodes the camera resolution, so **each rig needs the variant matching its camera**.
-Rename the variant to `qcam.m` when deploying to `C:/Rig/Ephus 2013b/Programs/qcam/`.
+
+On the rig the file is deployed as:
+
+```
+C:/Rig/Ephus 2013b/Programs/qcam/qcam.m
+```
+
+i.e. `Ephus 2013b` &rarr; `Programs` &rarr; `qcam` &rarr; `qcam.m`. The copies here carry
+descriptive names to keep them apart — **rename the rig's variant to `qcam.m` when deploying**.
 
 | Rig | Camera | Variant |
 |---|---|---|
 | Sutter | Retiga 2000R (1600 &times; 1200) | [qcam_mod_retiga_w1600_h1200.m](config/Ephus/qcam_mod_retiga_w1600_h1200.m) |
-| Scientifica | Rolera-XR (696 &times; 520) | `qcam_raw_rolera_w696_h520.m` |
+| Scientifica | Rolera-XR (696 &times; 520) | [qcam_raw_rolera_w696_h520.m](config/Ephus/qcam_raw_rolera_w696_h520.m) |
 
 - Camera trigger pulse, QCam control panel settings (exposure and bin factor differ per rig), and
   the resolution edits are documented in: [Widefield Epifluorescence](widefield.md)
