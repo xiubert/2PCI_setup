@@ -206,12 +206,49 @@ YMirrorOffsetMaxVoltage = 1;        % maximum allowed voltage output for the cha
 internalRefClockSrc = '';
 ```
 
-### User Settings File:
-- [working_acqModeArmed.cfg](config/ScanImage/working_acqModeArmed.usr): Default for startup. Corresponds to [256pxSq_5Hz_acqModeArmed.cfg](config/ScanImage/256pxSq_5Hz_acqModeArmed.cfg) configuration file.
+### User settings and configuration files
 
+Each `.usr` (user settings) file pairs with a `.cfg` (configuration) file. **Both rigs acquire at
+5 Hz at 256 × 256 by default** — the Sutter rig at **1x** zoom, the Scientifica rig at **1.5x**,
+because its galvos cannot sustain a 256 × 256 frame at 1x without a comb artifact.
 
-### Additional user settings
-- [working_merge_acqModeArmed.usr](config/ScanImage/working_merge_acqModeArmed.usr): Both channels (green and red) with merge view. Corresponds to [256pxSq_5Hz_merge_acqModeArmed.cfg](config/ScanImage/256pxSq_5Hz_merge_acqModeArmed.cfg) configuration file.
+Why the zoom differs, and what to do if the artifact appears:
+[Appendix — Galvo scan settings](appendix_galvo_scan_settings.md).
+
+Naming: `_1-5` / `_2` are the zoom factor, `merge` means both channels with merge view,
+`256pxSq_5Hz` is 256 × 256 at 5 Hz, and `256x128_10Hz` halves the lines per frame for 10 Hz.
+
+#### Sutter rig
+
+Zoom **1x** throughout — there is no galvo limit at 1x for a 256 × 256 frame at 5 Hz.
+
+| Configuration | Zoom | Frame | Channels | User settings |
+|---|---|---|---|---|
+| [256pxSq_5Hz_acqModeArmed.cfg](config/ScanImage/256pxSq_5Hz_acqModeArmed.cfg) — **default** | 1x | 256 × 256, 5 Hz | single | [working_acqModeArmed.usr](config/ScanImage/working_acqModeArmed.usr) |
+| [256pxSq_5Hz_merge_acqModeArmed.cfg](config/ScanImage/256pxSq_5Hz_merge_acqModeArmed.cfg) | 1x | 256 × 256, 5 Hz | both, merge view | [working_merge_acqModeArmed.usr](config/ScanImage/working_merge_acqModeArmed.usr) |
+| [256x128_10Hz_acqModeArmed.cfg](config/ScanImage/256x128_10Hz_acqModeArmed.cfg) | 1x | 256 × 128, 10 Hz | single | [working_256x128_10Hz_acqModeArmed.usr](config/ScanImage/working_256x128_10Hz_acqModeArmed.usr) |
+| [256x128_10Hz_merge_acqModeArmed.cfg](config/ScanImage/256x128_10Hz_merge_acqModeArmed.cfg) | 1x | 256 × 128, 10 Hz | both, merge view | [working_256x128_10Hz_merge_acqModeArmed.usr](config/ScanImage/working_256x128_10Hz_merge_acqModeArmed.usr) |
+
+#### Scientifica rig
+
+Zoom **1.5x** is the default — it maximises recording area while avoiding the comb artifact from
+the galvo limits. **2x is the conservative fallback** if the artifact returns.
+
+| Configuration | Zoom | Frame | Channels | User settings |
+|---|---|---|---|---|
+| [256pxSq_5Hz_acqModeArmed_1-5.cfg](config/ScanImage/scientifica/256pxSq_5Hz_acqModeArmed_1-5.cfg) — **default** | 1.5x | 256 × 256, 5 Hz | single (channel 2, GFP) | [working_acqModeArmed_1-5.usr](config/ScanImage/scientifica/working_acqModeArmed_1-5.usr) |
+| [256pxSq_5Hz_acqModeArmed_2.cfg](config/ScanImage/scientifica/256pxSq_5Hz_acqModeArmed_2.cfg) | 2x | 256 × 256, 5 Hz | single (channel 2, GFP) | [working_acqModeArmed_2.usr](config/ScanImage/scientifica/working_acqModeArmed_2.usr) |
+| [256pxSq_5Hz_merge_acqModeArmed_1-5.cfg](config/ScanImage/scientifica/256pxSq_5Hz_merge_acqModeArmed_1-5.cfg) — **default for both channels** | 1.5x | 256 × 256, 5 Hz | both, merge view | [working_merge_acqModeArmed_1-5.usr](config/ScanImage/scientifica/working_merge_acqModeArmed_1-5.usr) |
+| [256pxSq_5Hz_merge_acqModeArmed_2.cfg](config/ScanImage/scientifica/256pxSq_5Hz_merge_acqModeArmed_2.cfg) | 2x | 256 × 256, 5 Hz | both, merge view | [working_merge_acqModeArmed_2.usr](config/ScanImage/scientifica/working_merge_acqModeArmed_2.usr) |
+| [256x128_10Hz_acqModeArmed_1-5.cfg](config/ScanImage/scientifica/256x128_10Hz_acqModeArmed_1-5.cfg) | 1.5x | 256 × 128, 10 Hz | single | [working_256x128_10Hz_acqModeArmed_1-5.usr](config/ScanImage/scientifica/working_256x128_10Hz_acqModeArmed_1-5.usr) |
+| [256x128_10Hz_acqModeArmed_2.cfg](config/ScanImage/scientifica/256x128_10Hz_acqModeArmed_2.cfg) | 2x | 256 × 128, 10 Hz | single | [working_256x128_10Hz_acqModeArmed_2.usr](config/ScanImage/scientifica/working_256x128_10Hz_acqModeArmed_2.usr) |
+| [256x128_10Hz_merge_acqModeArmed_1-5.cfg](config/ScanImage/scientifica/256x128_10Hz_merge_acqModeArmed_1-5.cfg) | 1.5x | 256 × 128, 10 Hz | both, merge view | [working_256x128_10Hz_merge_acqModeArmed_1-5.usr](config/ScanImage/scientifica/working_256x128_10Hz_merge_acqModeArmed_1-5.usr) |
+| [256x128_10Hz_merge_acqModeArmed_2.cfg](config/ScanImage/scientifica/256x128_10Hz_merge_acqModeArmed_2.cfg) | 2x | 256 × 128, 10 Hz | both, merge view | [working_256x128_10Hz_merge_acqModeArmed_2.usr](config/ScanImage/scientifica/working_256x128_10Hz_merge_acqModeArmed_2.usr) |
+
+The 10 Hz configurations halve **lines per frame** to 128, keeping 256 pixels per line. This
+doubles the frame rate without shortening the line period, so it costs no galvo margin — the
+field is full width but half height, and pixels are not square. Used for spontaneous cell
+recordings.
 
 ### Pulse Train Config
 - [PulseTrainPanelInit.m](config/ScanImage/PulseTrainPanelInit.m): ran at startup - initiates pulse train UI fig

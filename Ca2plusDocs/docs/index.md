@@ -32,6 +32,10 @@ Applies to both rigs.
 - [Rig Setup](computer_setup.md) - Common install sequence after reinstalling Windows
 - [Code](code.md) - Custom scripts and analysis tools
 
+## Appendices
+
+- [Galvo scan settings](appendix_galvo_scan_settings.md) - Why the rigs reach 5 Hz at different zoom factors, and fixing the comb artifact
+
 ## Sutter rig
 
 - [Hardware](hardware_sutter.md) - Components and DAQ channel assignments
