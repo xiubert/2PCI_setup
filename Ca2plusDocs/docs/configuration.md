@@ -1,5 +1,25 @@
 # Configuration
 
+Ephus and ScanImage settings. **Both rigs run the same versions and the same custom user
+functions**; the values that differ are listed in [Per-rig differences](#per-rig-differences).
+
+## Per-rig differences
+
+| Setting | Sutter | Scientifica |
+|---|---|---|
+| `motors(1).comPort` (ScanImage MDF) | `3` — Sutter MPC200 | **`4`** — SliceScope XYZ stage |
+| `AI17` / `Green LED output check` | In use | **Not connected** |
+| `qcam.m` variant | Retiga 2000R, 1600 × 1200 | Rolera-XR, 696 × 520 |
+
+> **`COM3` hazard on the Scientifica rig.** `COM3` there is the **beam attenuator**, not the
+> stage. If `motors(1).comPort` is left at the inherited value of `3`, ScanImage opens the
+> attenuator and drives it as an XYZ stage. See
+> [Scientifica rig-specific drivers](setup_scientifica.md#com-port-assignments).
+
+Analog output assignments (`AO0` green LED, `AO1` sound + `AI16` loopback, `AO2` blue LED,
+`AO3` QCam trigger) and the ScanImage &rarr; Ephus trigger topology are the same on both rigs.
+Terminal-by-terminal wiring for the Scientifica rig: [DAQ wiring](wiring_scientifica.md).
+
 ## Ephus
 
 ### Startup file

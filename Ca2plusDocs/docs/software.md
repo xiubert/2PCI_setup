@@ -1,5 +1,8 @@
 # Software
 
+**Both rigs run the same software stack** — same OS, same MATLAB versions, same Ephus and
+ScanImage versions, same custom user functions. Only the laser-power software differs.
+
 ## OS
 - WINDOWS 10 (21H2 x64)
 
@@ -31,3 +34,12 @@
 - Version: 5.3.1 / 2017
 - [Docs](https://archive.scanimage.org/SI2017/index.html)
 - Docs also at: Sharepoint (Tzounopoulos Lab (2024) &rarr; `Documents` &rarr; `data` &rarr; `PAC` &rarr; `sutter_2P_rigConfig_PAC` &rarr; `scanimage_5-3-1_2017_docs.zip`)
+
+## Laser power control software
+
+Differs per rig — see [2P Laser Power control](laser_power_control.md).
+
+| Rig | Software | Controls |
+|---|---|---|
+| Sutter | Thorlabs Kinesis | KDC101 / PRM1Z8 waveplate rotator |
+| Scientifica | **LinLab 2** | 1U rack: beam attenuator (`COM3`), XYZ stage (`COM4`), condenser (`COM5`) |

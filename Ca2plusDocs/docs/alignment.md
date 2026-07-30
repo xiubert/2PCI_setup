@@ -1,5 +1,9 @@
 # Aligning 2P Laser to Sutter 2P Rig
 
+> **Applies to the Sutter rig.** See [Scientifica rig](#scientifica-rig) below for why this
+> procedure does not transfer.
+
+
 ![Sutter 2P Rig](tz_2p.jpeg)
 
 - Best person to contact: Rick Ayer of Sutter Instruments: rick@sutter.com
@@ -101,6 +105,20 @@ If you experience intensity loss, "walk the beam":
 4. Tighten down barrel post bolt
 5. Ensure beam passes uninterrupted through shutter to 90° mirrors
 
+
+## Scientifica rig
+
+**The procedure above does not transfer to the Scientifica rig.** Downstream of the ORM RSP-1T
+splitter, that rig has **no equivalent movable mirrors with three adjustment points**, so the
+angular / translational mirror-walking steps have nothing to act on.
+
+What *is* routine on the Scientifica rig is adjusting the **ORM RSP-1T** to rebalance power
+between the two rigs — the same mount used in
+[Coarse Alignment step 2](#coarse-alignment-process-only-if-pollen-grain-not-visible) above. On
+that rig it is adjusted frequently.
+
+Setting power on each rig is separate from the split, and is covered in
+[2P Laser Power control](laser_power_control.md).
 
 ## Log
 - 1/20/2025

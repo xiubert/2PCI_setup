@@ -1,5 +1,10 @@
 # Speaker calibration
 
+> **Each rig has its own speaker and must be calibrated separately.** The procedure below is the
+> same for both, but the calibration is not transferable — and the **Scientifica rig cannot use
+> the Sutter rig's stimulus files**. Stimuli must be generated against each rig's own calibration.
+
+
 - Instructions for calibrating rig speaker
 - **Purpose**: Speaker has nonlinear response across frequencies, must ensure voltage delivered to speaker corresponds to desired dB output for various signals
 - **Output**: gain values corresponding to voltage needed to drive speaker to obtain desired dB SPL

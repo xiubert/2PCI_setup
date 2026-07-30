@@ -1,18 +1,29 @@
-site_name: Ca<sup>2+</sup> imaging in vivo 
+site_name: Ca<sup>2+</sup> imaging in vivo
 nav:
   - Home: index.md
   - About: about.md
-  - Hardware: hardware.md
-  - Software: software.md
-  - Configuration: configuration.md
-  - Operation: operation.md
-  - Widefield Epifluorescence: widefield.md
-  - Drivers: drivers.md
-  - Code: code.md
-  - 2P Laser Alignment: alignment.md
-  - 2P Laser Power control: laser_power_control.md
-  - 2P Laser Power calibration: cal_laser_power.md
-  - Speaker calibration: cal_speaker.md
-  - Rig Setup: computer_setup.md
-  - Pupillometry: pupillometry.md
+  - Common:
+      - Software: software.md
+      - Drivers: drivers.md
+      - Configuration: configuration.md
+      - Operation: operation.md
+      - Widefield Epifluorescence: widefield.md
+      - 2P Laser Power control: laser_power_control.md
+      - 2P Laser Alignment: alignment.md
+      - Speaker calibration: cal_speaker.md
+      - 2P Laser Power calibration: cal_laser_power.md
+      - Rig Setup: computer_setup.md
+      - Code: code.md
+  - Sutter rig:
+      - Hardware: hardware_sutter.md
+      - Rig-specific drivers: setup_sutter.md
+      - Pupillometry: pupillometry.md
+  - Scientifica rig:
+      - Hardware: hardware_scientifica.md
+      - DAQ wiring: wiring_scientifica.md
+      - Rig-specific drivers: setup_scientifica.md
 theme: readthedocs
+plugins:
+  - search
+  - mermaid2:
+      javascript: js/mermaid.min.js

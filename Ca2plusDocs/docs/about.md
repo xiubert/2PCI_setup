@@ -2,27 +2,44 @@
 
 ## Purpose
 
-This documentation provides comprehensive information for operating and maintaining the Sutter 2P microscopy system for in vivo 2-photon calcium imaging (2PCI). It serves as a reference for system setup, daily operation, troubleshooting, and custom software configurations.
+This documentation provides comprehensive information for operating and maintaining the lab's two 2P microscopy systems for in vivo 2-photon calcium imaging (2PCI) — the **Sutter** rig and the **Scientifica** rig. It serves as a reference for system setup, daily operation, troubleshooting, and custom software configurations.
 
 ## System Overview
 
-### Hardware Components
+Both rigs run the same software stack and share the same MaiTai laser, split between them by a
+manual Newport ORM RSP-1T rotation mount. They differ in microscope, computer, camera, and
+laser-power hardware.
 
-The rig is built around a **Sutter MOM (Moveable Objective Microscope)**, which features a moveable objective rather than a moveable stage.
+### Shared between the rigs
 
-**Key components:**
-
-- Sutter MOM microscope with 40× 0.8 NA objective (Olympus)
-- MaiTai HP laser (Newport) for 2-photon excitation
-- Two National Instruments DAQ boards:
+- Two National Instruments DAQ boards each, same topology:
     - NI USB-6229 (Dev2) - Ephus acquire/sound stimulation
     - NI PCI-6110 with BNC-2090A breakout (Dev1) - ScanImage 2P
+- MaiTai HP laser (Newport) for 2-photon excitation — **one laser, split between both rigs**
+- Tucker Davis ES1 freefield speaker with ED1 driver (one per rig, calibrated separately)
+- Beam attenuation by a motorised half-wave plate against a fixed polarizer
+
+### Sutter rig
+
+Built around a **Sutter MOM (Moveable Objective Microscope)**, which features a moveable objective rather than a moveable stage.
+
+- Sutter MOM microscope with 40× 0.8 NA objective (Olympus)
 - Hamamatsu H10770PA-40 PMT with Sutter PS-2LV controller
 - QImaging Retiga 2000R FireWire camera (1600 × 1200) for widefield epifluorescence imaging
-- Tucker Davis ES1 freefield speaker with ED1 driver
 - Sutter ROE-200 micromanipulator
 - ThorLabs KDC101 motor controller with PRM1Z8 rotation mount for laser power control (manual jog wheel or Thorlabs Kinesis software)
 - Dell Precision Tower 5810 workstation (Windows 10)
+
+### Scientifica rig
+
+Built around a **Scientifica S-Scope-II**, on which the stage moves rather than the objective.
+
+- Scientifica S-Scope-II microscope
+- Scientifica 2PIMS-PMT-20 PMT with 2PIMS-8000 controller
+- Scientifica GALVO-CONT galvo / scan controller
+- QImaging Rolera-XR FireWire camera (696 × 520) for widefield epifluorescence imaging
+- 1U rack with three motorised axes on virtual COM ports — beam attenuator, XYZ stage, condenser — operated from LinLab 2
+- Dell Precision T3600 workstation (Windows 10)
 
 ### Software Stack
 
@@ -31,7 +48,8 @@ The rig is built around a **Sutter MOM (Moveable Objective Microscope)**, which 
 - **ScanImage 5.3.1 (2017)**: 2-photon microscopy control (MATLAB 2015b x64)
 - **Custom user functions**: Automated workflows and experiment control
 - **Acquisition specs (2P)**: 145×145 μm images at 256×256 pixels, 5 Hz effective frame rate
-- **Acquisition specs (widefield)**: Retiga 2000R triggered at 20 Hz (50 ms ISI) with 20 ms exposure
+- **Acquisition specs (widefield)**: camera triggered at 20 Hz (50 ms ISI) on both rigs — 20 ms exposure on the Sutter rig, 38 ms on the Scientifica rig
+- **Laser power software**: Thorlabs Kinesis (Sutter) / LinLab 2 (Scientifica)
 
 ## Key Features
 
