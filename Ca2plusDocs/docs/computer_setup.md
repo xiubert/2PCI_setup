@@ -47,22 +47,13 @@ Initial setup instructions for the Dell Precision Tower 5810 acquisition compute
 
 13. **Install MATLAB 2013b (32-bit)**
 14. **Install Ephus**
-    - Copy `Ephus 2013b_20250909_qcamFix.zip` from Sharepoint (Tzounopoulos Lab (2024) &rarr; `Documents` &rarr; `data` &rarr; `PAC` &rarr; `sutter_2P_rigConfig_PAC`) to `C:/Rig/`
-    - Unzip `Ephus 2013b_20250909_qcamFix.zip`
+    - Copy `Ephus 2013b_20250909_qcamFix.zip` from Sharepoint (Tzounopoulos Lab (2024) &rarr; `Documents` &rarr; `data` &rarr; `PAC` &rarr; `sutter2P_backup`) to `C:/Rig/`
+    - Unzip `Ephus 2013b_20260727_sutter.zip`
     - Ephus should be in folder named `C:/Rig/Ephus 2013b`
     - Add `C:/Rig/Ephus 2013b` to MATLAB 2013b path with subfolders
 15. **Install QCam Driver** (v2.0.13.1 64-bit)
     - `QCamInstaller-2-0-13-1-64bit.zip`
-    - see: Sharepoint: Tzounopoulos Lab (2024) &rarr; `Documents` &rarr; `data` &rarr; `PAC` &rarr; `sutter_2P_rigConfig_PAC` &rarr; `drivers`
-
-    **Compatibility mode installation:**
-
-    1. Right-click the installer
-    2. Select "Troubleshoot compatibility"
-    3. Choose "Custom"
-    4. Select "Worked with previous version"
-    5. Choose "Windows 7"
-    6. Continue with installation
+    - see: Sharepoint: Tzounopoulos Lab (2024) &rarr; `Documents` &rarr; `data` &rarr; `PAC` &rarr; `sutter2P_backup` &rarr; `drivers`
 
     **Testing:**
 
@@ -73,8 +64,8 @@ Initial setup instructions for the Dell Precision Tower 5810 acquisition compute
 
 16. **Install MATLAB 2015b x64**
 17. **Install ScanImage**
-    - Copy `Scanimage5-3_20250905.zip` from Sharepoint (Tzounopoulos Lab (2024) &rarr; `Documents` &rarr; `data` &rarr; `PAC` &rarr; `sutter_2P_rigConfig_PAC`) to `C:/Rig/`
-    - Unzip `Scanimage5-3_20250905.zip`
+    - Copy `Scanimage5-3_20260727_sutter.zip` from Sharepoint (Tzounopoulos Lab (2024) &rarr; `Documents` &rarr; `data` &rarr; `PAC` &rarr; `sutter2P_backup`) to `C:/Rig/`
+    - Unzip `Scanimage5-3_20260727_sutter.zip`
     - ScanImage should be in folder named `C:/Rig/Scanimage5-3`
     - Add `C:/Rig/Scanimage5-3` to MATLAB 2015b path with subfolders
 
