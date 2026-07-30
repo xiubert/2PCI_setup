@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Widefield Epifluorescence - Ca<sup>2+</sup> imaging in vivo</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Widefield Epifluorescence";
+        var mkdocs_page_input_path = "widefield.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Ca<sup>2+</sup> imaging in vivo
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../about/">About</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../hardware/">Hardware</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../software/">Software</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../configuration/">Configuration</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../operation/">Operation</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Widefield Epifluorescence</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#purpose">Purpose</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#hardware">Hardware</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#camera">Camera</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#signal-path">Signal path</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#ephus-channels-used">Ephus channels used</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#camera-trigger-pulse-ephus">Camera trigger pulse (Ephus)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#qcam-control-panel-ephus">QCam control panel (Ephus)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#looping">Looping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#qcamm-modification">qcam.m modification</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#changes-from-the-rolera-xr-version">Changes from the Rolera-XR version</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#driver">Driver</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#software-requirements">Software requirements</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../drivers/">Drivers</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../code/">Code</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../alignment/">2P Laser Alignment</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../laser_power_control/">2P Laser Power control</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../cal_laser_power/">2P Laser Power calibration</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../cal_speaker/">Speaker calibration</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../computer_setup/">Rig Setup</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../pupillometry/">Pupillometry</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Ca<sup>2+</sup> imaging in vivo</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Widefield Epifluorescence</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="widefield-epifluorescence-imaging">Widefield Epifluorescence Imaging</h1>
+<p>Single-photon (widefield) epifluorescence Ca<sup>2+</sup> imaging on the Sutter rig, acquired in
+<strong>Ephus</strong> via its built-in <code>qcam</code> program.</p>
+<h2 id="purpose">Purpose</h2>
+<p>Widefield imaging maps tone-evoked fluorescence responses across the whole cranial window at low
+magnification. The resulting tonotopic response maps are used to delineate cortical subfields so
+that primary auditory cortex (A1) can be identified and targeted for subsequent 2P imaging in
+ScanImage.</p>
+<p>Typical order of operations in a session:</p>
+<ol>
+<li>Acquire widefield tone-evoked maps in Ephus (<code>qcam</code> + sound stimulus).</li>
+<li>Identify the tonotopic gradient/reversal to locate A1.</li>
+<li>Move the objective to the identified subfield and switch to 2P acquisition in ScanImage.</li>
+</ol>
+<p>See: <a href="../code/#widefield-analysis">pyFluo</a> for widefield map analysis.</p>
+<h2 id="hardware">Hardware</h2>
+<h3 id="camera">Camera</h3>
+<ul>
+<li>QImaging Retiga 2000R FireWire (IEEE 1394) camera</li>
+<li>1600 × 1200 sensor</li>
+<li>Connected <strong>directly to the acquisition computer over FireWire</strong> — the image data path does not
+  pass through the DAQ</li>
+<li>The camera's <strong>trigger input</strong> is driven by a <strong>QCam board</strong>, which in turn is driven by the
+  NI USB-6229 (<code>Dev2</code>)</li>
+</ul>
+<h3 id="signal-path">Signal path</h3>
+<pre><code>Ephus stimulator &quot;Camera trigger&quot; (Dev2 / USB-6229, AO3)
+    → QCam board
+    → Retiga 2000R trigger input          (frame timing)
+
+Retiga 2000R → FireWire (IEEE 1394) → acquisition computer   (image data)
+</code></pre>
+<p>Frame timing and image data therefore travel on two separate paths: Ephus controls <em>when</em> frames
+are taken (via the DAQ → QCam board → trigger input), while the frames themselves stream over
+FireWire straight into <code>qcam</code>.</p>
+<h3 id="ephus-channels-used">Ephus channels used</h3>
+<p>From <a href="../config/Ephus/ephus_init_matlab2013b_32bit_250kHz_Camera_20250903.m">ephus_init_matlab2013b_32bit_250kHz_Camera_20250903.m</a>
+(all on <code>Dev2</code> / NI USB-6229):</p>
+<table>
+<thead>
+<tr>
+<th>Ephus channel</th>
+<th>Direction</th>
+<th>DAQ channel</th>
+<th>Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Camera trigger</code></td>
+<td>Analog out</td>
+<td><code>AO3</code></td>
+<td>5 V TTL trigger to QCam board</td>
+</tr>
+<tr>
+<td><code>Green LED output</code></td>
+<td>Analog out</td>
+<td><code>AO0</code></td>
+<td>Epifluorescence excitation</td>
+</tr>
+<tr>
+<td><code>Blue LED output</code></td>
+<td>Analog out</td>
+<td><code>AO2</code></td>
+<td>Epifluorescence excitation</td>
+</tr>
+<tr>
+<td><code>Sound output</code></td>
+<td>Analog out</td>
+<td><code>AO1</code></td>
+<td>Stimulus to ED1 speaker driver</td>
+</tr>
+<tr>
+<td><code>Green LED output check</code></td>
+<td>Analog in</td>
+<td><code>AI17</code></td>
+<td>LED output monitor</td>
+</tr>
+<tr>
+<td><code>sound output check</code></td>
+<td>Analog in</td>
+<td><code>AI16</code></td>
+<td>Sound output monitor</td>
+</tr>
+</tbody>
+</table>
+<p>See: <a href="../configuration/#startup-file">Configuration → Ephus startup file</a> for the full channel list.</p>
+<h2 id="camera-trigger-pulse-ephus">Camera trigger pulse (Ephus)</h2>
+<p>Frames are clocked by a pulse train on the <code>Camera trigger</code> stimulus channel. Configure the pulse
+in the Ephus pulse editor:</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ISI</td>
+<td><code>50</code> ms</td>
+<td>Sets the frame rate: 1 / 50 ms = <strong>20 Hz</strong></td>
+</tr>
+<tr>
+<td>Amp [A.U.]</td>
+<td><code>5000</code></td>
+<td>Produces the <strong>5 V</strong> TTL the QCam board expects (1000 A.U. per volt)</td>
+</tr>
+<tr>
+<td>Width</td>
+<td><code>1</code> ms</td>
+<td>TTL pulse width</td>
+</tr>
+<tr>
+<td>Delay</td>
+<td><code>1</code> ms</td>
+<td>Delay to first pulse</td>
+</tr>
+<tr>
+<td>Number</td>
+<td><code>400</code></td>
+<td>Number of pulses in the train</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Setting <code>Number</code>:</strong> it must be <strong>greater than the number of frames required for the trace
+length</strong>, so the trigger train never runs out before acquisition ends. The required minimum is
+<code>trace length × 20 Hz</code>:</p>
+<ul>
+<li>10 s trace at 20 Hz → 200 frames required → <code>Number = 400</code> (current setting) leaves ample margin.</li>
+</ul>
+<p>The camera stops on its own once it has collected the number of frames set by <strong>Frames to acquire</strong>
+in the <code>qcam</code> panel, so surplus trigger pulses are harmless.</p>
+<h2 id="qcam-control-panel-ephus">QCam control panel (Ephus)</h2>
+<p>Settings in the <code>qcam</code> program window:</p>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Exposure</td>
+<td><code>20</code> (ms)</td>
+</tr>
+<tr>
+<td>Spatial bin factor</td>
+<td><code>8</code></td>
+</tr>
+<tr>
+<td>External</td>
+<td>checked (external trigger mode)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Exposure</strong> is entered in milliseconds and must not exceed the trigger ISI — 20 ms exposure fits
+within the 50 ms ISI of the 20 Hz train.</p>
+<p><strong>Spatial bin factor</strong> divides the full sensor when <code>fullview</code> is enabled:</p>
+<pre><code class="language-matlab">width  = 1600 / binFactor;
+height = 1200 / binFactor;
+</code></pre>
+<p>At <code>binFactor = 8</code> this gives a <strong>200 × 150 px</strong> frame (1600/8 × 1200/8). Binning trades spatial
+resolution for signal-to-noise and frame rate, which suits widefield mapping — the goal is
+locating subfield boundaries, not resolving individual cells.</p>
+<p><strong>External</strong> mode is what couples the camera to Ephus. With <code>External</code> checked, <code>qcam</code> sets the
+camera to <code>edgeHigh</code> trigger type and <code>std</code> camera mode, so each TTL edge from the QCam board
+acquires one frame. With <code>Preview</code> or <code>Start</code> checked instead, the trigger type is <code>auto</code> and the
+camera free-runs, ignoring the DAQ.</p>
+<h3 id="looping">Looping</h3>
+<p><code>External</code> must be re-armed between iterations of a loop. This is automated by the
+<a href="../config/Ephus/qcamExternalReset.m">qcamExternalReset.m</a> user function, registered as an
+<code>xsg:save</code> callback.</p>
+<p>See: <a href="../configuration/#custom-user-functions">Configuration → Custom user functions</a> and
+<a href="../operation/#looping">Operation → Looping</a>.</p>
+<h2 id="qcamm-modification"><code>qcam.m</code> modification</h2>
+<p><code>qcam.m</code> <strong>hardcodes the camera resolution</strong>, so it must be edited to match the sensor of the
+camera actually installed. The lab's copy of <code>qcam.m</code> was reduced to 696 × 520 for the Scientifica
+rig's Rolera-XR camera (see the <code>CA062712</code> entry in the file's changelog); the Sutter rig's
+Retiga 2000R needs 1600 × 1200.</p>
+<p>This matters when restoring Ephus from a backup or from the Scientifica rig — a restore can
+overwrite <code>qcam.m</code> with the 696 × 520 version and silently crop the Retiga's field of view.</p>
+<ul>
+<li>Rig location: <code>C:/Rig/Ephus 2013b/Programs/qcam/qcam.m</code></li>
+<li>Sutter rig version: <a href="../config/Ephus/qcam_mod_retiga_w1600_h1200.m">qcam_mod_retiga_w1600_h1200.m</a>
+  — <strong>rename to <code>qcam.m</code> when deploying to the rig</strong></li>
+</ul>
+<h3 id="changes-from-the-rolera-xr-version">Changes from the Rolera-XR version</h3>
+<p>The resolution appears in three code locations (696 × 520 → 1600 × 1200), plus a header changelog
+entry:</p>
+<p><strong>1. Header changelog</strong></p>
+<pre><code class="language-matlab">%  PC20260730 - configured for Retiga 2000R firewire camera with 1600 x 1200 resolution w/ QCam board for interface w/ DAQ and driver: QCamInstaller-2.0.13.1 x64
+</code></pre>
+<p><strong>2. Property defaults and GUI maxima</strong> (~line 119)</p>
+<pre><code class="language-matlab">'width', 1600, 'Class', 'numeric', 'Gui', 'width', 'Max', 1600, 'Min', 1, 'Config', 7, ...
+'height', 1200, 'Class', 'numeric', 'Gui', 'height', 'Max', 1200, 'Min', 1, 'Config', 7, ...
+</code></pre>
+<p><strong>3. Full-view frame size</strong> (~line 725)</p>
+<pre><code class="language-matlab">if fullview
+      width = 1600 / binFactor;
+      height = 1200 / binFactor;
+end
+</code></pre>
+<p><strong>4. Default ROI / full-view reset</strong> (~line 1054)</p>
+<pre><code class="language-matlab">'xOffset', 0, 'yOffset', 0, 'width', 1600, 'height', 1200, 'fullview', 1);
+</code></pre>
+<p><strong>Note:</strong> If the <code>Max</code> values in (2) are left at the smaller camera's resolution, the GUI clamps
+width/height to that maximum and the frame is cropped rather than full-field.</p>
+<h2 id="driver">Driver</h2>
+<ul>
+<li><strong>QCam driver v2.0.13.1, 64-bit</strong> — <code>QCamInstaller-2-0-13-1-64bit.zip</code></li>
+<li><strong>Do not install <code>QCamDriver2005</code></strong> — the legacy 2005 driver bundled with older Ephus
+  distributions is superseded by QCamInstaller 2.0.13.1 and should not be used</li>
+</ul>
+<p>Full install steps, including the <code>startQCam</code> smoke test, are in
+<a href="../computer_setup/#software-installation">Rig Setup → Install QCam Driver</a>.</p>
+<p>See also: <a href="../drivers/#imaging">Drivers</a>.</p>
+<h2 id="software-requirements">Software requirements</h2>
+<ul>
+<li>MATLAB <strong>2013b 32-bit</strong> (Ephus 2.1.0) — the <code>qcammex.mexw32</code> interface to the QCam API is 32-bit
+  only, so widefield acquisition cannot be run from the 64-bit MATLAB used for ScanImage</li>
+<li>Ephus 2.1.0</li>
+</ul>
+<p>See: <a href="../software/">Software</a>.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../operation/" class="btn btn-neutral float-left" title="Operation"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../drivers/" class="btn btn-neutral float-right" title="Drivers">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../operation/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../drivers/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
