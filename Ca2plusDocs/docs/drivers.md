@@ -1,6 +1,9 @@
 # Drivers
 - required to interface with recording hardware
 
+Drivers marked **Sutter** or **Scientifica** are rig-specific; the rest are installed on both.
+Per-rig lists: [Sutter](setup_sutter.md) · [Scientifica](setup_scientifica.md).
+
 ## Imaging
 1. [NI-DAQmx](https://www.ni.com/en/support/downloads/drivers/download.ni-daq-mx.html): interface for the USB-6229 (Ephus) and NI PCI-6110 (ScanImage) DAQs
     - **v15.5.0**: `NIDAQ1550f1.zip​`
@@ -9,14 +12,18 @@
     - **Do not install `QCamDriver2005`** (legacy driver, superseded by the above)
     - See: [Widefield Epifluorescence &rarr; Driver](widefield.md#driver)
 
-3. Sutter CDM Controller Driver:
+3. Sutter CDM Controller Driver — **Sutter only** (MPC200 / ROE-200 micromanipulator):
     - [`SI_CDM_v2_12_36.zip`](https://www.sutter.com/hubfs/SOFTWARE/SI_CDM_v2_12_36.zip?hsLang=en)
     - [Installation guide](https://www.sutter.com/hubfs/SOFTWARE/CDM_driver_Install_Guide.pdf?hsLang=en)
 
-4. Driver for laser power adjustment ([Thorlabs Kinesis](https://www.thorlabs.com/newgrouppage9.cfm?objectgroup_id=10285) controller of PRM1Z8)
+4. Driver for laser power adjustment — **Sutter only** ([Thorlabs Kinesis](https://www.thorlabs.com/newgrouppage9.cfm?objectgroup_id=10285) controller of PRM1Z8)
     - `Thorlabs_Kinesis_Setup_25822_x64.exe`
     - Provides both the Kinesis application and the USB driver for the KDC101
-    - See: [2P Laser Power control](laser_power_control.md)
+    - See: [2P Laser Power control](laser_power_control.md#sutter-rig)
+
+5. LinLab 2 — **Scientifica only** (1U rack: beam attenuator, XYZ stage, condenser)
+    - `LinLab-2-Setup-1.0.19.177.zip`
+    - See: [2P Laser Power control](laser_power_control.md#scientifica-rig)
 
 
 ## Laser

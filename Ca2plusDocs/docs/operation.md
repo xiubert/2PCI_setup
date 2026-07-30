@@ -1,5 +1,9 @@
 # Operation
 
+Applies to **both rigs** — they run the same Ephus and ScanImage versions, the same custom user
+functions, and the same acquisition workflow.
+
+
 ## Ephus
 - **Ephus should be configured to save the xsg file**. This can be loaded as a mat file that contains the state of Ephus during the acquisition. It contains a structure called header which contains the pulse info and gain along with the actual stimulus trace​
 

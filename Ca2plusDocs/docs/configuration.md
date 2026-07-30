@@ -1,11 +1,57 @@
 # Configuration
 
+Ephus and ScanImage settings. **Both rigs run the same versions and the same custom user
+functions**; the values that differ are listed in [Per-rig differences](#per-rig-differences).
+
+## Per-rig differences
+
+Each rig has its own Ephus startup file and ScanImage machine data file. Summary:
+
+| Setting | Sutter | Scientifica |
+|---|---|---|
+| Ephus startup file | [...20250903.m](config/Ephus/ephus_init_matlab2013b_32bit_250kHz_Camera_20250903.m) | [...20260728_scientifica.m](config/Ephus/ephus_init_matlab2013b_32bit_250kHz_Camera_20260728_scientifica.m) |
+| ScanImage machine data file | [Machine_Data_File.m](config/ScanImage/Machine_Data_File.m) | [Machine_Data_File_scientifica.m](config/ScanImage/Machine_Data_File_scientifica.m) |
+| `xsgStartDirectory` | `'D:\Data\sutter2P\'` | `'C:\rig\DATA_TEMP'` |
+| `motors(1).controllerType` | `'sutter.mpc200'` | `'scientifica'` |
+| `motors(1).comPort` | `3` — Sutter MPC200 | **`4`** — SliceScope XYZ stage |
+| `AI17` / `Green LED output check` | In use | **Not connected** |
+| `qcam.m` variant | Retiga 2000R, 1600 × 1200 | Rolera-XR, 696 × 520 |
+
+Full per-file breakdowns: [Ephus startup file](#startup-file) ·
+[ScanImage machine data file](#machine-data-file-startup)
+
+> **`COM3` hazard on the Scientifica rig.** `COM3` there is the **beam attenuator**, not the
+> stage. If `motors(1).comPort` is left at the inherited value of `3`, ScanImage opens the
+> attenuator and drives it as an XYZ stage. See
+> [Scientifica rig-specific drivers](setup_scientifica.md#com-port-assignments).
+
+Analog output assignments (`AO0` green LED, `AO1` sound + `AI16` loopback, `AO2` blue LED,
+`AO3` QCam trigger) and the ScanImage &rarr; Ephus trigger topology are the same on both rigs.
+Terminal-by-terminal wiring for the Scientifica rig: [DAQ wiring](wiring_scientifica.md).
+
 ## Ephus
 
 ### Startup file
-- [ephus_init_matlab2013b_32bit_250kHz_Camera_20250903.m](config/Ephus/ephus_init_matlab2013b_32bit_250kHz_Camera_20250903.m)
 
-**Key configuration values**:
+**One startup file per rig:**
+
+| Rig | Startup file |
+|---|---|
+| Sutter | [ephus_init_matlab2013b_32bit_250kHz_Camera_20250903.m](config/Ephus/ephus_init_matlab2013b_32bit_250kHz_Camera_20250903.m) |
+| Scientifica | [ephus_init_matlab2013b_32bit_250kHz_Camera_20260728_scientifica.m](config/Ephus/ephus_init_matlab2013b_32bit_250kHz_Camera_20260728_scientifica.m) |
+
+Only two values differ between them:
+
+| Setting | Sutter | Scientifica |
+|---|---|---|
+| `xsgStartDirectory` | `'D:\Data\sutter2P\'` | `'C:\rig\DATA_TEMP'` |
+| `acqChannelNames{2}` (`AI17`) | `'Green LED output check'` | `'unused (AI17)'` — not connected |
+
+Channel counts and IDs are otherwise identical, including `acqChannelIDs = [16 17]` — the
+Scientifica rig still declares `AI17`, it is simply named as unused because nothing is wired to
+it. All stimulator channels, the sample rate, and the trigger and sample-clock routing match.
+
+**Key configuration values** (Sutter file shown; the Scientifica file differs only as above):
 ```matlab
 xsgStartDirectory = 'D:\Data\sutter2P\';
 
@@ -61,15 +107,60 @@ sampleClockDestination = 'PFI10';            % A DAQmx PFI terminal name (e.g. '
 - [testusrfcn.m](config/Ephus/testusrfcn.m): for testing user functions
 
 ### QCam (widefield camera)
-- [qcam_mod_retiga_w1600_h1200.m](config/Ephus/qcam_mod_retiga_w1600_h1200.m): `qcam.m` modified for the Retiga 2000R (1600 &times; 1200). Rename to `qcam.m` when deploying to `C:/Rig/Ephus 2013b/Programs/qcam/`.
-- Camera trigger pulse, QCam control panel settings, and the resolution edits are documented in: [Widefield Epifluorescence](widefield.md)
+
+`qcam.m` hardcodes the camera resolution, so **each rig needs the variant matching its camera**.
+
+On the rig the file is deployed as:
+
+```
+C:/Rig/Ephus 2013b/Programs/qcam/qcam.m
+```
+
+i.e. `Ephus 2013b` &rarr; `Programs` &rarr; `qcam` &rarr; `qcam.m`. The copies here carry
+descriptive names to keep them apart — **rename the rig's variant to `qcam.m` when deploying**.
+
+| Rig | Camera | Variant |
+|---|---|---|
+| Sutter | Retiga 2000R (1600 &times; 1200) | [qcam_mod_retiga_w1600_h1200.m](config/Ephus/qcam_mod_retiga_w1600_h1200.m) |
+| Scientifica | Rolera-XR (696 &times; 520) | [qcam_raw_rolera_w696_h520.m](config/Ephus/qcam_raw_rolera_w696_h520.m) |
+
+- Camera trigger pulse, QCam control panel settings (exposure and bin factor differ per rig), and
+  the resolution edits are documented in: [Widefield Epifluorescence](widefield.md)
 
 ## ScanImage
 
 ### Machine Data File (startup)
-- [Machine_Data_File.m](config/ScanImage/Machine_Data_File.m)
 
-**Key configuration values**:
+**One machine data file per rig.** Both deploy as `Machine_Data_File.m` on their own rig; the
+copies here are named to keep them apart.
+
+| Rig | Machine data file |
+|---|---|
+| Sutter | [Machine_Data_File.m](config/ScanImage/Machine_Data_File.m) |
+| Scientifica | [Machine_Data_File_scientifica.m](config/ScanImage/Machine_Data_File_scientifica.m) |
+
+The differences are confined to the **motor/stage block**:
+
+| Setting | Sutter | Scientifica |
+|---|---|---|
+| `motors(1).controllerType` | `'sutter.mpc200'` | `'scientifica'` |
+| `motors(1).comPort` | `3` | **`4`** |
+| `motors(1).customArgs` | `{}` | `{'stageType','slice_scope'}` |
+| `motors(1).moveCompleteDelay` | `5` | `0` |
+| `motors(1).moveTimeout` | `[]` (controller default) | `5` s |
+
+> **Do not carry `motors(1).comPort = 3` over to the Scientifica rig.** `COM3` there is the beam
+> attenuator, not the stage — ScanImage would open the attenuator and drive it as an XYZ stage.
+
+Everything else matches on both rigs: shutter on `Dev1 port0/line7`, galvos on `Dev1 AO0`/`AO1`,
+PMT channel IDs, 30° angular ranges, 0.333 V per optical degree, and 7.5° park angles.
+
+Beam modulation is **unconfigured on both rigs** — `beamDaqDevices = {}` and
+`beamDaqs(1).chanIDs = []`. Laser power is set outside ScanImage; see
+[2P Laser Power control](laser_power_control.md#not-integrated-with-the-acquisition-software).
+The Scientifica file also has `components = {}`.
+
+**Key configuration values** (Sutter file shown; the Scientifica file differs only as above):
 ```matlab
 shutterDaqDevices = {'Dev1'};  % Cell array specifying the DAQ device or RIO devices for each shutter eg {'PXI1Slot3' 'PXI1Slot4'}
 shutterChannelIDs = {'port0/line7'};      % Cell array specifying the corresponding channel on the device for each shutter eg {'PFI12'}
@@ -115,12 +206,49 @@ YMirrorOffsetMaxVoltage = 1;        % maximum allowed voltage output for the cha
 internalRefClockSrc = '';
 ```
 
-### User Settings File:
-- [working_acqModeArmed.cfg](config/ScanImage/working_acqModeArmed.usr): Default for startup. Corresponds to [256pxSq_5Hz_acqModeArmed.cfg](config/ScanImage/256pxSq_5Hz_acqModeArmed.cfg) configuration file.
+### User settings and configuration files
 
+Each `.usr` (user settings) file pairs with a `.cfg` (configuration) file. **Both rigs acquire at
+5 Hz at 256 × 256 by default** — the Sutter rig at **1x** zoom, the Scientifica rig at **1.5x**,
+because its galvos cannot sustain a 256 × 256 frame at 1x without a comb artifact.
 
-### Additional user settings
-- [working_merge_acqModeArmed.usr](config/ScanImage/working_merge_acqModeArmed.usr): Both channels (green and red) with merge view. Corresponds to [256pxSq_5Hz_merge_acqModeArmed.cfg](config/ScanImage/256pxSq_5Hz_merge_acqModeArmed.cfg) configuration file.
+Why the zoom differs, and what to do if the artifact appears:
+[Appendix — Galvo scan settings](appendix_galvo_scan_settings.md).
+
+Naming: `_1-5` / `_2` are the zoom factor, `merge` means both channels with merge view,
+`256pxSq_5Hz` is 256 × 256 at 5 Hz, and `256x128_10Hz` halves the lines per frame for 10 Hz.
+
+#### Sutter rig
+
+Zoom **1x** throughout — there is no galvo limit at 1x for a 256 × 256 frame at 5 Hz.
+
+| Configuration | Zoom | Frame | Channels | User settings |
+|---|---|---|---|---|
+| [256pxSq_5Hz_acqModeArmed.cfg](config/ScanImage/256pxSq_5Hz_acqModeArmed.cfg) — **default** | 1x | 256 × 256, 5 Hz | single | [working_acqModeArmed.usr](config/ScanImage/working_acqModeArmed.usr) |
+| [256pxSq_5Hz_merge_acqModeArmed.cfg](config/ScanImage/256pxSq_5Hz_merge_acqModeArmed.cfg) | 1x | 256 × 256, 5 Hz | both, merge view | [working_merge_acqModeArmed.usr](config/ScanImage/working_merge_acqModeArmed.usr) |
+| [256x128_10Hz_acqModeArmed.cfg](config/ScanImage/256x128_10Hz_acqModeArmed.cfg) | 1x | 256 × 128, 10 Hz | single | [working_256x128_10Hz_acqModeArmed.usr](config/ScanImage/working_256x128_10Hz_acqModeArmed.usr) |
+| [256x128_10Hz_merge_acqModeArmed.cfg](config/ScanImage/256x128_10Hz_merge_acqModeArmed.cfg) | 1x | 256 × 128, 10 Hz | both, merge view | [working_256x128_10Hz_merge_acqModeArmed.usr](config/ScanImage/working_256x128_10Hz_merge_acqModeArmed.usr) |
+
+#### Scientifica rig
+
+Zoom **1.5x** is the default — it maximises recording area while avoiding the comb artifact from
+the galvo limits. **2x is the conservative fallback** if the artifact returns.
+
+| Configuration | Zoom | Frame | Channels | User settings |
+|---|---|---|---|---|
+| [256pxSq_5Hz_acqModeArmed_1-5.cfg](config/ScanImage/scientifica/256pxSq_5Hz_acqModeArmed_1-5.cfg) — **default** | 1.5x | 256 × 256, 5 Hz | single (channel 2, GFP) | [working_acqModeArmed_1-5.usr](config/ScanImage/scientifica/working_acqModeArmed_1-5.usr) |
+| [256pxSq_5Hz_acqModeArmed_2.cfg](config/ScanImage/scientifica/256pxSq_5Hz_acqModeArmed_2.cfg) | 2x | 256 × 256, 5 Hz | single (channel 2, GFP) | [working_acqModeArmed_2.usr](config/ScanImage/scientifica/working_acqModeArmed_2.usr) |
+| [256pxSq_5Hz_merge_acqModeArmed_1-5.cfg](config/ScanImage/scientifica/256pxSq_5Hz_merge_acqModeArmed_1-5.cfg) — **default for both channels** | 1.5x | 256 × 256, 5 Hz | both, merge view | [working_merge_acqModeArmed_1-5.usr](config/ScanImage/scientifica/working_merge_acqModeArmed_1-5.usr) |
+| [256pxSq_5Hz_merge_acqModeArmed_2.cfg](config/ScanImage/scientifica/256pxSq_5Hz_merge_acqModeArmed_2.cfg) | 2x | 256 × 256, 5 Hz | both, merge view | [working_merge_acqModeArmed_2.usr](config/ScanImage/scientifica/working_merge_acqModeArmed_2.usr) |
+| [256x128_10Hz_acqModeArmed_1-5.cfg](config/ScanImage/scientifica/256x128_10Hz_acqModeArmed_1-5.cfg) | 1.5x | 256 × 128, 10 Hz | single | [working_256x128_10Hz_acqModeArmed_1-5.usr](config/ScanImage/scientifica/working_256x128_10Hz_acqModeArmed_1-5.usr) |
+| [256x128_10Hz_acqModeArmed_2.cfg](config/ScanImage/scientifica/256x128_10Hz_acqModeArmed_2.cfg) | 2x | 256 × 128, 10 Hz | single | [working_256x128_10Hz_acqModeArmed_2.usr](config/ScanImage/scientifica/working_256x128_10Hz_acqModeArmed_2.usr) |
+| [256x128_10Hz_merge_acqModeArmed_1-5.cfg](config/ScanImage/scientifica/256x128_10Hz_merge_acqModeArmed_1-5.cfg) | 1.5x | 256 × 128, 10 Hz | both, merge view | [working_256x128_10Hz_merge_acqModeArmed_1-5.usr](config/ScanImage/scientifica/working_256x128_10Hz_merge_acqModeArmed_1-5.usr) |
+| [256x128_10Hz_merge_acqModeArmed_2.cfg](config/ScanImage/scientifica/256x128_10Hz_merge_acqModeArmed_2.cfg) | 2x | 256 × 128, 10 Hz | both, merge view | [working_256x128_10Hz_merge_acqModeArmed_2.usr](config/ScanImage/scientifica/working_256x128_10Hz_merge_acqModeArmed_2.usr) |
+
+The 10 Hz configurations halve **lines per frame** to 128, keeping 256 pixels per line. This
+doubles the frame rate without shortening the line period, so it costs no galvo margin — the
+field is full width but half height, and pixels are not square. Used for spontaneous cell
+recordings.
 
 ### Pulse Train Config
 - [PulseTrainPanelInit.m](config/ScanImage/PulseTrainPanelInit.m): ran at startup - initiates pulse train UI fig

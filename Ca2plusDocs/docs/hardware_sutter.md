@@ -1,5 +1,8 @@
-# Hardware
-- Sutter 2P rig for in vivo 2PCI (2 Photon Calcium Imaging)
+# Hardware — Sutter rig
+
+Components of the **Sutter** 2P rig for in vivo 2PCI (2 Photon Calcium Imaging).
+
+For the second rig, see [Hardware — Scientifica rig](hardware_scientifica.md).
 
 ## Computer
 - [Dell Precision Tower 5810](https://www.dell.com/support/manuals/en-us/precision-t5810-workstation/precision_t5810_om_pub/technical-specifications?guid=guid-cb1a5aa6-1e70-44b9-b690-59507a3a9f31&lang=en-us)
