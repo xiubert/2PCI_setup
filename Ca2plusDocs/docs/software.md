@@ -15,6 +15,8 @@
 ## Ephus
 - Use: Widefield imaging and sound stimulus delivery
 - Version: 2.1.0
+- Widefield acquisition uses the built-in `qcam` program (32-bit `qcammex.mexw32` interface to the QCam API, hence MATLAB 2013b 32-bit)
+- See: [Widefield Epifluorescence](widefield.md)
 
 ## ScanImage
 - Use: 2P

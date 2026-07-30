@@ -4,8 +4,10 @@
 ## Imaging
 1. [NI-DAQmx](https://www.ni.com/en/support/downloads/drivers/download.ni-daq-mx.html): interface for the USB-6229 (Ephus) and NI PCI-6110 (ScanImage) DAQs
     - **v15.5.0**: `NIDAQ1550f1.zip​`
-2. QCam driver for widefield camera:
-    - `QCamInstaller-2-0-13-1-64bit.zip`
+2. QCam driver for widefield camera (Retiga 2000R):
+    - **v2.0.13.1 (x64)**: `QCamInstaller-2-0-13-1-64bit.zip`
+    - **Do not install `QCamDriver2005`** (legacy driver, superseded by the above)
+    - See: [Widefield Epifluorescence &rarr; Driver](widefield.md#driver)
 
 3. Sutter CDM Controller Driver:
     - [`SI_CDM_v2_12_36.zip`](https://www.sutter.com/hubfs/SOFTWARE/SI_CDM_v2_12_36.zip?hsLang=en)

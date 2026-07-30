@@ -11,6 +11,7 @@ This documentation covers the setup, configuration, and operation of the Sutter 
 - [Hardware](hardware.md) - Understand system components and wiring
 - [Software](software.md) - Software installation and setup
 - [Drivers](drivers.md) - Required drivers and installation
+- [Widefield Epifluorescence](widefield.md) - Retiga 2000R + QCam widefield imaging for mapping cortical subfields to target A1
 - [Pupillometry](pupillometry.md) - Details for capturing pupillometry
 
 ### Alignment and calibration
