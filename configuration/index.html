@@ -66,6 +66,8 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#custom-user-functions">Custom user functions</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#qcam-widefield-camera">QCam (widefield camera)</a>
+    </li>
         </ul>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#scanimage">ScanImage</a>
@@ -91,6 +93,10 @@
               </ul>
               <ul>
                 <li class="toctree-l1"><a class="reference internal" href="../operation/">Operation</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../widefield/">Widefield Epifluorescence</a>
                 </li>
               </ul>
               <ul>
@@ -190,7 +196,7 @@ sampleClockDestination = 'PFI10';            % A DAQmx PFI terminal name (e.g. '
 </ul>
 <p><img alt="Ephus User Functions - Save Pulse Details" src="../config/Ephus/ephus_userFunctions_savePulseDetails.png" /></p>
 <ul>
-<li><a href="../config/Ephus/savePulseDetails.m">savePulseDetails.m</a>: Save stimulus pulse details to .mat file. This will save the pulse details and traceAcquired time in a mat file using the same path and naming convention as the xsg settings.</li>
+<li><a href="../config/Ephus/savePulseDetails.m">savePulseDetails.m</a>: Save stimulus pulse details to .mat file. This will save the pulse details and traceAcquired time in a mat file using the same path and naming convention as the xsg settings. If Ephus trigger set to external (PFI0 / ScanImage), save path corresponds to most recent .tif, otherwise if trigger set to internal (PFI9), filename corresponds to XSG settings.</li>
 </ul>
 <p><img alt="Ephus User Functions - Select Random Pulse" src="../config/Ephus/ephus_userFunctions_selectRandPulse.png" /></p>
 <ul>
@@ -201,10 +207,15 @@ sampleClockDestination = 'PFI10';            % A DAQmx PFI terminal name (e.g. '
 <p><img alt="Ephus QCam Reset LED Pulse Width" src="../config/Ephus/ephus_qcamReset_LED_pulseWidth.png" /></p>
 <ul>
 <li><a href="../config/Ephus/qcamExternalReset.m">qcamExternalReset.m</a>: Resets QCam to External automatically to enable loops. Otherwise would need to manually click External off and on.<ul>
-<li>See: <a href="../operation/#ephus-looping">Ephus looping</a></li>
+<li>See: <a href="../operation/#looping">Ephus looping</a></li>
 </ul>
 </li>
 <li><a href="../config/Ephus/testusrfcn.m">testusrfcn.m</a>: for testing user functions</li>
+</ul>
+<h3 id="qcam-widefield-camera">QCam (widefield camera)</h3>
+<ul>
+<li><a href="../config/Ephus/qcam_mod_retiga_w1600_h1200.m">qcam_mod_retiga_w1600_h1200.m</a>: <code>qcam.m</code> modified for the Retiga 2000R (1600 &times; 1200). Rename to <code>qcam.m</code> when deploying to <code>C:/Rig/Ephus 2013b/Programs/qcam/</code>.</li>
+<li>Camera trigger pulse, QCam control panel settings, and the resolution edits are documented in: <a href="../widefield/">Widefield Epifluorescence</a></li>
 </ul>
 <h2 id="scanimage">ScanImage</h2>
 <h3 id="machine-data-file-startup">Machine Data File (startup)</h3>
