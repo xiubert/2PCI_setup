@@ -72,6 +72,8 @@
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#imaging">Imaging</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#laser">Laser</a>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#computer">Computer</a>
     </li>
     </ul>
@@ -162,6 +164,29 @@
 </ul>
 </li>
 </ol>
+<h2 id="laser">Laser</h2>
+<ul>
+<li>
+<p>Required to control the MaiTai. The laser has <strong>no front-panel controls</strong> for wavelength, shutter, or laser on/off &mdash; these are set from the computer via the MaiTai GUI.</p>
+</li>
+<li>
+<p>MaiTai USB communication driver (Silicon Labs CP210x USB-to-UART Virtual COM Port):</p>
+<ul>
+<li><code>maitai_mks_usb_comm_CP210x_VCP_Windows.zip</code></li>
+<li>Unzips to <code>CP210x_VCP_Windows/</code>; run <code>CP210xVCPInstaller_x64.exe</code> on Windows 10 x64</li>
+<li>Makes the laser enumerate as a virtual COM port, which the MaiTai GUI connects to</li>
+<li><strong>Install this before the GUI</strong></li>
+</ul>
+</li>
+<li>
+<p>MaiTai control GUI:</p>
+<ul>
+<li><code>MaiTai Customer GUI 1.03.01 (1).zip</code> (unzips to <code>MaiTai Customer GUI SW077-1.03.01/</code>)</li>
+<li>Run <code>setup.exe</code></li>
+<li>See: <a href="../software/#maitai-laser-control">Software &rarr; MaiTai laser control</a></li>
+</ul>
+</li>
+</ul>
 <h2 id="computer">Computer</h2>
 <ul>
 <li>

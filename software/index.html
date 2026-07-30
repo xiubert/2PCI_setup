@@ -62,6 +62,8 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#ephus">Ephus</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#maitai-laser-control">MaiTai laser control</a>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#scanimage">ScanImage</a>
     </li>
     </ul>
@@ -156,6 +158,15 @@
 <li>Version: 2.1.0</li>
 <li>Widefield acquisition uses the built-in <code>qcam</code> program (32-bit <code>qcammex.mexw32</code> interface to the QCam API, hence MATLAB 2013b 32-bit)</li>
 <li>See: <a href="../widefield/">Widefield Epifluorescence</a></li>
+</ul>
+<h2 id="maitai-laser-control">MaiTai laser control</h2>
+<ul>
+<li>Use: laser on/off, shutter, wavelength, and status monitoring</li>
+<li>The MaiTai has <strong>no front-panel controls</strong> for these &mdash; the GUI is how the laser is operated</li>
+<li>Software: <code>MaiTai Customer GUI 1.03.01 (1).zip</code> &rarr; <code>MaiTai Customer GUI SW077-1.03.01/setup.exe</code> (Spectra-Physics part no. SW077)</li>
+<li>Driver: <code>maitai_mks_usb_comm_CP210x_VCP_Windows.zip</code> &rarr; <code>CP210xVCPInstaller_x64.exe</code> (Silicon Labs CP210x Virtual COM Port)</li>
+<li>The GUI talks to the laser over a virtual COM port created by the CP210x driver, so <strong>install the driver first</strong></li>
+<li>See: <a href="../drivers/#laser">Drivers &rarr; Laser</a> and <a href="../computer_setup/#laser-control-software">Rig Setup &rarr; Laser Control Software</a></li>
 </ul>
 <h2 id="scanimage">ScanImage</h2>
 <ul>

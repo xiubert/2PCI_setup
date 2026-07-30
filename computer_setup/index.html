@@ -106,6 +106,8 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#software-installation">Software Installation</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#laser-control-software">Laser Control Software</a>
+    </li>
     </ul>
                 </li>
               </ul>
@@ -239,6 +241,31 @@
 <p><strong>Configure Ephus and Scanimage</strong></p>
 <ul>
 <li>see: <a href="../configuration/">Configuration</a></li>
+</ul>
+</li>
+</ol>
+<h2 id="laser-control-software">Laser Control Software</h2>
+<p>Needed to operate the MaiTai — wavelength, shutter, and laser on/off are set from the computer,
+not from the laser itself.</p>
+<ol>
+<li><strong>Install MaiTai USB communication driver</strong> (Silicon Labs CP210x Virtual COM Port)<ul>
+<li><code>maitai_mks_usb_comm_CP210x_VCP_Windows.zip</code></li>
+<li>Unzip and run <code>CP210x_VCP_Windows/CP210xVCPInstaller_x64.exe</code></li>
+<li><strong>Install before the GUI</strong> — it creates the virtual COM port the GUI connects through</li>
+<li>Connect the laser over USB, then confirm the port appears under Device Manager &rarr; Ports (COM &amp; LPT)<ul>
+<li>Note the COM number: <code>COM3</code> is already taken by the Sutter MPC200 micromanipulator
+  (<code>motors(1).comPort = 3</code> in <a href="../config/ScanImage/Machine_Data_File.m">Machine_Data_File.m</a>),
+  so the laser will be on a different port</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Install MaiTai Customer GUI</strong> (v1.03.01)<ul>
+<li><code>MaiTai Customer GUI 1.03.01 (1).zip</code></li>
+<li>Unzip and run <code>MaiTai Customer GUI SW077-1.03.01/setup.exe</code></li>
+<li>This is a National Instruments distribution (<code>nidist.id</code>), so it may also install the
+  LabVIEW Run-Time Engine</li>
+<li>See: <a href="../software/#maitai-laser-control">Software &rarr; MaiTai laser control</a></li>
 </ul>
 </li>
 </ol>
