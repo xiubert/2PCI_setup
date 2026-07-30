@@ -5,15 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>Rig-specific drivers - Ca<sup>2+</sup> imaging in vivo</title>
+    <title>Disk backups (VHD) - Ca<sup>2+</sup> imaging in vivo</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Rig-specific drivers";
-        var mkdocs_page_input_path = "setup_scientifica.md";
+        var mkdocs_page_name = "Disk backups (VHD)";
+        var mkdocs_page_input_path = "vhd_backup.md";
         var mkdocs_page_url = null;
       </script>
     
@@ -48,7 +48,7 @@
                 </li>
               </ul>
               <p class="caption"><span class="caption-text">Common</span></p>
-              <ul>
+              <ul class="current">
                   <li class="toctree-l1"><a class="reference internal" href="../software/">Software</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../drivers/">Drivers</a>
@@ -69,7 +69,27 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../computer_setup/">Rig Setup</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../vhd_backup/">Disk backups (VHD)</a>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Disk backups (VHD)</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#tool">Tool</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#options-used">Options used</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#scope">Scope</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#images">Images</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#scientifica-rig">Scientifica rig</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#sutter-rig">Sutter rig</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#restoring">Restoring</a>
+    </li>
+    </ul>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../code/">Code</a>
                   </li>
@@ -84,24 +104,12 @@
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Scientifica rig</span></p>
-              <ul class="current">
+              <ul>
                   <li class="toctree-l1"><a class="reference internal" href="../hardware_scientifica/">Hardware</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../wiring_scientifica/">DAQ wiring</a>
                   </li>
-                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Rig-specific drivers</a>
-    <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#computer">Computer</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#motion-control-and-beam-attenuator-linlab-2">Motion control and beam attenuator — LinLab 2</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#com-port-assignments">COM port assignments</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#software-archives">Software archives</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#camera">Camera</a>
-    </li>
-    </ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../setup_scientifica/">Rig-specific drivers</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Appendices</span></p>
@@ -123,8 +131,8 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
-          <li class="breadcrumb-item">Scientifica rig</li>
-      <li class="breadcrumb-item active">Rig-specific drivers</li>
+          <li class="breadcrumb-item">Common</li>
+      <li class="breadcrumb-item active">Disk backups (VHD)</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -133,98 +141,98 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="rig-specific-drivers-scientifica-rig">Rig-specific drivers — Scientifica rig</h1>
-<p>Drivers and archives unique to the <strong>Scientifica</strong> rig. The common install sequence is in
-<a href="../computer_setup/">Rig Setup</a>; these are installed at its step 5.</p>
-<h2 id="computer">Computer</h2>
-<p>Dell Precision T3600</p>
-<p><strong>Install Dell Support Assist first</strong> so it can pull the correct drivers for this model.</p>
-<blockquote>
-<p>The specific Dell driver filenames for the T3600 are not yet recorded here — the list on the
-<a href="../setup_sutter/#computer">Sutter page</a> is for the T5810 and does <strong>not</strong> apply.</p>
-</blockquote>
-<h2 id="motion-control-and-beam-attenuator-linlab-2">Motion control and beam attenuator — LinLab 2</h2>
-<p>Operates all three motorised axes in the 1U rack: the beam attenuator, the XYZ stage, and the
-condenser focus. They appear as virtual COM ports (FTDI USB-serial), one LinLab 2 tab per device.</p>
+                <h1 id="disk-backups-vhd">Disk backups (VHD)</h1>
+<p>Full-disk images of each rig's acquisition computer. Restoring one returns the hard disk to the
+exact state it was in when the image was made — Windows, drivers, MATLAB, Ephus, ScanImage and
+all rig configuration together.</p>
+<p>This is the fast alternative to rebuilding a machine step by step; see
+<a href="../computer_setup/">Rig Setup</a> for the from-scratch install.</p>
+<h2 id="tool">Tool</h2>
+<p><a href="https://learn.microsoft.com/en-us/sysinternals/downloads/disk2vhd">Disk2vhd</a> (Sysinternals).</p>
+<h3 id="options-used">Options used</h3>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Setting</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Prepare for use in Virtual PC</td>
+<td><strong>Checked</strong></td>
+</tr>
+<tr>
+<td>Use Volume Shadow Copy</td>
+<td><strong>Checked</strong></td>
+</tr>
+<tr>
+<td>Use Vhdx</td>
+<td><strong>Unchecked</strong></td>
+</tr>
+</tbody>
+</table>
 <ul>
-<li><code>LinLab-2-Setup-1.0.19.177.zip</code> &rarr; <code>LinLab 2 Setup - 1.0.19.177.exe</code></li>
-<li>See: <a href="../laser_power_control/#scientifica-rig">2P Laser Power control</a></li>
+<li><strong>Use Volume Shadow Copy</strong> allows the image to be taken while Windows is running, from a
+  consistent snapshot.</li>
+<li><strong>Use Vhdx must be left unchecked</strong> — this produces the older <code>.VHD</code> format rather than
+  <code>.VHDX</code>. All the images below are <code>.VHD</code>.</li>
 </ul>
-<h2 id="com-port-assignments">COM port assignments</h2>
+<h2 id="scope">Scope</h2>
+<p>These are <strong>full disk backups</strong>: every partition on the disk holding the <code>C:</code> drive, not the <code>C:</code>
+volume alone. The system and boot partitions are therefore included, which is what allows a
+restored disk to boot.</p>
+<h2 id="images">Images</h2>
+<h3 id="scientifica-rig">Scientifica rig</h3>
+<p>Sharepoint: Tzounopoulos Lab (2024) &rarr; <code>Documents</code> &rarr; <code>data</code> &rarr; <code>PAC</code> &rarr;
+<code>scientifica2P_backup</code> &rarr; <code>VHD backup</code></p>
 <table>
 <thead>
 <tr>
-<th>COM</th>
-<th>Device</th>
-<th>LinLab 2 tab</th>
-<th>Used by ScanImage?</th>
+<th>Image</th>
+<th>State captured</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>COM3</code></td>
-<td><strong>Beam attenuator</strong></td>
-<td><strong>UMS</strong> (single axis, shown as Z)</td>
-<td>No — LinLab only</td>
+<td><code>ANDERSON-PC_DISK0.VHD</code></td>
+<td>Windows 7, <strong>before</strong> the Windows 10 upgrade</td>
 </tr>
 <tr>
-<td><code>COM4</code></td>
-<td>XYZ stage</td>
-<td>SliceScope — X, Y, Z</td>
-<td><strong>Yes</strong> — <code>motors(1).comPort = 4</code></td>
-</tr>
-<tr>
-<td><code>COM5</code></td>
-<td>Condenser focus</td>
-<td>SliceScope — C</td>
-<td>No — not configured</td>
+<td><code>scientifica_rig_C_disk_win10_20260729.VHD</code></td>
+<td>Windows 10, 2026-07-29</td>
 </tr>
 </tbody>
 </table>
-<blockquote>
-<p><strong><code>COM3</code> hazard.</strong> The inherited Sutter machine data file specifies <code>motors(1).comPort = 3</code>,
-which on this rig is the <strong>beam attenuator</strong>. Left unchanged, ScanImage would open the
-attenuator and drive it as an XYZ stage. It must be <code>4</code>.</p>
-</blockquote>
-<p><strong>Pin the port numbers</strong> in Device Manager → Port Settings → Advanced → COM Port Number once
-identified — they have drifted across reinstalls before. Ports can also renumber after
-unplug/replug into a different USB socket. Re-identification procedure:
-<a href="../wiring_scientifica/#61-how-to-re-identify-the-ports">DAQ wiring &rarr; How to re-identify the ports</a>.</p>
-<p><strong>LinLab holds its ports exclusively</strong> — close LinLab 2 before MATLAB or ScanImage needs a port,
-and vice versa.</p>
-<h2 id="software-archives">Software archives</h2>
+<h3 id="sutter-rig">Sutter rig</h3>
+<p>Sharepoint: Tzounopoulos Lab (2024) &rarr; <code>Documents</code> &rarr; <code>data</code> &rarr; <code>PAC</code> &rarr;
+<code>sutter2P_backup</code> &rarr; <code>vhd_backup</code></p>
 <table>
 <thead>
 <tr>
-<th>Software</th>
-<th>Archive</th>
+<th>Image</th>
+<th>State captured</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Ephus</td>
-<td><code>Ephus 2013b_working_win10_20260730.zip</code></td>
-</tr>
-<tr>
-<td>ScanImage</td>
-<td><code>Scanimage5-3_working_win10_20260730.zip</code></td>
+<td><code>sutter_C_disk_win10_20260729.VHD</code></td>
+<td>Windows 10, 2026-07-29</td>
 </tr>
 </tbody>
 </table>
-<blockquote>
-<p>The Sharepoint location for these archives is not yet recorded.</p>
-</blockquote>
-<h2 id="camera">Camera</h2>
-<p><code>qcam.m</code> must be the <strong>Rolera-XR</strong> variant (696 × 520) —
-<a href="../config/Ephus/qcam_raw_rolera_w696_h520.m">qcam_raw_rolera_w696_h520.m</a>, renamed to <code>qcam.m</code> and
-placed at <code>C:/Rig/Ephus 2013b/Programs/qcam/qcam.m</code>.</p>
-<p>See: <a href="../widefield/#qcamm-modification">Widefield Epifluorescence</a>.</p>
+<h2 id="restoring">Restoring</h2>
+<p>Writing an image back restores the hard disk to the state at which the VHD was made. Anything
+changed on the rig since that date — configuration edits, new user functions, acquired data still
+on the machine — is lost, so capture what you need before restoring.</p>
+<p>The Windows 7 Scientifica image predates the Windows 10 upgrade and is kept as a record of the
+original rig; restoring it would undo that upgrade.</p>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../wiring_scientifica/" class="btn btn-neutral float-left" title="DAQ wiring"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../appendix_galvo_scan_settings/" class="btn btn-neutral float-right" title="Galvo scan settings">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../computer_setup/" class="btn btn-neutral float-left" title="Rig Setup"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../code/" class="btn btn-neutral float-right" title="Code">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -247,10 +255,10 @@ placed at <code>C:/Rig/Ephus 2013b/Programs/qcam/qcam.m</code>.</p>
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../wiring_scientifica/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../computer_setup/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../appendix_galvo_scan_settings/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../code/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
