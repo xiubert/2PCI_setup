@@ -7,6 +7,11 @@ at step 5 below:
 - [Sutter — rig-specific drivers](setup_sutter.md)
 - [Scientifica — rig-specific drivers](setup_scientifica.md)
 
+> **Before rebuilding from scratch, check whether a disk image will do.** Each rig has a full-disk
+> VHD backup that restores Windows, drivers and all rig software in one step — see
+> [Disk backups (VHD)](vhd_backup.md). This page is for the case where you are starting from a
+> fresh Windows install instead.
+
 ## Prerequisites
 
 1. **Disconnect USB DAQ** - Ensure the USB DAQ is not connected before beginning installation

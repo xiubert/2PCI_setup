@@ -13,6 +13,7 @@ nav:
       - Speaker calibration: cal_speaker.md
       - 2P Laser Power calibration: cal_laser_power.md
       - Rig Setup: computer_setup.md
+      - Disk backups (VHD): vhd_backup.md
       - Code: code.md
   - Sutter rig:
       - Hardware: hardware_sutter.md

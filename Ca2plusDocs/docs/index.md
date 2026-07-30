@@ -30,6 +30,7 @@ Applies to both rigs.
 - [Speaker calibration](cal_speaker.md) - Calibrating the free-field speaker
 - [2P Laser Power calibration](cal_laser_power.md) - Laser power measurement
 - [Rig Setup](computer_setup.md) - Common install sequence after reinstalling Windows
+- [Disk backups (VHD)](vhd_backup.md) - Full-disk images of each rig, and how they were made
 - [Code](code.md) - Custom scripts and analysis tools
 
 ## Sutter rig
