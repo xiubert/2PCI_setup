@@ -56,8 +56,6 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#daqs">DAQs</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#widefield-epifluorescence-camera">Widefield epifluorescence camera</a>
-    </li>
     <li class="toctree-l2"><a class="reference internal" href="#pmt">PMT</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#shutter">Shutter</a>
@@ -90,10 +88,6 @@
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../widefield/">Widefield Epifluorescence</a>
-                </li>
-              </ul>
-              <ul>
                 <li class="toctree-l1"><a class="reference internal" href="../drivers/">Drivers</a>
                 </li>
               </ul>
@@ -103,6 +97,10 @@
               </ul>
               <ul>
                 <li class="toctree-l1"><a class="reference internal" href="../alignment/">2P Laser Alignment</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../laser_power_control/">2P Laser Power control</a>
                 </li>
               </ul>
               <ul>
@@ -185,14 +183,6 @@
 </ul>
 </li>
 </ol>
-<h2 id="widefield-epifluorescence-camera">Widefield epifluorescence camera</h2>
-<ul>
-<li>QImaging Retiga 2000R (1600 &times; 1200), FireWire (IEEE 1394)</li>
-<li>Image data connects <strong>directly to the computer</strong> via FireWire</li>
-<li>Camera trigger input driven by a QCam board, which is driven by the NI USB-6229 (<code>Dev2</code>, <code>AO3</code>)</li>
-<li>Used for widefield Ca<sup>2+</sup> imaging to map cortical subfields and target A1 for 2P imaging</li>
-<li>See: <a href="../widefield/">Widefield Epifluorescence</a></li>
-</ul>
 <h2 id="pmt">PMT</h2>
 <ul>
 <li>Controller: <a href="https://www.sutter.com/MICROSCOPES/pmt.html">Sutter PS-2LV</a></li>
@@ -222,8 +212,11 @@
 </ul>
 <h2 id="power-intensity-controller">Power Intensity Controller</h2>
 <ul>
-<li><a href="https://www.thorlabs.com/thorproduct.cfm?partnumber=KDC101">ThorLabs Kinesis Motor Controller KDC101</a></li>
-<li>Rotates <a href="https://www.thorlabs.com/thorproduct.cfm?partnumber=PRM1Z8">PRM1Z8</a> to adjust laser intensity entering Sutter enclosure</li>
+<li><a href="https://www.thorlabs.com/thorproduct.cfm?partnumber=KDC101">ThorLabs Kinesis Motor Controller KDC101</a> (K-Cube brushed DC servo motor controller)</li>
+<li>Rotates <a href="https://www.thorlabs.com/thorproduct.cfm?partnumber=PRM1Z8">PRM1Z8</a> motorized precision rotation mount to adjust laser intensity entering Sutter enclosure</li>
+<li>Driven manually via the jog wheel on the KDC101, or digitally via Thorlabs Kinesis software</li>
+<li>Connection: PRM1Z8 &rArr; KDC101 (motor cable) &rArr; USB &rArr; acquisition computer</li>
+<li>See: <a href="../laser_power_control/">2P Laser Power control</a></li>
 </ul>
 <h2 id="temperature-control">Temperature control</h2>
 <ul>

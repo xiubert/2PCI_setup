@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>2P Laser Power control - Ca<sup>2+</sup> imaging in vivo</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "2P Laser Power control";
+        var mkdocs_page_input_path = "laser_power_control.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Ca<sup>2+</sup> imaging in vivo
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../about/">About</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../hardware/">Hardware</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../software/">Software</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../configuration/">Configuration</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../operation/">Operation</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../drivers/">Drivers</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../code/">Code</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../alignment/">2P Laser Alignment</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">2P Laser Power control</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#hardware">Hardware</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#control-modes">Control modes</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#manual-jog-wheel-on-the-kdc101">Manual — jog wheel on the KDC101</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#digital-thorlabs-kinesis-software">Digital — Thorlabs Kinesis software</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#software-and-driver">Software and driver</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#not-integrated-with-the-acquisition-software">Not integrated with the acquisition software</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#safety">Safety</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#do-not-confuse-with-the-beam-split-rotation-mount">Do not confuse with the beam-split rotation mount</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#calibration">Calibration</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../cal_laser_power/">2P Laser Power calibration</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../cal_speaker/">Speaker calibration</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../computer_setup/">Rig Setup</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../pupillometry/">Pupillometry</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Ca<sup>2+</sup> imaging in vivo</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">2P Laser Power control</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="2p-laser-power-control">2P Laser Power Control</h1>
+<p>Excitation power entering the Sutter enclosure is set by a <strong>motorized precision rotation mount</strong>
+driven by a <strong>brushed DC servo motor controller</strong>. The mount can be driven either by hand, using
+the jog wheel on the controller, or digitally from the Thorlabs Kinesis software.</p>
+<h2 id="hardware">Hardware</h2>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Model</th>
+<th>Role</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Rotation mount</td>
+<td><a href="https://www.thorlabs.com/thorproduct.cfm?partnumber=PRM1Z8">Thorlabs PRM1Z8</a></td>
+<td>Motorized precision rotation mount; rotation sets beam attenuation</td>
+</tr>
+<tr>
+<td>Motor controller</td>
+<td><a href="https://www.thorlabs.com/thorproduct.cfm?partnumber=KDC101">Thorlabs KDC101</a></td>
+<td>K-Cube brushed DC servo motor controller; drives the PRM1Z8</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Connection:</strong></p>
+<pre><code>PRM1Z8  →  KDC101 (motor cable)  →  USB  →  acquisition computer
+</code></pre>
+<p>The KDC101 sits on the bench near the Sutter rig so the jog wheel is reachable during alignment.</p>
+<p>See: <a href="../hardware/#power-intensity-controller">Hardware → Power Intensity Controller</a>.</p>
+<h2 id="control-modes">Control modes</h2>
+<h3 id="manual-jog-wheel-on-the-kdc101">Manual — jog wheel on the KDC101</h3>
+<p>Rotate the wheel on the KDC101 front panel to change the mount angle, and therefore the power,
+without any software running. This is the fastest way to change power at the bench and is the
+method used during alignment.</p>
+<h3 id="digital-thorlabs-kinesis-software">Digital — Thorlabs Kinesis software</h3>
+<p>The Kinesis GUI exposes the same axis for software control, allowing the mount to be homed and
+moved to a specific angle rather than adjusted by feel. Use this when a power setting needs to be
+returned to reproducibly across sessions, since an absolute angle can be recorded and re-entered.</p>
+<h2 id="software-and-driver">Software and driver</h2>
+<ul>
+<li><strong>Thorlabs Kinesis</strong> — <code>Thorlabs_Kinesis_Setup_25822_x64.exe</code></li>
+<li>The same installer provides both the Kinesis application and the USB driver for the KDC101</li>
+</ul>
+<p>See: <a href="../drivers/#imaging">Drivers</a> and
+<a href="../computer_setup/#data-acquisition-drivers">Rig Setup → Install Thorlabs Kinesis Driver</a>.</p>
+<h2 id="not-integrated-with-the-acquisition-software">Not integrated with the acquisition software</h2>
+<p>Power is <strong>not</strong> under ScanImage or Ephus control on this rig — there is no Pockels cell or beam
+modulation path. This is reflected in both configuration files:</p>
+<ul>
+<li>ScanImage <a href="../config/ScanImage/Machine_Data_File.m">Machine_Data_File.m</a>: <code>beamDaqDevices = {}</code> and
+  <code>beamDaqs(1).chanIDs = []</code> — no beam DAQ configured</li>
+<li>Ephus <a href="../config/Ephus/ephus_init_matlab2013b_32bit_250kHz_Camera_20250903.m">startup file</a>:
+  <code>pockelsBoardID = []</code> and <code>pockelsChannelID = []</code> — Pockels feature disabled</li>
+</ul>
+<p>Practical consequences:</p>
+<ul>
+<li>Power is set <strong>before</strong> an acquisition and stays fixed for its duration; it cannot be ramped
+  with depth or modulated per-frame from ScanImage</li>
+<li>The power used is <strong>not recorded</strong> in the .tif or .xsg headers — note it in your experiment
+  record manually</li>
+</ul>
+<h2 id="safety">Safety</h2>
+<p><strong>Before alignment, always reduce power to its lowest setting at 920 nm using the PRM1Z8 jog
+wheel</strong> to avoid burning optics in the beam path.</p>
+<p>See: <a href="../alignment/#translational-alignment-x-y">2P Laser Alignment → Translational Alignment</a>.</p>
+<h2 id="do-not-confuse-with-the-beam-split-rotation-mount">Do not confuse with the beam-split rotation mount</h2>
+<p>A <strong>second, separate</strong> rotation mount sits upstream: a manual
+<a href="https://www.newport.com/p/RSP-1T">Newport RSP-1T</a>, used during coarse alignment to split the beam
+roughly evenly between the Scientifica and Sutter rigs. It is not motorized and is not controlled
+by the KDC101.</p>
+<table>
+<thead>
+<tr>
+<th>Mount</th>
+<th>Motorized?</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Thorlabs PRM1Z8</td>
+<td>Yes (KDC101)</td>
+<td>Sets power entering the Sutter enclosure</td>
+</tr>
+<tr>
+<td>Newport RSP-1T</td>
+<td>No (manual)</td>
+<td>Splits beam between the Scientifica and Sutter rigs</td>
+</tr>
+</tbody>
+</table>
+<p>See: <a href="../alignment/#coarse-alignment-process-only-if-pollen-grain-not-visible">2P Laser Alignment → Coarse Alignment Process</a>.</p>
+<h2 id="calibration">Calibration</h2>
+<p>The relationship between mount angle and power at the sample must be measured with a power meter.</p>
+<p>See: <a href="../cal_laser_power/">2P Laser Power calibration</a>.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../alignment/" class="btn btn-neutral float-left" title="2P Laser Alignment"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../cal_laser_power/" class="btn btn-neutral float-right" title="2P Laser Power calibration">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../alignment/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../cal_laser_power/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
