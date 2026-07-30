@@ -63,6 +63,7 @@
 
 ### Translational Alignment (X-Y)
 - **CRITICAL**: First use PRM1Z8 (controlled via jog wheel near Sutter Rig) to adjust power to the lowest setting at 920 nm to avoid burning anything in the beam path
+    - See: [2P Laser Power control](laser_power_control.md)
 - Done at 690 nm (Use LG8 green lens safety glasses)
 - Requires crosshair objective adapter in alignment case (want beam to fill the center of the crosshair projected from adapter onto white paper)
 

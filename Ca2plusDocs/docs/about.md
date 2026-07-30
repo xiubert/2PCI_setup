@@ -21,7 +21,7 @@ The rig is built around a **Sutter MOM (Moveable Objective Microscope)**, which 
 - QImaging Retiga 2000R FireWire camera (1600 × 1200) for widefield epifluorescence imaging
 - Tucker Davis ES1 freefield speaker with ED1 driver
 - Sutter ROE-200 micromanipulator
-- ThorLabs KDC101 motor controller with PRM1Z8 for laser power control
+- ThorLabs KDC101 motor controller with PRM1Z8 rotation mount for laser power control (manual jog wheel or Thorlabs Kinesis software)
 - Dell Precision Tower 5810 workstation (Windows 10)
 
 ### Software Stack

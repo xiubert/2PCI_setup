@@ -32,8 +32,9 @@ Initial setup instructions for the Dell Precision Tower 5810 acquisition compute
 9. **Install Sutter CDM Controller Driver**
     - `SI_CDM_v2_12_36.zip`
     - See: [Installation guide](https://www.sutter.com/hubfs/SOFTWARE/CDM_driver_Install_Guide.pdf?hsLang=en)
-10. **Install Thorlabs Kinesis Driver** - For laser power control
+10. **Install Thorlabs Kinesis Driver** - For laser power control (KDC101 / PRM1Z8)
     - `Thorlabs_Kinesis_Setup_25822_x64.exe`
+    - See: [2P Laser Power control](laser_power_control.md)
 
 ## System Optimization
 
