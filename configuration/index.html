@@ -47,17 +47,16 @@
                 <li class="toctree-l1"><a class="reference internal" href="../about/">About</a>
                 </li>
               </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../hardware/">Hardware</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../software/">Software</a>
-                </li>
-              </ul>
+              <p class="caption"><span class="caption-text">Common</span></p>
               <ul class="current">
-                <li class="toctree-l1 current"><a class="reference internal current" href="#">Configuration</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../software/">Software</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../drivers/">Drivers</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Configuration</a>
     <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#per-rig-differences">Per-rig differences</a>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#ephus">Ephus</a>
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#startup-file">Startup file</a>
@@ -74,9 +73,13 @@
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#machine-data-file-startup">Machine Data File (startup)</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#user-settings-file">User Settings File:</a>
+    <li class="toctree-l3"><a class="reference internal" href="#user-settings-and-configuration-files">User settings and configuration files</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#sutter-rig">Sutter rig</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#additional-user-settings">Additional user settings</a>
+    <li class="toctree-l4"><a class="reference internal" href="#scientifica-rig">Scientifica rig</a>
+    </li>
+        </ul>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#pulse-train-config">Pulse Train Config</a>
     </li>
@@ -89,47 +92,46 @@
     <li class="toctree-l2"><a class="reference internal" href="#notes">Notes</a>
     </li>
     </ul>
-                </li>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../operation/">Operation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../widefield/">Widefield Epifluorescence</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../laser_power_control/">2P Laser Power control</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../alignment/">2P Laser Alignment</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../cal_speaker/">Speaker calibration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../cal_laser_power/">2P Laser Power calibration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../computer_setup/">Rig Setup</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../code/">Code</a>
+                  </li>
               </ul>
+              <p class="caption"><span class="caption-text">Sutter rig</span></p>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../operation/">Operation</a>
-                </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../hardware_sutter/">Hardware</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../setup_sutter/">Rig-specific drivers</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../pupillometry/">Pupillometry</a>
+                  </li>
               </ul>
+              <p class="caption"><span class="caption-text">Scientifica rig</span></p>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../widefield/">Widefield Epifluorescence</a>
-                </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../hardware_scientifica/">Hardware</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../wiring_scientifica/">DAQ wiring</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../setup_scientifica/">Rig-specific drivers</a>
+                  </li>
               </ul>
+              <p class="caption"><span class="caption-text">Appendices</span></p>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../drivers/">Drivers</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../code/">Code</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../alignment/">2P Laser Alignment</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../laser_power_control/">2P Laser Power control</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../cal_laser_power/">2P Laser Power calibration</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../cal_speaker/">Speaker calibration</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../computer_setup/">Rig Setup</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../pupillometry/">Pupillometry</a>
-                </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../appendix_galvo_scan_settings/">Galvo scan settings</a>
+                  </li>
               </ul>
       </div>
     </div>
@@ -145,6 +147,7 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Common</li>
       <li class="breadcrumb-item active">Configuration</li>
     <li class="wy-breadcrumbs-aside">
     </li>
@@ -155,12 +158,114 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="configuration">Configuration</h1>
+<p>Ephus and ScanImage settings. <strong>Both rigs run the same versions and the same custom user
+functions</strong>; the values that differ are listed in <a href="#per-rig-differences">Per-rig differences</a>.</p>
+<h2 id="per-rig-differences">Per-rig differences</h2>
+<p>Each rig has its own Ephus startup file and ScanImage machine data file. Summary:</p>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Sutter</th>
+<th>Scientifica</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ephus startup file</td>
+<td><a href="../config/Ephus/ephus_init_matlab2013b_32bit_250kHz_Camera_20250903.m">...20250903.m</a></td>
+<td><a href="../config/Ephus/ephus_init_matlab2013b_32bit_250kHz_Camera_20260728_scientifica.m">...20260728_scientifica.m</a></td>
+</tr>
+<tr>
+<td>ScanImage machine data file</td>
+<td><a href="../config/ScanImage/Machine_Data_File.m">Machine_Data_File.m</a></td>
+<td><a href="../config/ScanImage/Machine_Data_File_scientifica.m">Machine_Data_File_scientifica.m</a></td>
+</tr>
+<tr>
+<td><code>xsgStartDirectory</code></td>
+<td><code>'D:\Data\sutter2P\'</code></td>
+<td><code>'C:\rig\DATA_TEMP'</code></td>
+</tr>
+<tr>
+<td><code>motors(1).controllerType</code></td>
+<td><code>'sutter.mpc200'</code></td>
+<td><code>'scientifica'</code></td>
+</tr>
+<tr>
+<td><code>motors(1).comPort</code></td>
+<td><code>3</code> — Sutter MPC200</td>
+<td><strong><code>4</code></strong> — SliceScope XYZ stage</td>
+</tr>
+<tr>
+<td><code>AI17</code> / <code>Green LED output check</code></td>
+<td>In use</td>
+<td><strong>Not connected</strong></td>
+</tr>
+<tr>
+<td><code>qcam.m</code> variant</td>
+<td>Retiga 2000R, 1600 × 1200</td>
+<td>Rolera-XR, 696 × 520</td>
+</tr>
+</tbody>
+</table>
+<p>Full per-file breakdowns: <a href="#startup-file">Ephus startup file</a> ·
+<a href="#machine-data-file-startup">ScanImage machine data file</a></p>
+<blockquote>
+<p><strong><code>COM3</code> hazard on the Scientifica rig.</strong> <code>COM3</code> there is the <strong>beam attenuator</strong>, not the
+stage. If <code>motors(1).comPort</code> is left at the inherited value of <code>3</code>, ScanImage opens the
+attenuator and drives it as an XYZ stage. See
+<a href="../setup_scientifica/#com-port-assignments">Scientifica rig-specific drivers</a>.</p>
+</blockquote>
+<p>Analog output assignments (<code>AO0</code> green LED, <code>AO1</code> sound + <code>AI16</code> loopback, <code>AO2</code> blue LED,
+<code>AO3</code> QCam trigger) and the ScanImage &rarr; Ephus trigger topology are the same on both rigs.
+Terminal-by-terminal wiring for the Scientifica rig: <a href="../wiring_scientifica/">DAQ wiring</a>.</p>
 <h2 id="ephus">Ephus</h2>
 <h3 id="startup-file">Startup file</h3>
-<ul>
-<li><a href="../config/Ephus/ephus_init_matlab2013b_32bit_250kHz_Camera_20250903.m">ephus_init_matlab2013b_32bit_250kHz_Camera_20250903.m</a></li>
-</ul>
-<p><strong>Key configuration values</strong>:</p>
+<p><strong>One startup file per rig:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Rig</th>
+<th>Startup file</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sutter</td>
+<td><a href="../config/Ephus/ephus_init_matlab2013b_32bit_250kHz_Camera_20250903.m">ephus_init_matlab2013b_32bit_250kHz_Camera_20250903.m</a></td>
+</tr>
+<tr>
+<td>Scientifica</td>
+<td><a href="../config/Ephus/ephus_init_matlab2013b_32bit_250kHz_Camera_20260728_scientifica.m">ephus_init_matlab2013b_32bit_250kHz_Camera_20260728_scientifica.m</a></td>
+</tr>
+</tbody>
+</table>
+<p>Only two values differ between them:</p>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Sutter</th>
+<th>Scientifica</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>xsgStartDirectory</code></td>
+<td><code>'D:\Data\sutter2P\'</code></td>
+<td><code>'C:\rig\DATA_TEMP'</code></td>
+</tr>
+<tr>
+<td><code>acqChannelNames{2}</code> (<code>AI17</code>)</td>
+<td><code>'Green LED output check'</code></td>
+<td><code>'unused (AI17)'</code> — not connected</td>
+</tr>
+</tbody>
+</table>
+<p>Channel counts and IDs are otherwise identical, including <code>acqChannelIDs = [16 17]</code> — the
+Scientifica rig still declares <code>AI17</code>, it is simply named as unused because nothing is wired to
+it. All stimulator channels, the sample rate, and the trigger and sample-clock routing match.</p>
+<p><strong>Key configuration values</strong> (Sutter file shown; the Scientifica file differs only as above):</p>
 <pre><code class="language-matlab">xsgStartDirectory = 'D:\Data\sutter2P\';
 
 %Acquirer channels (Analog Input)
@@ -217,16 +322,107 @@ sampleClockDestination = 'PFI10';            % A DAQmx PFI terminal name (e.g. '
 <li><a href="../config/Ephus/testusrfcn.m">testusrfcn.m</a>: for testing user functions</li>
 </ul>
 <h3 id="qcam-widefield-camera">QCam (widefield camera)</h3>
+<p><code>qcam.m</code> hardcodes the camera resolution, so <strong>each rig needs the variant matching its camera</strong>.</p>
+<p>On the rig the file is deployed as:</p>
+<pre><code>C:/Rig/Ephus 2013b/Programs/qcam/qcam.m
+</code></pre>
+<p>i.e. <code>Ephus 2013b</code> &rarr; <code>Programs</code> &rarr; <code>qcam</code> &rarr; <code>qcam.m</code>. The copies here carry
+descriptive names to keep them apart — <strong>rename the rig's variant to <code>qcam.m</code> when deploying</strong>.</p>
+<table>
+<thead>
+<tr>
+<th>Rig</th>
+<th>Camera</th>
+<th>Variant</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sutter</td>
+<td>Retiga 2000R (1600 &times; 1200)</td>
+<td><a href="../config/Ephus/qcam_mod_retiga_w1600_h1200.m">qcam_mod_retiga_w1600_h1200.m</a></td>
+</tr>
+<tr>
+<td>Scientifica</td>
+<td>Rolera-XR (696 &times; 520)</td>
+<td><a href="../config/Ephus/qcam_raw_rolera_w696_h520.m">qcam_raw_rolera_w696_h520.m</a></td>
+</tr>
+</tbody>
+</table>
 <ul>
-<li><a href="../config/Ephus/qcam_mod_retiga_w1600_h1200.m">qcam_mod_retiga_w1600_h1200.m</a>: <code>qcam.m</code> modified for the Retiga 2000R (1600 &times; 1200). Rename to <code>qcam.m</code> when deploying to <code>C:/Rig/Ephus 2013b/Programs/qcam/</code>.</li>
-<li>Camera trigger pulse, QCam control panel settings, and the resolution edits are documented in: <a href="../widefield/">Widefield Epifluorescence</a></li>
+<li>Camera trigger pulse, QCam control panel settings (exposure and bin factor differ per rig), and
+  the resolution edits are documented in: <a href="../widefield/">Widefield Epifluorescence</a></li>
 </ul>
 <h2 id="scanimage">ScanImage</h2>
 <h3 id="machine-data-file-startup">Machine Data File (startup)</h3>
-<ul>
-<li><a href="../config/ScanImage/Machine_Data_File.m">Machine_Data_File.m</a></li>
-</ul>
-<p><strong>Key configuration values</strong>:</p>
+<p><strong>One machine data file per rig.</strong> Both deploy as <code>Machine_Data_File.m</code> on their own rig; the
+copies here are named to keep them apart.</p>
+<table>
+<thead>
+<tr>
+<th>Rig</th>
+<th>Machine data file</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sutter</td>
+<td><a href="../config/ScanImage/Machine_Data_File.m">Machine_Data_File.m</a></td>
+</tr>
+<tr>
+<td>Scientifica</td>
+<td><a href="../config/ScanImage/Machine_Data_File_scientifica.m">Machine_Data_File_scientifica.m</a></td>
+</tr>
+</tbody>
+</table>
+<p>The differences are confined to the <strong>motor/stage block</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Sutter</th>
+<th>Scientifica</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>motors(1).controllerType</code></td>
+<td><code>'sutter.mpc200'</code></td>
+<td><code>'scientifica'</code></td>
+</tr>
+<tr>
+<td><code>motors(1).comPort</code></td>
+<td><code>3</code></td>
+<td><strong><code>4</code></strong></td>
+</tr>
+<tr>
+<td><code>motors(1).customArgs</code></td>
+<td><code>{}</code></td>
+<td><code>{'stageType','slice_scope'}</code></td>
+</tr>
+<tr>
+<td><code>motors(1).moveCompleteDelay</code></td>
+<td><code>5</code></td>
+<td><code>0</code></td>
+</tr>
+<tr>
+<td><code>motors(1).moveTimeout</code></td>
+<td><code>[]</code> (controller default)</td>
+<td><code>5</code> s</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Do not carry <code>motors(1).comPort = 3</code> over to the Scientifica rig.</strong> <code>COM3</code> there is the beam
+attenuator, not the stage — ScanImage would open the attenuator and drive it as an XYZ stage.</p>
+</blockquote>
+<p>Everything else matches on both rigs: shutter on <code>Dev1 port0/line7</code>, galvos on <code>Dev1 AO0</code>/<code>AO1</code>,
+PMT channel IDs, 30° angular ranges, 0.333 V per optical degree, and 7.5° park angles.</p>
+<p>Beam modulation is <strong>unconfigured on both rigs</strong> — <code>beamDaqDevices = {}</code> and
+<code>beamDaqs(1).chanIDs = []</code>. Laser power is set outside ScanImage; see
+<a href="../laser_power_control/#not-integrated-with-the-acquisition-software">2P Laser Power control</a>.
+The Scientifica file also has <code>components = {}</code>.</p>
+<p><strong>Key configuration values</strong> (Sutter file shown; the Scientifica file differs only as above):</p>
 <pre><code class="language-matlab">shutterDaqDevices = {'Dev1'};  % Cell array specifying the DAQ device or RIO devices for each shutter eg {'PXI1Slot3' 'PXI1Slot4'}
 shutterChannelIDs = {'port0/line7'};      % Cell array specifying the corresponding channel on the device for each shutter eg {'PFI12'}
 
@@ -270,14 +466,133 @@ YMirrorOffsetMaxVoltage = 1;        % maximum allowed voltage output for the cha
 
 internalRefClockSrc = '';
 </code></pre>
-<h3 id="user-settings-file">User Settings File:</h3>
-<ul>
-<li><a href="../config/ScanImage/working_acqModeArmed.usr">working_acqModeArmed.cfg</a>: Default for startup. Corresponds to <a href="../config/ScanImage/256pxSq_5Hz_acqModeArmed.cfg">256pxSq_5Hz_acqModeArmed.cfg</a> configuration file.</li>
-</ul>
-<h3 id="additional-user-settings">Additional user settings</h3>
-<ul>
-<li><a href="../config/ScanImage/working_merge_acqModeArmed.usr">working_merge_acqModeArmed.usr</a>: Both channels (green and red) with merge view. Corresponds to <a href="../config/ScanImage/256pxSq_5Hz_merge_acqModeArmed.cfg">256pxSq_5Hz_merge_acqModeArmed.cfg</a> configuration file.</li>
-</ul>
+<h3 id="user-settings-and-configuration-files">User settings and configuration files</h3>
+<p>Each <code>.usr</code> (user settings) file pairs with a <code>.cfg</code> (configuration) file. <strong>Both rigs acquire at
+5 Hz at 256 × 256 by default</strong> — the Sutter rig at <strong>1x</strong> zoom, the Scientifica rig at <strong>1.5x</strong>,
+because its galvos cannot sustain a 256 × 256 frame at 1x without a comb artifact.</p>
+<p>Why the zoom differs, and what to do if the artifact appears:
+<a href="../appendix_galvo_scan_settings/">Appendix — Galvo scan settings</a>.</p>
+<p>Naming: <code>_1-5</code> / <code>_2</code> are the zoom factor, <code>merge</code> means both channels with merge view,
+<code>256pxSq_5Hz</code> is 256 × 256 at 5 Hz, and <code>256x128_10Hz</code> halves the lines per frame for 10 Hz.</p>
+<h4 id="sutter-rig">Sutter rig</h4>
+<p>Zoom <strong>1x</strong> throughout — there is no galvo limit at 1x for a 256 × 256 frame at 5 Hz.</p>
+<table>
+<thead>
+<tr>
+<th>Configuration</th>
+<th>Zoom</th>
+<th>Frame</th>
+<th>Channels</th>
+<th>User settings</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../config/ScanImage/256pxSq_5Hz_acqModeArmed.cfg">256pxSq_5Hz_acqModeArmed.cfg</a> — <strong>default</strong></td>
+<td>1x</td>
+<td>256 × 256, 5 Hz</td>
+<td>single</td>
+<td><a href="../config/ScanImage/working_acqModeArmed.usr">working_acqModeArmed.usr</a></td>
+</tr>
+<tr>
+<td><a href="../config/ScanImage/256pxSq_5Hz_merge_acqModeArmed.cfg">256pxSq_5Hz_merge_acqModeArmed.cfg</a></td>
+<td>1x</td>
+<td>256 × 256, 5 Hz</td>
+<td>both, merge view</td>
+<td><a href="../config/ScanImage/working_merge_acqModeArmed.usr">working_merge_acqModeArmed.usr</a></td>
+</tr>
+<tr>
+<td><a href="../config/ScanImage/256x128_10Hz_acqModeArmed.cfg">256x128_10Hz_acqModeArmed.cfg</a></td>
+<td>1x</td>
+<td>256 × 128, 10 Hz</td>
+<td>single</td>
+<td><a href="../config/ScanImage/working_256x128_10Hz_acqModeArmed.usr">working_256x128_10Hz_acqModeArmed.usr</a></td>
+</tr>
+<tr>
+<td><a href="../config/ScanImage/256x128_10Hz_merge_acqModeArmed.cfg">256x128_10Hz_merge_acqModeArmed.cfg</a></td>
+<td>1x</td>
+<td>256 × 128, 10 Hz</td>
+<td>both, merge view</td>
+<td><a href="../config/ScanImage/working_256x128_10Hz_merge_acqModeArmed.usr">working_256x128_10Hz_merge_acqModeArmed.usr</a></td>
+</tr>
+</tbody>
+</table>
+<h4 id="scientifica-rig">Scientifica rig</h4>
+<p>Zoom <strong>1.5x</strong> is the default — it maximises recording area while avoiding the comb artifact from
+the galvo limits. <strong>2x is the conservative fallback</strong> if the artifact returns.</p>
+<table>
+<thead>
+<tr>
+<th>Configuration</th>
+<th>Zoom</th>
+<th>Frame</th>
+<th>Channels</th>
+<th>User settings</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../config/ScanImage/scientifica/256pxSq_5Hz_acqModeArmed_1-5.cfg">256pxSq_5Hz_acqModeArmed_1-5.cfg</a> — <strong>default</strong></td>
+<td>1.5x</td>
+<td>256 × 256, 5 Hz</td>
+<td>single (channel 2, GFP)</td>
+<td><a href="../config/ScanImage/scientifica/working_acqModeArmed_1-5.usr">working_acqModeArmed_1-5.usr</a></td>
+</tr>
+<tr>
+<td><a href="../config/ScanImage/scientifica/256pxSq_5Hz_acqModeArmed_2.cfg">256pxSq_5Hz_acqModeArmed_2.cfg</a></td>
+<td>2x</td>
+<td>256 × 256, 5 Hz</td>
+<td>single (channel 2, GFP)</td>
+<td><a href="../config/ScanImage/scientifica/working_acqModeArmed_2.usr">working_acqModeArmed_2.usr</a></td>
+</tr>
+<tr>
+<td><a href="../config/ScanImage/scientifica/256pxSq_5Hz_merge_acqModeArmed_1-5.cfg">256pxSq_5Hz_merge_acqModeArmed_1-5.cfg</a> — <strong>default for both channels</strong></td>
+<td>1.5x</td>
+<td>256 × 256, 5 Hz</td>
+<td>both, merge view</td>
+<td><a href="../config/ScanImage/scientifica/working_merge_acqModeArmed_1-5.usr">working_merge_acqModeArmed_1-5.usr</a></td>
+</tr>
+<tr>
+<td><a href="../config/ScanImage/scientifica/256pxSq_5Hz_merge_acqModeArmed_2.cfg">256pxSq_5Hz_merge_acqModeArmed_2.cfg</a></td>
+<td>2x</td>
+<td>256 × 256, 5 Hz</td>
+<td>both, merge view</td>
+<td><a href="../config/ScanImage/scientifica/working_merge_acqModeArmed_2.usr">working_merge_acqModeArmed_2.usr</a></td>
+</tr>
+<tr>
+<td><a href="../config/ScanImage/scientifica/256x128_10Hz_acqModeArmed_1-5.cfg">256x128_10Hz_acqModeArmed_1-5.cfg</a></td>
+<td>1.5x</td>
+<td>256 × 128, 10 Hz</td>
+<td>single</td>
+<td><a href="../config/ScanImage/scientifica/working_256x128_10Hz_acqModeArmed_1-5.usr">working_256x128_10Hz_acqModeArmed_1-5.usr</a></td>
+</tr>
+<tr>
+<td><a href="../config/ScanImage/scientifica/256x128_10Hz_acqModeArmed_2.cfg">256x128_10Hz_acqModeArmed_2.cfg</a></td>
+<td>2x</td>
+<td>256 × 128, 10 Hz</td>
+<td>single</td>
+<td><a href="../config/ScanImage/scientifica/working_256x128_10Hz_acqModeArmed_2.usr">working_256x128_10Hz_acqModeArmed_2.usr</a></td>
+</tr>
+<tr>
+<td><a href="../config/ScanImage/scientifica/256x128_10Hz_merge_acqModeArmed_1-5.cfg">256x128_10Hz_merge_acqModeArmed_1-5.cfg</a></td>
+<td>1.5x</td>
+<td>256 × 128, 10 Hz</td>
+<td>both, merge view</td>
+<td><a href="../config/ScanImage/scientifica/working_256x128_10Hz_merge_acqModeArmed_1-5.usr">working_256x128_10Hz_merge_acqModeArmed_1-5.usr</a></td>
+</tr>
+<tr>
+<td><a href="../config/ScanImage/scientifica/256x128_10Hz_merge_acqModeArmed_2.cfg">256x128_10Hz_merge_acqModeArmed_2.cfg</a></td>
+<td>2x</td>
+<td>256 × 128, 10 Hz</td>
+<td>both, merge view</td>
+<td><a href="../config/ScanImage/scientifica/working_256x128_10Hz_merge_acqModeArmed_2.usr">working_256x128_10Hz_merge_acqModeArmed_2.usr</a></td>
+</tr>
+</tbody>
+</table>
+<p>The 10 Hz configurations halve <strong>lines per frame</strong> to 128, keeping 256 pixels per line. This
+doubles the frame rate without shortening the line period, so it costs no galvo margin — the
+field is full width but half height, and pixels are not square. Used for spontaneous cell
+recordings.</p>
 <h3 id="pulse-train-config">Pulse Train Config</h3>
 <ul>
 <li><a href="../config/ScanImage/PulseTrainPanelInit.m">PulseTrainPanelInit.m</a>: ran at startup - initiates pulse train UI fig</li>
@@ -333,7 +648,7 @@ internalRefClockSrc = '';
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../software/" class="btn btn-neutral float-left" title="Software"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../drivers/" class="btn btn-neutral float-left" title="Drivers"><span class="icon icon-circle-arrow-left"></span> Previous</a>
         <a href="../operation/" class="btn btn-neutral float-right" title="Operation">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
@@ -357,7 +672,7 @@ internalRefClockSrc = '';
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../software/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../drivers/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
       <span><a href="../operation/" style="color: #fcfcfc">Next &raquo;</a></span>

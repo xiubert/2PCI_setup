@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+
+<html class="writer-html5" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="../img/favicon.ico" rel="shortcut icon"/>
+<title>DAQ wiring - Ca&lt;sup&gt;2+&lt;/sup&gt; imaging in vivo</title>
+<link href="../css/theme.css" rel="stylesheet"/>
+<link href="../css/theme_extra.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" rel="stylesheet"/>
+<script>
+        // Current page data
+        var mkdocs_page_name = "DAQ wiring";
+        var mkdocs_page_input_path = "wiring_scientifica.md";
+        var mkdocs_page_url = null;
+      </script>
+<!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+</head>
+<body class="wy-body-for-nav" role="document">
+<div class="wy-grid-for-nav">
+<nav class="wy-nav-side stickynav" data-toggle="wy-nav-shift">
+<div class="wy-side-scroll">
+<div class="wy-side-nav-search">
+<a class="icon icon-home" href=".."> Ca<sup>2+</sup> imaging in vivo
+        </a><div role="search">
+<form action="../search.html" class="wy-form" id="rtd-search-form" method="get">
+<input aria-label="Search docs" name="q" placeholder="Search docs" title="Type search term here" type="text"/>
+</form>
+</div>
+</div>
+<div aria-label="Navigation menu" class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/">About</a>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Common</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../software/">Software</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../drivers/">Drivers</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration/">Configuration</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../operation/">Operation</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../widefield/">Widefield Epifluorescence</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../laser_power_control/">2P Laser Power control</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../alignment/">2P Laser Alignment</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../cal_speaker/">Speaker calibration</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../cal_laser_power/">2P Laser Power calibration</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../computer_setup/">Rig Setup</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../code/">Code</a>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Sutter rig</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../hardware_sutter/">Hardware</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../setup_sutter/">Rig-specific drivers</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../pupillometry/">Pupillometry</a>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Scientifica rig</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../hardware_scientifica/">Hardware</a>
+</li>
+<li class="toctree-l1 current"><a class="reference internal current" href="#">DAQ wiring</a>
+<ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="#1-ni-usb-6229-dev2-ephus">1. NI USB-6229 — Dev2 (Ephus)</a>
+<ul>
+<li class="toctree-l3"><a class="reference internal" href="#11-analog-output">1.1 Analog output</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#12-analog-input">1.2 Analog input</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#13-digital-timing-io">1.3 Digital &amp; timing I/O</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#2-ni-pci-6110-bnc-2090a-dev1-scanimage">2. NI PCI-6110 / BNC-2090A — Dev1 (ScanImage)</a>
+<ul>
+<li class="toctree-l3"><a class="reference internal" href="#21-analog-input">2.1 Analog input</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#22-analog-output">2.2 Analog output</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#23-user-lines-and-digital-io">2.3 USER lines and digital I/O</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#3-diagram">3. Diagram</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#4-signal-chains">4. Signal chains</a>
+<ul>
+<li class="toctree-l3"><a class="reference internal" href="#41-2p-synchronised-sound-delivery-scanimage-triggers-ephus">4.1 2P-synchronised sound delivery — ScanImage triggers Ephus</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#42-ephus-sample-clock">4.2 Ephus sample clock</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#43-ephus-internal-trigger">4.3 Ephus internal trigger</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#44-scanimage-internal-trigger">4.4 ScanImage internal trigger</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#45-shutter">4.5 Shutter</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#5-terminal-reference">5. Terminal reference</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#6-serial-motion-control-devices-linlab-2">6. Serial / motion-control devices (LinLab 2)</a>
+<ul>
+<li class="toctree-l3"><a class="reference internal" href="#61-how-to-re-identify-the-ports">6.1 How to re-identify the ports</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#62-beam-attenuator-linlab-ums-tab">6.2 Beam attenuator (LinLab UMS tab)</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#can-it-be-controlled-from-scanimage">Can it be controlled from ScanImage?</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#63-condenser-com5">6.3 Condenser (COM5)</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#7-related-documents">7. Related documents</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../setup_scientifica/">Rig-specific drivers</a>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Appendices</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../appendix_galvo_scan_settings/">Galvo scan settings</a>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+<section class="wy-nav-content-wrap" data-toggle="wy-nav-shift">
+<nav aria-label="Mobile navigation menu" class="wy-nav-top" role="navigation">
+<i class="fa fa-bars" data-toggle="wy-nav-top"></i>
+<a href="..">Ca<sup>2+</sup> imaging in vivo</a>
+</nav>
+<div class="wy-nav-content">
+<div class="rst-content"><div aria-label="breadcrumbs navigation" role="navigation">
+<ul class="wy-breadcrumbs">
+<li><a aria-label="Docs" class="icon icon-home" href=".."></a></li>
+<li class="breadcrumb-item">Scientifica rig</li>
+<li class="breadcrumb-item active">DAQ wiring</li>
+<li class="wy-breadcrumbs-aside">
+</li>
+</ul>
+<hr/>
+</div>
+<div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
+<div class="section" itemprop="articleBody">
+<h1 id="scientifica-2p-rig-daq-wiring-reference">Scientifica 2P rig — DAQ wiring reference</h1>
+<p>Physical wiring of the Scientifica 2-photon rig as of <strong>2026-07-28</strong>, following the Windows 10
+upgrade. Device IDs are as enumerated by NI-DAQmx on the Windows 10 install.</p>
+<table>
+<thead>
+<tr>
+<th>Device</th>
+<th>Model</th>
+<th>DAQmx ID</th>
+<th>Used by</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>NI USB-6229</td>
+<td><code>Dev2</code></td>
+<td>Ephus — sound stimulation, LED drivers, QCam trigger, analog monitoring</td>
+</tr>
+<tr>
+<td>2</td>
+<td>NI PCI-6110 (via BNC-2090A breakout)</td>
+<td><code>Dev1</code></td>
+<td>ScanImage — galvos, PMTs, shutter, 2P trigger out</td>
+</tr>
+</tbody>
+</table>
+<p>Two wire types are distinguished throughout:</p>
+<ul>
+<li><strong>BNC</strong> — coaxial connections on the BNC breakout / device front panel.</li>
+<li><strong>Patch</strong> — jumper wires between screw terminals on the digital &amp; timing I/O block.</li>
+</ul>
+<hr/>
+<h2 id="1-ni-usb-6229-dev2-ephus">1. NI USB-6229 — <code>Dev2</code> (Ephus)</h2>
+<h3 id="11-analog-output">1.1 Analog output</h3>
+<table>
+<thead>
+<tr>
+<th>Terminal</th>
+<th>Destination</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AO 0</td>
+<td>Green LED driver (Thorlabs LEDD1B)</td>
+<td></td>
+</tr>
+<tr>
+<td>AO 1</td>
+<td>ED1 speaker driver (Tucker-Davis)</td>
+<td><strong>also looped back to AI 16</strong></td>
+</tr>
+<tr>
+<td>AO 2</td>
+<td>Blue LED driver (Thorlabs LEDD1B)</td>
+<td></td>
+</tr>
+<tr>
+<td>AO 3</td>
+<td>QCam board</td>
+<td>Camera trigger</td>
+</tr>
+</tbody>
+</table>
+<h3 id="12-analog-input">1.2 Analog input</h3>
+<table>
+<thead>
+<tr>
+<th>Terminal</th>
+<th>Source</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AI 16</td>
+<td>Loopback from AO 1</td>
+<td>Sound output monitor</td>
+</tr>
+<tr>
+<td>AI 17</td>
+<td><em>(not connected)</em></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="13-digital-timing-io">1.3 Digital &amp; timing I/O</h3>
+<table>
+<thead>
+<tr>
+<th>Terminal</th>
+<th>Connection</th>
+<th>Wire</th>
+<th>Direction</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PFI 0</td>
+<td>← <code>USER 2</code> on BNC-2090A</td>
+<td>BNC</td>
+<td><strong>in</strong> — 2P trigger from ScanImage</td>
+</tr>
+<tr>
+<td>PFI 9 / P2.1</td>
+<td>← P0.2</td>
+<td>patch, white</td>
+<td><strong>in</strong> — Ephus internal trigger</td>
+</tr>
+<tr>
+<td>PFI 10 / P2.2</td>
+<td>→ PFI 13 / P2.5</td>
+<td>patch, green</td>
+<td><strong>out</strong> — sample clock fan-out</td>
+</tr>
+<tr>
+<td>PFI 10 / P2.2</td>
+<td>→ <code>PFI 6</code> on BNC-2090A</td>
+<td>patch</td>
+<td><strong>out</strong> — sample clock to Dev1</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Note on PFI 10.</strong> It is a <em>driven output</em>, not an input. Ephus routes the ctr0 internal
+output onto PFI 10 in software (<code>ephus.m:384-389</code>, <code>nimex_connectTerms</code>), so both wires
+leaving PFI 10 are fan-outs of the sample clock. See §4.2.</p>
+</blockquote>
+<hr/>
+<h2 id="2-ni-pci-6110-bnc-2090a-dev1-scanimage">2. NI PCI-6110 / BNC-2090A — <code>Dev1</code> (ScanImage)</h2>
+<h3 id="21-analog-input">2.1 Analog input</h3>
+<table>
+<thead>
+<tr>
+<th>Terminal</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AI 0</td>
+<td>2-PIMS-PMT-20 (PMT) — A or B, right side of scope</td>
+</tr>
+<tr>
+<td>AI 1</td>
+<td>2-PIMS-PMT-20 (PMT) — the other of A / B</td>
+</tr>
+</tbody>
+</table>
+<h3 id="22-analog-output">2.2 Analog output</h3>
+<table>
+<thead>
+<tr>
+<th>Terminal</th>
+<th>Destination</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AO 0</td>
+<td>Scientifica galvo <strong>X</strong> (bottom)</td>
+</tr>
+<tr>
+<td>AO 1</td>
+<td>Scientifica galvo <strong>Y</strong> (top)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="23-user-lines-and-digital-io">2.3 USER lines and digital I/O</h3>
+<table>
+<thead>
+<tr>
+<th>Terminal</th>
+<th>Connection</th>
+<th>Wire</th>
+<th>Direction</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>USER 1</code></td>
+<td>Shutter trigger TTL</td>
+<td>BNC</td>
+<td><strong>out</strong></td>
+</tr>
+<tr>
+<td><code>USER 1</code></td>
+<td>← P0.7</td>
+<td>patch, black</td>
+<td>internal route to the USER 1 BNC</td>
+</tr>
+<tr>
+<td><code>USER 2</code></td>
+<td>← PFI 13</td>
+<td>patch, blue</td>
+<td>internal route to the USER 2 BNC</td>
+</tr>
+<tr>
+<td><code>USER 2</code></td>
+<td>→ PFI 0 on USB-6229</td>
+<td>BNC</td>
+<td><strong>out</strong> — 2P trigger to Ephus</td>
+</tr>
+<tr>
+<td>PFI 5</td>
+<td>← P0.2</td>
+<td>patch, black</td>
+<td><strong>in</strong> — ScanImage internal trigger</td>
+</tr>
+<tr>
+<td><code>PFI 6</code></td>
+<td>← PFI 10 on USB-6229</td>
+<td>patch</td>
+<td><strong>in</strong> — Ephus sample clock</td>
+</tr>
+<tr>
+<td>DGND</td>
+<td>Scientifica PMT controller (2PIMS-8000) ground</td>
+<td>patch</td>
+<td>Common ground</td>
+</tr>
+</tbody>
+</table>
+<hr/>
+<h2 id="3-diagram">3. Diagram</h2>
+<div class="mermaid">flowchart LR
+  subgraph DEV2["NI USB-6229 &amp;mdash; Dev2 (Ephus)"]
+    D2AO0["AO 0"]
+    D2AO1["AO 1"]
+    D2AO2["AO 2"]
+    D2AO3["AO 3"]
+    D2AI16["AI 16"]
+    D2P02["P0.2"]
+    D2PFI9["PFI 9 / P2.1"]
+    D2PFI0["PFI 0"]
+    D2CTR0(["ctr0 internal out"])
+    D2PFI10["PFI 10 / P2.2"]
+    D2PFI13["PFI 13 / P2.5"]
+  end
+
+  subgraph DEV1["NI PCI-6110 / BNC-2090A &amp;mdash; Dev1 (ScanImage)"]
+    D1AO0["AO 0"]
+    D1AO1["AO 1"]
+    D1AI0["AI 0"]
+    D1AI1["AI 1"]
+    D1P07["P0.7"]
+    D1USER1["USER 1"]
+    D1P02["P0.2"]
+    D1PFI5["PFI 5"]
+    D1CTR1(["ctr1"])
+    D1PFI13["PFI 13"]
+    D1USER2["USER 2"]
+    D1PFI6["PFI 6"]
+  end
+
+  GLED["Green LED driver&lt;br/&gt;LEDD1B"]
+  BLED["Blue LED driver&lt;br/&gt;LEDD1B"]
+  SPKR["ED1 speaker driver"]
+  QCAM["QCam board"]
+  GX["Galvo X (bottom)"]
+  GY["Galvo Y (top)"]
+  PMT["PMT 2-PIMS-PMT-20 A/B"]
+  SHUT["Shutter"]
+
+  D2AO0 --&gt; GLED
+  D2AO1 --&gt; SPKR
+  D2AO1 -. loopback .-&gt; D2AI16
+  D2AO2 --&gt; BLED
+  D2AO3 --&gt; QCAM
+
+  D2P02 -- "white patch" --&gt; D2PFI9
+  D2CTR0 -- "software route" --&gt; D2PFI10
+  D2PFI10 -- "green patch" --&gt; D2PFI13
+  D2PFI10 -- "patch" --&gt; D1PFI6
+
+  D1AO0 --&gt; GX
+  D1AO1 --&gt; GY
+  PMT --&gt; D1AI0
+  PMT --&gt; D1AI1
+
+  D1P07 -- "black patch" --&gt; D1USER1
+  D1USER1 --&gt; SHUT
+  D1P02 -- "black patch" --&gt; D1PFI5
+  D1CTR1 --&gt; D1PFI13
+  D1PFI13 -- "blue patch" --&gt; D1USER2
+  D1USER2 -- "BNC" --&gt; D2PFI0
+</div>
+<hr/>
+<h2 id="4-signal-chains">4. Signal chains</h2>
+<h3 id="41-2p-synchronised-sound-delivery-scanimage-triggers-ephus">4.1 2P-synchronised sound delivery — ScanImage triggers Ephus</h3>
+<pre><code>ScanImage user function (acqModeArmed)
+  → Dev1 ctr1 pulse, delay + width configurable
+  → Dev1 PFI 13        (ctr1 default output terminal)
+  → blue patch wire
+  → Dev1 USER 2
+  → BNC cable
+  → Dev2 PFI 0
+  → Ephus stimulator / acquirer external trigger  →  sound pulse on AO 1
+</code></pre>
+<p>Ephus must have <code>externalTriggerSource = PFI0</code> for this path
+(<code>custom_user_fcns/setexternalTriggerSourcetoPFI0.m</code>).</p>
+<p>This topology is identical to the Sutter rig (see <a href="../configuration/">Configuration</a>), and
+matches the old Win7
+Scientifica ScanImage user function <code>scanimage/SCANIMAGE/Samples/charlie_stimPulse.m</code>:</p>
+<pre><code class="language-matlab">channel = 1;    % output the command on Ctr1 (PFI13)
+</code></pre>
+<h3 id="42-ephus-sample-clock">4.2 Ephus sample clock</h3>
+<pre><code>Dev2 ctr0 internal output
+  → (routed in software by Ephus)
+  → Dev2 PFI 10
+  ├─ green patch wire → Dev2 PFI 13   (fan-out / monitoring tap)
+  └─ patch wire       → Dev1 PFI 6    (shared timebase with ScanImage)
+</code></pre>
+<p>Configured in the Ephus init file as <code>sampleClockOrigin = '/dev2/ctr0'</code>,
+<code>sampleClockDestination = 'PFI10'</code>.</p>
+<blockquote>
+<p>⚠ <strong>Do not change <code>sampleClockOrigin</code> to <code>/dev2/ctr1</code>.</strong> The PFI 13 → PFI 10 wire makes it
+<em>look</em> as though the clock originates at ctr1, because PFI 13 is ctr1's default output
+terminal on M-series boards (ctr0 → PFI 12, ctr1 → PFI 13). It does not — Ephus explicitly
+connects <code>ctr0InternalOutput</code> to PFI 10 in software and never uses the default terminal.
+Selecting ctr1 would make DAQmx drive PFI 13 <em>and</em> PFI 10, which the green wire shorts
+together: two outputs on one line.</p>
+</blockquote>
+<h3 id="43-ephus-internal-trigger">4.3 Ephus internal trigger</h3>
+<pre><code>Dev2 P0.2  → white patch wire → Dev2 PFI 9  → Ephus stimulator / acquirer
+</code></pre>
+<p>Configured as <code>triggerOrigin = '/dev2/port0/line2'</code> with <code>PFI9</code> as the <strong>first</strong> entry in
+<code>triggerDestinations</code> (the first entry must be the terminal the trigger-origin wire lands on).
+Selected at runtime by <code>custom_user_fcns/setexternalTriggerSourcetoPFI9.m</code>.</p>
+<h3 id="44-scanimage-internal-trigger">4.4 ScanImage internal trigger</h3>
+<pre><code>Dev1 P0.2  → black patch wire → Dev1 PFI 5
+</code></pre>
+<p>Matches the Win7 <code>standard.ini</code>: <code>triggerLineID = 2</code>, <code>triggerInputTerminal = 'PFI5'</code>.</p>
+<h3 id="45-shutter">4.5 Shutter</h3>
+<pre><code>Dev1 P0.7 → black patch wire → Dev1 USER 1 → shutter trigger TTL
+</code></pre>
+<hr/>
+<h2 id="5-terminal-reference">5. Terminal reference</h2>
+<p>Useful when reading the tables above.</p>
+<table>
+<thead>
+<tr>
+<th>Fact</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>M-series counter output terminals (default)</td>
+<td>ctr0 → PFI 12, ctr1 → PFI 13, ctr2 → PFI 14, ctr3 → PFI 15</td>
+</tr>
+<tr>
+<td>PCI-6110 counters available</td>
+<td>ctr0 and ctr1 <strong>only</strong></td>
+</tr>
+<tr>
+<td>Dev2 PFI 9</td>
+<td>= P2.1</td>
+</tr>
+<tr>
+<td>Dev2 PFI 10</td>
+<td>= P2.2</td>
+</tr>
+<tr>
+<td>Dev2 PFI 12</td>
+<td>= P2.4</td>
+</tr>
+<tr>
+<td>Dev2 PFI 13</td>
+<td>= P2.5</td>
+</tr>
+</tbody>
+</table>
+<p><code>USER 1</code> / <code>USER 2</code> on the BNC-2090A are uncommitted BNC connectors — they carry whatever
+screw terminal is patched to them, which is why the shutter and 2P trigger both appear as
+patch wires <em>and</em> BNC connections.</p>
+<hr/>
+<h2 id="6-serial-motion-control-devices-linlab-2">6. Serial / motion-control devices (LinLab 2)</h2>
+<p>Separate from the DAQ wiring above. The Scientifica control box presents its motorised
+devices as <strong>virtual COM ports</strong> (FTDI USB-serial), and LinLab 2 shows one tab per device.</p>
+<p>All three ports are <strong>confirmed</strong> (verified by moving each device and watching which port's
+<code>POS</code> reply changed):</p>
+<table>
+<thead>
+<tr>
+<th>COM</th>
+<th>Device</th>
+<th>LinLab 2 tab</th>
+<th><code>POS</code> reply</th>
+<th>Used by ScanImage?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>COM3</strong></td>
+<td>Beam attenuator</td>
+<td><strong>UMS</strong> (single axis, shown as Z)</td>
+<td>one value</td>
+<td><strong>No</strong> — see §6.2</td>
+</tr>
+<tr>
+<td><strong>COM4</strong></td>
+<td><strong>XYZ stage</strong></td>
+<td>SliceScope — X, Y, Z</td>
+<td>three values, X/Y/Z</td>
+<td><strong>Yes</strong> — <code>motors(1).comPort = 4</code></td>
+</tr>
+<tr>
+<td><strong>COM5</strong></td>
+<td>Condenser</td>
+<td>SliceScope — <strong>C</strong></td>
+<td><code>0 0 &lt;C&gt;</code>; third value = LinLab's C</td>
+<td><strong>No</strong> — not configured</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>⚠ <strong>COM3 is the beam attenuator, and the inherited Sutter MDF specifies
+<code>motors(1).comPort = 3</code></strong> (its MPC200 was on COM3 — pure coincidence of numbering). Left
+unchanged, ScanImage would open the beam attenuator and try to drive it as the XYZ stage.</p>
+</blockquote>
+<p>The SliceScope's X/Y/Z and its condenser axis are exposed as <strong>two separate COM ports</strong> from
+the same control box — unplugging its USB cable removes both COM4 and COM5. Only COM4 is
+configured in ScanImage; the condenser is operated from LinLab.</p>
+<h3 id="61-how-to-re-identify-the-ports">6.1 How to re-identify the ports</h3>
+<p>The mapping above was established by <strong>motion</strong>, which is the only reliable method: move one
+device, poll each port, and see whose reply changes. Digit counts mislead — COM5 returns three
+values (<code>0 0 &lt;C&gt;</code>) despite being a single-axis condenser.</p>
+<p>Serial settings (from <code>+dabs/+scientifica/LinearStageController.m:38-39, 81</code>): <strong>9600 baud,
+CR terminator</strong>, error response <code>E</code>. Positions are reported in <strong>tenths of a micron</strong>, so a
+raw <code>-3815169</code> is LinLab's <code>-381516.9</code> µm.</p>
+<pre><code class="language-matlab">delete(instrfind); clear s          % release any stale port handles first
+for p = {'COM3','COM4','COM5'}
+    try
+        s = serial(p{1},'BaudRate',9600,'Terminator','CR','Timeout',2);
+        fopen(s); flushinput(s);
+        fprintf(s,'POS'); pause(0.5);
+        n = s.BytesAvailable;
+        if n &gt; 0
+            raw = fread(s,n,'uint8');
+            fprintf('%-6s "%s"\n', p{1}, strtrim(char(raw(:)')));
+        else
+            fprintf('%-6s no response\n', p{1});
+        end
+        fclose(s); delete(s);
+    catch ME
+        fprintf('%-6s ERROR: %s\n', p{1}, ME.message);
+    end
+end
+delete(instrfind); clear s
+</code></pre>
+<p>Troubleshooting notes, all encountered in practice:</p>
+<ul>
+<li><strong>Close LinLab 2 first.</strong> It opens the ports exclusively; MATLAB and ScanImage cannot open a
+  port LinLab is holding.</li>
+<li><strong>Purge stale <code>serial</code> objects</strong> (<code>delete(instrfind)</code>). A failed attempt leaves the port
+  locked and the next read times out.</li>
+<li><strong><code>flushinput</code> before each command.</strong> A leftover byte desynchronises the next reply and
+  produces nonsense — an early misread of COM4 returned <code>1.12</code>, which is not a position at all.</li>
+<li><strong>Reading raw bytes beats <code>fscanf</code></strong> while diagnosing, because it does not block waiting for
+  a terminator that may not match.</li>
+<li><strong>Ports can renumber</strong> after unplug/replug, especially into a different USB socket.</li>
+</ul>
+<p>Note the port numbering has already drifted across reinstalls: the Win7
+<code>scanimage/SCANIMAGE/standard.ini:167</code> specifies <code>COM8</code>, with a commented-out <code>COM5</code> on line
+166 marked <code>%original setting</code>. <strong>Pin the port</strong> in Device Manager → Port Settings → Advanced
+→ COM Port Number once identified.</p>
+<p>Enumeration tip: PowerShell's <code>Win32_SerialPort</code> omits USB-serial adapters (it showed only
+COM1 here). Use instead:</p>
+<pre><code class="language-powershell">Get-PnpDevice -Class Ports | Format-Table -AutoSize
+</code></pre>
+<h3 id="62-beam-attenuator-linlab-ums-tab">6.2 Beam attenuator (LinLab <strong>UMS</strong> tab)</h3>
+<p>The laser beam attenuator is a Scientifica motorised device, appearing in LinLab 2 under the
+<strong>UMS</strong> tab as a single axis (displayed as Z). <strong>Confirmed on COM3.</strong></p>
+<p>Mechanically it is a <strong>motorised half-wave plate working against a fixed polarizer</strong> — see
+<a href="../laser_power_control/">2P Laser Power control</a>.</p>
+<p><strong>Currently operated only through LinLab</strong>, independently of ScanImage. The Win7 rig was the
+same — <code>standard.ini</code> had all beam and photodiode fields empty.</p>
+<p>This is the Scientifica counterpart to the Sutter rig's Thorlabs KDC101/PRM1Z8 waveplate
+rotator, which is likewise controlled outside ScanImage.</p>
+<h4 id="can-it-be-controlled-from-scanimage">Can it be controlled from ScanImage?</h4>
+<p><strong>Not through any native GUI setting.</strong> ScanImage's beam system is <em>analog voltage
+modulation</em> — <code>beamDaqs(1).chanIDs</code> is "Array of integers specifying <strong>AO channel IDs</strong>".
+A stepper on a serial port cannot be a ScanImage "beam", and no MDF configuration will make
+it one.</p>
+<p><strong>There is, however, an unwired Scientifica class for exactly this device.</strong>
+<code>+dabs/+scientifica/MICU.m</code>:</p>
+<pre><code>%% M.I.C.U. - Motorized Intensity Control Unit
+% Handle class to implement commands for Scientifica 3 Axis Linear Card
+% Controller unit. To be integrated into ScanImage in a similar manner to
+% devices such as the half wave plate.
+</code></pre>
+<p>Constructor <code>MICU(hSI, comPort)</code>; opens <code>serial(sprintf('COM%d',comPort),'BaudRate',9600,...)</code>.
+Its own error text says <em>"ensure … the correct serial port is configured in the Machine Data
+File"</em>, so MDF integration was the intent.</p>
+<p><strong>The extension point is the MDF <code>components</code> field.</strong> <code>+scanimage/SI.m:1300</code>
+(<code>zprvLoadOptionalComponents</code>) accepts a class-name string <strong>or a function handle</strong>, calls
+<code>feval(component, hSI)</code>, and attaches the result as <code>hSI.h&lt;ClassName&gt;</code>. Because <code>MICU</code> takes a
+second argument, the handle form is required:</p>
+<pre><code class="language-matlab">components = {@(hSI)dabs.scientifica.MICU(hSI,3)};    % COM3 -&gt; hSI.hMICU
+</code></pre>
+<p>Caveats, all verified against the 5.3.1 source:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Unwired / untested</strong></td>
+<td><code>MICU</code> is referenced in no other <code>.m</code> file in the distribution. (Hits in <code>+scanimage/FPGA/*.lvbitx</code> are coincidental bytes in binaries.) Its header says "<em>to be</em> integrated".</td>
+</tr>
+<tr>
+<td><strong>Position, not power</strong></td>
+<td>Methods are generic linear-card commands — <code>axisPosition [X Y Z]</code>, <code>moveXYAbsolute</code>, <code>moveZAbsolute</code>, joystick reverse flags. No angle→mW calibration. Compare <code>dabs.generic.halfWavePlate</code>, which adds <code>minPower</code> / <code>maxPower</code> / <code>angleAtMinPower</code>.</td>
+</tr>
+<tr>
+<td><strong>No GUI</strong></td>
+<td><code>halfWavePlate</code> calls <code>obj.makeGui()</code>; <code>MICU</code> has no such method. Loading it yields a programmatic handle only.</td>
+</tr>
+<tr>
+<td><strong>Port contention</strong></td>
+<td>If ScanImage holds COM3, LinLab cannot open it, and vice versa.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Recommended approach if this is ever wanted:</strong> follow the pattern already proven on this
+rig — <code>PulseTrainPanelInit.m</code> + <code>pcPulseTrainTriggerPanel.m/.fig</code>, a standalone MATLAB GUI
+launched alongside ScanImage. That is the same shape as <code>dabs.generic.halfWavePlate</code>, which is
+likewise a standalone class building its own figure and referenced nowhere else in ScanImage.
+Build a panel that opens COM3, exposes a calibrated power control, and enforces a ceiling;
+<code>MICU</code> can serve as the serial command layer.</p>
+<blockquote>
+<p>⚠ <strong>Do not register the attenuator as <code>motors(2)</code>.</strong> It is a Scientifica linear controller
+on a COM port, so it <em>would</em> connect — but ScanImage would treat it as a stage axis, expose
+it in the motor GUI, and could command it during stacks or "go home" operations. That is an
+unacceptable failure mode on a laser attenuator.</p>
+<p>Anything automating this should clamp to a maximum and fail safe (attenuate, not open) if
+the serial link drops.</p>
+</blockquote>
+<h3 id="63-condenser-com5">6.3 Condenser (COM5)</h3>
+<p><strong>What it is for.</strong> The condenser is the <strong>transmitted-light illumination</strong> optic, mounted
+<em>below</em> the specimen — not part of the imaging path:</p>
+<pre><code>substage lamp/LED -&gt; CONDENSER -&gt; stage aperture -&gt; specimen -&gt; objective -&gt; camera
+</code></pre>
+<p>It shapes illumination for <strong>Köhler illumination</strong>, which is what enables brightfield and
+especially <strong>DIC / IR-DIC</strong> — the standard technique for visualising neurons and pipettes when
+patch-clamping in living brain slices. Per the
+<a href="https://www.scientifica.uk.com/downloads/public/SliceScope-Pro.pdf">SliceScope Pro brochure</a>:
+<em>"Accepts both air and oil immersion condensers, including those required for DIC contrasting.
+Motorised for optimal Koehler illumination."</em></p>
+<p>The COM5 controller is simply its <strong>motorised focus</strong> (height), so Köhler illumination can be
+set without reaching under the stage.</p>
+<p><strong>Why this rig does not use it.</strong> Scientifica ships the SliceScope in two configurations, and
+the condenser belongs to only one of them:</p>
+<blockquote>
+<p><em>In vitro</em> — "includes the nosepiece arm, <strong>condenser and substage optics</strong>"
+<em>In vivo</em> — "the <strong>condenser and substage optics are not required</strong> and therefore can be
+simply <strong>removed by the user</strong>; this provides plenty of space to position the specimen and
+any peripheral equipment required."</p>
+</blockquote>
+<p>This rig runs <strong>in vivo</strong> 2P and widefield. Neither modality uses transmitted light:</p>
+<table>
+<thead>
+<tr>
+<th>Modality</th>
+<th>Illumination</th>
+<th>Path</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2P</td>
+<td>MaiTai laser</td>
+<td>down through the objective (epi)</td>
+</tr>
+<tr>
+<td>Widefield</td>
+<td>blue / green LEDs via LEDD1B drivers</td>
+<td>from above (epi)</td>
+</tr>
+</tbody>
+</table>
+<p>The condenser therefore sits idle. It is safe to leave in place, or it can be removed per
+Scientifica's instructions if it obstructs the preparation.</p>
+<p><strong>Historical note.</strong> The condenser, its substage optics, and the MultiClamp 700B link that was
+removed from the Ephus startup file are all remnants of an earlier <strong>in vitro patch-clamp</strong>
+configuration. The rig's current hotswitches (<code>transcranial</code>, <code>2P_*</code>, <code>Loop_Transcra</code>) are all
+in vivo work. See <code>ephus_transition_plan.md</code> §2.5.</p>
+<p><strong>Not configured in ScanImage — and was not on Win7 either.</strong> In
+<code>scanimage/SCANIMAGE/standard.ini</code> the secondary-controller block is entirely empty
+(<code>controllerTypeZ=''</code>, <code>stageTypeZ=''</code>, <code>portZ=''</code>, lines 189–193); the only configured motor
+is the <code>'scientifica'</code> / <code>'slice_scope'</code> XYZ stage. The sole occurrence of the string
+<code>condenser</code> in the Win7 ScanImage tree is the driver's table of <em>supported</em> stage types
+(<code>+dabs/+scientifica/LinearStageController.m</code>), not a configuration.</p>
+<p>This is correct rather than an omission. ScanImage's motor configuration drives the <strong>imaging</strong>
+axes — X/Y for position, Z for focus and stacks. The condenser positions transmitted-light
+illumination below the specimen and has no role in 2P acquisition, so ScanImage has no reason
+to hold its port. Operate it from LinLab.</p>
+<hr/>
+<h2 id="7-related-documents">7. Related documents</h2>
+<ul>
+<li><a href="../hardware_scientifica/">Hardware — Scientifica rig</a> — component list for this rig.</li>
+<li><a href="../hardware_sutter/">Hardware — Sutter rig</a> — equivalent document for the Sutter rig, for
+  comparison.</li>
+<li><a href="../configuration/">Configuration</a> — Ephus and ScanImage settings.</li>
+<li><code>ephus_transition_plan.md</code> (rig notes, not part of this site) — evaluation of the Ephus init
+  file against this wiring.</li>
+</ul>
+</div>
+</div><footer>
+<div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
+<a class="btn btn-neutral float-left" href="../hardware_scientifica/" title="Hardware"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+<a class="btn btn-neutral float-right" href="../setup_scientifica/" title="Rig-specific drivers">Next <span class="icon icon-circle-arrow-right"></span></a>
+</div>
+<hr/>
+<div role="contentinfo">
+<!-- Copyright etc -->
+</div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+</div>
+</div>
+</section>
+</div>
+<div aria-label="Versions" class="rst-versions" role="note">
+<span class="rst-current-version" data-toggle="rst-current-version">
+<span><a href="../hardware_scientifica/" style="color: #fcfcfc">« Previous</a></span>
+<span><a href="../setup_scientifica/" style="color: #fcfcfc">Next »</a></span>
+</span>
+</div>
+<script src="../js/jquery-3.6.0.min.js"></script>
+<script>var base_url = "..";</script>
+<script src="../js/theme_extra.js"></script>
+<script src="../js/theme.js"></script>
+<script src="../search/main.js"></script>
+<script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+<script src="../js/mermaid.min.js"></script><script>mermaid.initialize({});</script></body>
+</html>

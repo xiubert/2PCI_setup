@@ -47,20 +47,15 @@
                 <li class="toctree-l1"><a class="reference internal" href="../about/">About</a>
                 </li>
               </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../hardware/">Hardware</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../software/">Software</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../configuration/">Configuration</a>
-                </li>
-              </ul>
+              <p class="caption"><span class="caption-text">Common</span></p>
               <ul class="current">
-                <li class="toctree-l1 current"><a class="reference internal current" href="#">Operation</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../software/">Software</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../drivers/">Drivers</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../configuration/">Configuration</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Operation</a>
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#ephus">Ephus</a>
         <ul>
@@ -79,43 +74,44 @@
         </ul>
     </li>
     </ul>
-                </li>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../widefield/">Widefield Epifluorescence</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../laser_power_control/">2P Laser Power control</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../alignment/">2P Laser Alignment</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../cal_speaker/">Speaker calibration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../cal_laser_power/">2P Laser Power calibration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../computer_setup/">Rig Setup</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../code/">Code</a>
+                  </li>
               </ul>
+              <p class="caption"><span class="caption-text">Sutter rig</span></p>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../widefield/">Widefield Epifluorescence</a>
-                </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../hardware_sutter/">Hardware</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../setup_sutter/">Rig-specific drivers</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../pupillometry/">Pupillometry</a>
+                  </li>
               </ul>
+              <p class="caption"><span class="caption-text">Scientifica rig</span></p>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../drivers/">Drivers</a>
-                </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../hardware_scientifica/">Hardware</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../wiring_scientifica/">DAQ wiring</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../setup_scientifica/">Rig-specific drivers</a>
+                  </li>
               </ul>
+              <p class="caption"><span class="caption-text">Appendices</span></p>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../code/">Code</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../alignment/">2P Laser Alignment</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../laser_power_control/">2P Laser Power control</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../cal_laser_power/">2P Laser Power calibration</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../cal_speaker/">Speaker calibration</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../computer_setup/">Rig Setup</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../pupillometry/">Pupillometry</a>
-                </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../appendix_galvo_scan_settings/">Galvo scan settings</a>
+                  </li>
               </ul>
       </div>
     </div>
@@ -131,6 +127,7 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Common</li>
       <li class="breadcrumb-item active">Operation</li>
     <li class="wy-breadcrumbs-aside">
     </li>
@@ -141,6 +138,8 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="operation">Operation</h1>
+<p>Applies to <strong>both rigs</strong> — they run the same Ephus and ScanImage versions, the same custom user
+functions, and the same acquisition workflow.</p>
 <h2 id="ephus">Ephus</h2>
 <ul>
 <li><strong>Ephus should be configured to save the xsg file</strong>. This can be loaded as a mat file that contains the state of Ephus during the acquisition. It contains a structure called header which contains the pulse info and gain along with the actual stimulus trace​</li>

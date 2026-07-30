@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Galvo scan settings - Ca<sup>2+</sup> imaging in vivo</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Galvo scan settings";
+        var mkdocs_page_input_path = "appendix_galvo_scan_settings.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Ca<sup>2+</sup> imaging in vivo
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../about/">About</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Common</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../software/">Software</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../drivers/">Drivers</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../configuration/">Configuration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../operation/">Operation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../widefield/">Widefield Epifluorescence</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../laser_power_control/">2P Laser Power control</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../alignment/">2P Laser Alignment</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../cal_speaker/">Speaker calibration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../cal_laser_power/">2P Laser Power calibration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../computer_setup/">Rig Setup</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../code/">Code</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Sutter rig</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../hardware_sutter/">Hardware</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../setup_sutter/">Rig-specific drivers</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../pupillometry/">Pupillometry</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Scientifica rig</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../hardware_scientifica/">Hardware</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../wiring_scientifica/">DAQ wiring</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../setup_scientifica/">Rig-specific drivers</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Appendices</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Galvo scan settings</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#the-constraint">The constraint</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#governing-relationships">Governing relationships</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#why-the-scientifica-rig-runs-at-15x">Why the Scientifica rig runs at 1.5x</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#if-the-comb-artifact-reappears">If the comb artifact reappears</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#getting-10-hz">Getting 10 Hz</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#checklist-for-any-config-change">Checklist for any config change</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#other-operating-points">Other operating points</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#configuration-files">Configuration files</a>
+    </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Ca<sup>2+</sup> imaging in vivo</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Appendices</li>
+      <li class="breadcrumb-item active">Galvo scan settings</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="appendix-galvo-scan-settings">Appendix — Galvo scan settings</h1>
+<p>Why the two rigs reach the same 5 Hz acquisition at different zoom factors, and how to choose or
+repair frame-scan settings on the LinScanner (galvo-galvo) system.</p>
+<p><strong>Both rigs acquire at 5 Hz by default, at 256 × 256.</strong> The Sutter rig does this at <strong>1x</strong> zoom.
+The Scientifica rig's galvos cannot sustain it at 1x, and run at <strong>1.5x</strong>.</p>
+<h2 id="the-constraint">The constraint</h2>
+<p>On a galvo-galvo system the fast (X / line) galvo must physically complete one sweep every <strong>line
+period</strong>. Drive it too fast and it lags the commanded waveform in a position-dependent way, so a
+single bidirectional <strong>Scan Phase</strong> value can no longer correct the whole line. The result is the
+<strong>comb / split artifact</strong> at the line turnarounds, and Auto Adjust returns a <em>wandering</em> phase
+value instead of a stable one.</p>
+<p><strong>Rule of thumb: keep the line period ≳ 1 ms at 1x zoom.</strong></p>
+<h3 id="governing-relationships">Governing relationships</h3>
+<pre><code>Line Period  = (Pixels/Line × Pixel Dwell) / Fill Fraction
+Frame Rate   = 1 / (Lines/Frame × Line Period)
+Pixel Dwell  = Pixel Bin Factor / Sampling Rate      (e.g. 8 / 5 MHz = 1.6 µs)
+</code></pre>
+<p><strong>Pixels/Line sets the line period; Lines/Frame multiplies it.</strong> So to go faster <em>without</em>
+overdriving the galvo, reduce <strong>Lines/Frame (Y)</strong> or shrink the field of view — never shorten the
+line period by cutting Pixels/Line.</p>
+<p>Zoom does <strong>not</strong> change the line period. It reduces the scan <em>amplitude</em> the fast galvo must
+sweep, which lowers peak velocity and turnaround acceleration — that is what brings a short line
+period back inside the galvo's limits.</p>
+<h2 id="why-the-scientifica-rig-runs-at-15x">Why the Scientifica rig runs at 1.5x</h2>
+<p>At 256 × 256 the line period is ~781 µs. On the Scientifica rig that overdrives the fast galvo at
+1x and produces the comb artifact. Zooming in fixes it without changing sampling or frame rate.</p>
+<p><strong>Galvo stress proxy</strong> (scan amplitude ÷ line period; higher is harder on the galvo):</p>
+<table>
+<thead>
+<tr>
+<th>Config</th>
+<th>Zoom</th>
+<th>Line period</th>
+<th>Proxy</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>512² survey</td>
+<td>1x</td>
+<td>1.56 ms</td>
+<td>0.64</td>
+<td>safe (confirmed)</td>
+</tr>
+<tr>
+<td>Functional</td>
+<td>2x</td>
+<td>0.781 ms</td>
+<td>0.64</td>
+<td>safe (confirmed)</td>
+</tr>
+<tr>
+<td><strong>Functional</strong></td>
+<td><strong>1.5x</strong></td>
+<td><strong>0.781 ms</strong></td>
+<td><strong>0.85</strong></td>
+<td><strong>verified working — the default</strong></td>
+</tr>
+<tr>
+<td>Original</td>
+<td>1x</td>
+<td>0.781 ms</td>
+<td>1.28</td>
+<td>comb artifact (confirmed broken)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>1.5x is the default because it maximises recording area while staying clear of the artifact</strong> —
+about 33% more field width (~1.8× the area) than 2x, for the same frame rate. It is a thinner
+margin than 2x, so <strong>2x is kept as a conservative fallback</strong> if the galvo's behaviour changes,
+e.g. after a service or an environmental change.</p>
+<p>Frame rate is ~5 Hz at either zoom, since zoom does not change the line period. The choice is
+purely field of view versus galvo margin.</p>
+<blockquote>
+<p><strong>MROI is Premium-gated in ScanImage 5.3</strong>, so arbitrary ROIs are not available — <strong>zoom is the
+field-of-view tool.</strong> Speed comes from a smaller field, not a shorter line period.</p>
+</blockquote>
+<h2 id="if-the-comb-artifact-reappears">If the comb artifact reappears</h2>
+<ol>
+<li>Click <strong>Auto Adjust</strong> on <strong>Scan Phase (µs)</strong>. This should resolve the artifact across the whole
+   field of view.</li>
+<li>Confirm the phase <strong>settles to a single stable value</strong> that corrects edge-to-edge, rather than
+   wandering.</li>
+<li>If it still persists, temporarily switch to <strong>unidirectional</strong> scanning as a diagnostic. If the
+   smear vanishes, it is a bidirectional-phase problem tied to galvo tracking — the line period is
+   still too aggressive, so fall back to <strong>2x</strong>.</li>
+</ol>
+<h2 id="getting-10-hz">Getting 10 Hz</h2>
+<p>The 10 Hz configurations <strong>halve Lines/Frame to 128</strong>, keeping Pixels/Line at 256. This doubles
+the frame rate without touching the line period, so it costs nothing in galvo margin — it simply
+scans half as many lines. Pixels are no longer square: the field is full width but half height.</p>
+<p>Used for spontaneous cell recordings.</p>
+<h2 id="checklist-for-any-config-change">Checklist for any config change</h2>
+<ol>
+<li>Set Zoom, Pixels/Line, Lines/Frame, Dwell, Fill Fraction.</li>
+<li>Confirm ScanImage's <strong>reported line period is ≳ 1 ms</strong> (at 1x especially).</li>
+<li>Let ScanImage's <strong>reported frame rate</strong> be the arbiter — frame flyback (0.115 ms) and scanfield
+   flyto (1.0 ms) shave a little off the ideal <code>1 / (lines × line period)</code> arithmetic.</li>
+<li>Re-run <strong>Auto Adjust</strong> on Scan Phase after the change, and confirm it settles.</li>
+</ol>
+<h2 id="other-operating-points">Other operating points</h2>
+<p>Recorded for reference; neither is the default on either rig.</p>
+<p><strong>Survey / anatomy — 512 × 512 at 1x, ~1.25 Hz.</strong> Full field, slow, isotropic, 1.56 ms line
+period. Use for morphology and slow z-stacks; too slow for functional imaging. A practical
+workflow is a 512² reference image at 1x, then zoom in for functional acquisition.</p>
+<p><strong>Full 1x field at 5 Hz.</strong> Only if the whole 1x field is a hard requirement. Hold the line period
+at ~1.56 ms and cut to 128 lines — either 128 × 128 with a 6.4 µs dwell (isotropic, half the
+resolution, more signal per pixel) or 512 × 128 with the standard 1.6 µs dwell (4:1 anisotropic).
+Both are usually more awkward downstream than simply zooming in.</p>
+<h2 id="configuration-files">Configuration files</h2>
+<p>See <a href="../configuration/#user-settings-and-configuration-files">Configuration &rarr; ScanImage user settings</a>.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../setup_scientifica/" class="btn btn-neutral float-left" title="Rig-specific drivers"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../setup_scientifica/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

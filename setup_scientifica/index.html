@@ -5,15 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>Software - Ca<sup>2+</sup> imaging in vivo</title>
+    <title>Rig-specific drivers - Ca<sup>2+</sup> imaging in vivo</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Software";
-        var mkdocs_page_input_path = "software.md";
+        var mkdocs_page_name = "Rig-specific drivers";
+        var mkdocs_page_input_path = "setup_scientifica.md";
         var mkdocs_page_url = null;
       </script>
     
@@ -48,24 +48,8 @@
                 </li>
               </ul>
               <p class="caption"><span class="caption-text">Common</span></p>
-              <ul class="current">
-                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Software</a>
-    <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#os">OS</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#network">Network</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#matlab">Matlab</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#ephus">Ephus</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#maitai-laser-control">MaiTai laser control</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#scanimage">ScanImage</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#laser-power-control-software">Laser power control software</a>
-    </li>
-    </ul>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../software/">Software</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../drivers/">Drivers</a>
                   </li>
@@ -98,12 +82,24 @@
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Scientifica rig</span></p>
-              <ul>
+              <ul class="current">
                   <li class="toctree-l1"><a class="reference internal" href="../hardware_scientifica/">Hardware</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../wiring_scientifica/">DAQ wiring</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../setup_scientifica/">Rig-specific drivers</a>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Rig-specific drivers</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#computer">Computer</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#motion-control-and-beam-attenuator-linlab-2">Motion control and beam attenuator — LinLab 2</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#com-port-assignments">COM port assignments</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#software-archives">Software archives</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#camera">Camera</a>
+    </li>
+    </ul>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Appendices</span></p>
@@ -125,8 +121,8 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
-          <li class="breadcrumb-item">Common</li>
-      <li class="breadcrumb-item active">Software</li>
+          <li class="breadcrumb-item">Scientifica rig</li>
+      <li class="breadcrumb-item active">Rig-specific drivers</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -135,76 +131,98 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="software">Software</h1>
-<p><strong>Both rigs run the same software stack</strong> — same OS, same MATLAB versions, same Ephus and
-ScanImage versions, same custom user functions. Only the laser-power software differs.</p>
-<h2 id="os">OS</h2>
+                <h1 id="rig-specific-drivers-scientifica-rig">Rig-specific drivers — Scientifica rig</h1>
+<p>Drivers and archives unique to the <strong>Scientifica</strong> rig. The common install sequence is in
+<a href="../computer_setup/">Rig Setup</a>; these are installed at its step 5.</p>
+<h2 id="computer">Computer</h2>
+<p>Dell Precision T3600</p>
+<p><strong>Install Dell Support Assist first</strong> so it can pull the correct drivers for this model.</p>
+<blockquote>
+<p>The specific Dell driver filenames for the T3600 are not yet recorded here — the list on the
+<a href="../setup_sutter/#computer">Sutter page</a> is for the T5810 and does <strong>not</strong> apply.</p>
+</blockquote>
+<h2 id="motion-control-and-beam-attenuator-linlab-2">Motion control and beam attenuator — LinLab 2</h2>
+<p>Operates all three motorised axes in the 1U rack: the beam attenuator, the XYZ stage, and the
+condenser focus. They appear as virtual COM ports (FTDI USB-serial), one LinLab 2 tab per device.</p>
 <ul>
-<li>WINDOWS 10 (21H2 x64)</li>
+<li><code>LinLab-2-Setup-1.0.19.177.zip</code> &rarr; <code>LinLab 2 Setup - 1.0.19.177.exe</code></li>
+<li>See: <a href="../laser_power_control/#scientifica-rig">2P Laser Power control</a></li>
 </ul>
-<h2 id="network">Network</h2>
-<ul>
-<li>Globus (for data backup): <code>globusconnectpersonal-latest.exe</code></li>
-<li>Global Protect (for connecting to PittNet): <code>WIN-GlobalProtect64-6.2.7.msi</code></li>
-</ul>
-<h2 id="matlab">Matlab</h2>
-<ul>
-<li><a href="https://www.mathworks.com/help/install/ug/install-products-with-internet-connection.html">Downloads</a></li>
-<li>For Ephus 2.1.0: Matlab 2013b 32bit</li>
-<li>For ScanImage 5.3.1 / 2017: Matlab 2015b x64</li>
-</ul>
-<h2 id="ephus">Ephus</h2>
-<ul>
-<li>Use: Widefield imaging and sound stimulus delivery</li>
-<li>Version: 2.1.0</li>
-<li>Widefield acquisition uses the built-in <code>qcam</code> program (32-bit <code>qcammex.mexw32</code> interface to the QCam API, hence MATLAB 2013b 32-bit)</li>
-<li>See: <a href="../widefield/">Widefield Epifluorescence</a></li>
-</ul>
-<h2 id="maitai-laser-control">MaiTai laser control</h2>
-<ul>
-<li>Use: laser on/off, shutter, wavelength, and status monitoring</li>
-<li>The MaiTai has <strong>no front-panel controls</strong> for these &mdash; the GUI is how the laser is operated</li>
-<li>Software: <code>MaiTai Customer GUI 1.03.01 (1).zip</code> &rarr; <code>MaiTai Customer GUI SW077-1.03.01/setup.exe</code> (Spectra-Physics part no. SW077)</li>
-<li>Driver: <code>maitai_mks_usb_comm_CP210x_VCP_Windows.zip</code> &rarr; <code>CP210xVCPInstaller_x64.exe</code> (Silicon Labs CP210x Virtual COM Port)</li>
-<li>The GUI talks to the laser over a virtual COM port created by the CP210x driver, so <strong>install the driver first</strong></li>
-<li>See: <a href="../drivers/#laser">Drivers &rarr; Laser</a> and <a href="../computer_setup/#laser-control-software">Rig Setup &rarr; Laser Control Software</a></li>
-</ul>
-<h2 id="scanimage">ScanImage</h2>
-<ul>
-<li>Use: 2P</li>
-<li>Version: 5.3.1 / 2017</li>
-<li><a href="https://archive.scanimage.org/SI2017/index.html">Docs</a></li>
-<li>Docs also at: Sharepoint (Tzounopoulos Lab (2024) &rarr; <code>Documents</code> &rarr; <code>data</code> &rarr; <code>PAC</code> &rarr; <code>sutter_2P_rigConfig_PAC</code> &rarr; <code>scanimage_5-3-1_2017_docs.zip</code>)</li>
-</ul>
-<h2 id="laser-power-control-software">Laser power control software</h2>
-<p>Differs per rig — see <a href="../laser_power_control/">2P Laser Power control</a>.</p>
+<h2 id="com-port-assignments">COM port assignments</h2>
 <table>
 <thead>
 <tr>
-<th>Rig</th>
-<th>Software</th>
-<th>Controls</th>
+<th>COM</th>
+<th>Device</th>
+<th>LinLab 2 tab</th>
+<th>Used by ScanImage?</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Sutter</td>
-<td>Thorlabs Kinesis</td>
-<td>KDC101 / PRM1Z8 waveplate rotator</td>
+<td><code>COM3</code></td>
+<td><strong>Beam attenuator</strong></td>
+<td><strong>UMS</strong> (single axis, shown as Z)</td>
+<td>No — LinLab only</td>
 </tr>
 <tr>
-<td>Scientifica</td>
-<td><strong>LinLab 2</strong></td>
-<td>1U rack: beam attenuator (<code>COM3</code>), XYZ stage (<code>COM4</code>), condenser (<code>COM5</code>)</td>
+<td><code>COM4</code></td>
+<td>XYZ stage</td>
+<td>SliceScope — X, Y, Z</td>
+<td><strong>Yes</strong> — <code>motors(1).comPort = 4</code></td>
+</tr>
+<tr>
+<td><code>COM5</code></td>
+<td>Condenser focus</td>
+<td>SliceScope — C</td>
+<td>No — not configured</td>
 </tr>
 </tbody>
 </table>
+<blockquote>
+<p><strong><code>COM3</code> hazard.</strong> The inherited Sutter machine data file specifies <code>motors(1).comPort = 3</code>,
+which on this rig is the <strong>beam attenuator</strong>. Left unchanged, ScanImage would open the
+attenuator and drive it as an XYZ stage. It must be <code>4</code>.</p>
+</blockquote>
+<p><strong>Pin the port numbers</strong> in Device Manager → Port Settings → Advanced → COM Port Number once
+identified — they have drifted across reinstalls before. Ports can also renumber after
+unplug/replug into a different USB socket. Re-identification procedure:
+<a href="../wiring_scientifica/#61-how-to-re-identify-the-ports">DAQ wiring &rarr; How to re-identify the ports</a>.</p>
+<p><strong>LinLab holds its ports exclusively</strong> — close LinLab 2 before MATLAB or ScanImage needs a port,
+and vice versa.</p>
+<h2 id="software-archives">Software archives</h2>
+<table>
+<thead>
+<tr>
+<th>Software</th>
+<th>Archive</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ephus</td>
+<td><code>Ephus 2013b_working_win10_20260730.zip</code></td>
+</tr>
+<tr>
+<td>ScanImage</td>
+<td><code>Scanimage5-3_working_win10_20260730.zip</code></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>The Sharepoint location for these archives is not yet recorded.</p>
+</blockquote>
+<h2 id="camera">Camera</h2>
+<p><code>qcam.m</code> must be the <strong>Rolera-XR</strong> variant (696 × 520) —
+<a href="../config/Ephus/qcam_raw_rolera_w696_h520.m">qcam_raw_rolera_w696_h520.m</a>, renamed to <code>qcam.m</code> and
+placed at <code>C:/Rig/Ephus 2013b/Programs/qcam/qcam.m</code>.</p>
+<p>See: <a href="../widefield/#qcamm-modification">Widefield Epifluorescence</a>.</p>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../about/" class="btn btn-neutral float-left" title="About"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../drivers/" class="btn btn-neutral float-right" title="Drivers">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../wiring_scientifica/" class="btn btn-neutral float-left" title="DAQ wiring"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../appendix_galvo_scan_settings/" class="btn btn-neutral float-right" title="Galvo scan settings">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -227,10 +245,10 @@ ScanImage versions, same custom user functions. Only the laser-power software di
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../about/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../wiring_scientifica/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../drivers/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../appendix_galvo_scan_settings/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>

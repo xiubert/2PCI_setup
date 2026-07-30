@@ -47,58 +47,33 @@
                 <li class="toctree-l1"><a class="reference internal" href="../about/">About</a>
                 </li>
               </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../hardware/">Hardware</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../software/">Software</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../configuration/">Configuration</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../operation/">Operation</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../widefield/">Widefield Epifluorescence</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../drivers/">Drivers</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../code/">Code</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../alignment/">2P Laser Alignment</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../laser_power_control/">2P Laser Power control</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../cal_laser_power/">2P Laser Power calibration</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../cal_speaker/">Speaker calibration</a>
-                </li>
-              </ul>
+              <p class="caption"><span class="caption-text">Common</span></p>
               <ul class="current">
-                <li class="toctree-l1 current"><a class="reference internal current" href="#">Rig Setup</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../software/">Software</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../drivers/">Drivers</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../configuration/">Configuration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../operation/">Operation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../widefield/">Widefield Epifluorescence</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../laser_power_control/">2P Laser Power control</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../alignment/">2P Laser Alignment</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../cal_speaker/">Speaker calibration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../cal_laser_power/">2P Laser Power calibration</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Rig Setup</a>
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#prerequisites">Prerequisites</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#network-system-drivers">Network &amp; System Drivers</a>
+    <li class="toctree-l2"><a class="reference internal" href="#network-system">Network &amp; System</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#hardware-drivers">Hardware Drivers</a>
+    <li class="toctree-l2"><a class="reference internal" href="#rig-specific-drivers">Rig-specific drivers</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#data-acquisition-drivers">Data Acquisition Drivers</a>
     </li>
@@ -109,11 +84,32 @@
     <li class="toctree-l2"><a class="reference internal" href="#laser-control-software">Laser Control Software</a>
     </li>
     </ul>
-                </li>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../code/">Code</a>
+                  </li>
               </ul>
+              <p class="caption"><span class="caption-text">Sutter rig</span></p>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../pupillometry/">Pupillometry</a>
-                </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../hardware_sutter/">Hardware</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../setup_sutter/">Rig-specific drivers</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../pupillometry/">Pupillometry</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Scientifica rig</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../hardware_scientifica/">Hardware</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../wiring_scientifica/">DAQ wiring</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../setup_scientifica/">Rig-specific drivers</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Appendices</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../appendix_galvo_scan_settings/">Galvo scan settings</a>
+                  </li>
               </ul>
       </div>
     </div>
@@ -129,6 +125,7 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Common</li>
       <li class="breadcrumb-item active">Rig Setup</li>
     <li class="wy-breadcrumbs-aside">
     </li>
@@ -138,16 +135,23 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="computer-setup-guide">Computer Setup Guide</h1>
-<p>Initial setup instructions for the Dell Precision Tower 5810 acquisition computer.</p>
+                <h1 id="rig-setup">Rig Setup</h1>
+<p>Install sequence for an acquisition computer after reinstalling Windows. <strong>These steps are the
+same on both rigs.</strong> The drivers that differ are listed on each rig's own page, and are installed
+at step 5 below:</p>
+<ul>
+<li><a href="../setup_sutter/">Sutter — rig-specific drivers</a></li>
+<li><a href="../setup_scientifica/">Scientifica — rig-specific drivers</a></li>
+</ul>
 <h2 id="prerequisites">Prerequisites</h2>
 <ol>
 <li><strong>Disconnect USB DAQ</strong> - Ensure the USB DAQ is not connected before beginning installation</li>
 </ol>
-<h2 id="network-system-drivers">Network &amp; System Drivers</h2>
+<h2 id="network-system">Network &amp; System</h2>
 <ol>
 <li><strong>Install GlobalProtect</strong> - Required for internet access</li>
 <li><strong>Install Dell Support Assist</strong> - Automated driver installation tool<ul>
+<li>Install this <strong>first</strong>, so it can pull the correct drivers for the machine</li>
 <li>See: <a href="../drivers/">drivers.md</a> for driver details</li>
 </ul>
 </li>
@@ -156,19 +160,12 @@
 </ul>
 </li>
 </ol>
-<h2 id="hardware-drivers">Hardware Drivers</h2>
+<h2 id="rig-specific-drivers">Rig-specific drivers</h2>
 <ol>
-<li><strong>Install Audio Driver</strong><ul>
-<li><code>Audio_Driver_DDG39_WN32_6.0.1.6111_A06_01.EXE</code></li>
-</ul>
-</li>
-<li><strong>Install Chipset Drivers</strong><ul>
-<li><code>Chipset_Driver_8W65V_1.0.0.1024_A00_ZPE.exe</code></li>
-<li><code>Chipset_Driver_YV36W_WN32_10.1.2.10_A01.EXE</code></li>
-</ul>
-</li>
-<li><strong>Install Dell Security Advisory Update</strong><ul>
-<li><code>Dell-Security-Advisory-Update-DSA-2020-059_1GWG9_WIN64_1.0.0.0_A00_03.EXE</code></li>
+<li><strong>Install the drivers for this rig</strong> — Dell model drivers, plus the motion/attenuator drivers
+   unique to the rig<ul>
+<li>Sutter: <a href="../setup_sutter/">setup_sutter.md</a></li>
+<li>Scientifica: <a href="../setup_scientifica/">setup_scientifica.md</a></li>
 </ul>
 </li>
 </ol>
@@ -176,17 +173,8 @@
 <ol>
 <li><strong>Install NI-DAQmx v15.5.0</strong><ul>
 <li><code>NIDAQ1550f1.zip</code></li>
+<li>Serves the NI USB-6229 (<code>Dev2</code>, Ephus) and NI PCI-6110 (<code>Dev1</code>, ScanImage) on both rigs</li>
 <li>See: <a href="https://www.ni.com/en/support/downloads/drivers/download.ni-daq-mx.html">NI-DAQmx downloads</a></li>
-</ul>
-</li>
-<li><strong>Install Sutter CDM Controller Driver</strong><ul>
-<li><code>SI_CDM_v2_12_36.zip</code></li>
-<li>See: <a href="https://www.sutter.com/hubfs/SOFTWARE/CDM_driver_Install_Guide.pdf?hsLang=en">Installation guide</a></li>
-</ul>
-</li>
-<li><strong>Install Thorlabs Kinesis Driver</strong> - For laser power control (KDC101 / PRM1Z8)<ul>
-<li><code>Thorlabs_Kinesis_Setup_25822_x64.exe</code></li>
-<li>See: <a href="../laser_power_control/">2P Laser Power control</a></li>
 </ul>
 </li>
 </ol>
@@ -202,20 +190,24 @@
 </li>
 </ol>
 <h2 id="software-installation">Software Installation</h2>
+<p>Both rigs run the same versions; only the archive filenames differ, and those are listed on the
+rig-specific pages.</p>
 <ol>
 <li><strong>Install MATLAB 2013b (32-bit)</strong></li>
 <li><strong>Install Ephus</strong><ul>
-<li>Copy <code>Ephus 2013b_20250909_qcamFix.zip</code> from Sharepoint (Tzounopoulos Lab (2024) &rarr; <code>Documents</code> &rarr; <code>data</code> &rarr; <code>PAC</code> &rarr; <code>sutter2P_backup</code>) to <code>C:/Rig/</code></li>
-<li>Unzip <code>Ephus 2013b_20260727_sutter.zip</code></li>
-<li>Ephus should be in folder named <code>C:/Rig/Ephus 2013b</code></li>
-<li>Add <code>C:/Rig/Ephus 2013b</code> to MATLAB 2013b path with subfolders</li>
+<li>Copy this rig's Ephus archive from Sharepoint to <code>C:/Rig/</code> and unzip</li>
+<li>Ephus should end up in a folder named <code>C:/Rig/Ephus 2013b</code></li>
+<li>Add <code>C:/Rig/Ephus 2013b</code> to the MATLAB 2013b path, with subfolders</li>
+<li><strong>Confirm <code>qcam.m</code> matches this rig's camera</strong> — see
+  <a href="../widefield/#qcamm-modification">Widefield &rarr; qcam.m modification</a></li>
 </ul>
 </li>
 <li>
 <p><strong>Install QCam Driver</strong> (v2.0.13.1 64-bit)</p>
 <ul>
-<li><code>QCamInstaller-2-0-13-1-64bit.zip</code></li>
+<li><code>QCamInstaller-2-0-13-1-64bit.zip</code> — the same driver on both rigs</li>
 <li>see: Sharepoint: Tzounopoulos Lab (2024) &rarr; <code>Documents</code> &rarr; <code>data</code> &rarr; <code>PAC</code> &rarr; <code>sutter2P_backup</code> &rarr; <code>drivers</code></li>
+<li><strong>Do not install <code>QCamDriver2005</code></strong> (legacy, superseded)</li>
 </ul>
 <p><strong>Testing:</strong></p>
 <ol>
@@ -231,31 +223,33 @@
 <li>
 <p><strong>Install ScanImage</strong></p>
 <ul>
-<li>Copy <code>Scanimage5-3_20260727_sutter.zip</code> from Sharepoint (Tzounopoulos Lab (2024) &rarr; <code>Documents</code> &rarr; <code>data</code> &rarr; <code>PAC</code> &rarr; <code>sutter2P_backup</code>) to <code>C:/Rig/</code></li>
-<li>Unzip <code>Scanimage5-3_20260727_sutter.zip</code></li>
-<li>ScanImage should be in folder named <code>C:/Rig/Scanimage5-3</code></li>
-<li>Add <code>C:/Rig/Scanimage5-3</code> to MATLAB 2015b path with subfolders</li>
+<li>Copy this rig's ScanImage archive from Sharepoint to <code>C:/Rig/</code> and unzip</li>
+<li>ScanImage should end up in a folder named <code>C:/Rig/Scanimage5-3</code></li>
+<li>Add <code>C:/Rig/Scanimage5-3</code> to the MATLAB 2015b path, with subfolders</li>
 </ul>
 </li>
 <li>
 <p><strong>Configure Ephus and Scanimage</strong></p>
 <ul>
 <li>see: <a href="../configuration/">Configuration</a></li>
+<li><strong>Check <code>motors(1).comPort</code></strong> — it differs between the rigs, and the wrong value on the
+  Scientifica rig drives the beam attenuator as a stage. See
+  <a href="../configuration/#per-rig-differences">Configuration &rarr; Per-rig differences</a></li>
 </ul>
 </li>
 </ol>
 <h2 id="laser-control-software">Laser Control Software</h2>
 <p>Needed to operate the MaiTai — wavelength, shutter, and laser on/off are set from the computer,
-not from the laser itself.</p>
+not from the laser itself. The laser is shared between the rigs, so this is only needed on the
+computer used to control it.</p>
 <ol>
 <li><strong>Install MaiTai USB communication driver</strong> (Silicon Labs CP210x Virtual COM Port)<ul>
 <li><code>maitai_mks_usb_comm_CP210x_VCP_Windows.zip</code></li>
 <li>Unzip and run <code>CP210x_VCP_Windows/CP210xVCPInstaller_x64.exe</code></li>
 <li><strong>Install before the GUI</strong> — it creates the virtual COM port the GUI connects through</li>
 <li>Connect the laser over USB, then confirm the port appears under Device Manager &rarr; Ports (COM &amp; LPT)<ul>
-<li>Note the COM number: <code>COM3</code> is already taken by the Sutter MPC200 micromanipulator
-  (<code>motors(1).comPort = 3</code> in <a href="../config/ScanImage/Machine_Data_File.m">Machine_Data_File.m</a>),
-  so the laser will be on a different port</li>
+<li>Note the COM number, and check it does not collide with a port already in use on the
+  rig (see the rig-specific pages for what is already assigned)</li>
 </ul>
 </li>
 </ul>
@@ -273,8 +267,8 @@ not from the laser itself.</p>
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../cal_speaker/" class="btn btn-neutral float-left" title="Speaker calibration"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../pupillometry/" class="btn btn-neutral float-right" title="Pupillometry">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../cal_laser_power/" class="btn btn-neutral float-left" title="2P Laser Power calibration"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../code/" class="btn btn-neutral float-right" title="Code">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -297,10 +291,10 @@ not from the laser itself.</p>
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../cal_speaker/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../cal_laser_power/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../pupillometry/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../code/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>

@@ -47,48 +47,23 @@
                 <li class="toctree-l1"><a class="reference internal" href="../about/">About</a>
                 </li>
               </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../hardware/">Hardware</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../software/">Software</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../configuration/">Configuration</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../operation/">Operation</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../widefield/">Widefield Epifluorescence</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../drivers/">Drivers</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../code/">Code</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../alignment/">2P Laser Alignment</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../laser_power_control/">2P Laser Power control</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../cal_laser_power/">2P Laser Power calibration</a>
-                </li>
-              </ul>
+              <p class="caption"><span class="caption-text">Common</span></p>
               <ul class="current">
-                <li class="toctree-l1 current"><a class="reference internal current" href="#">Speaker calibration</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../software/">Software</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../drivers/">Drivers</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../configuration/">Configuration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../operation/">Operation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../widefield/">Widefield Epifluorescence</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../laser_power_control/">2P Laser Power control</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../alignment/">2P Laser Alignment</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Speaker calibration</a>
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#tools">Tools</a>
     </li>
@@ -111,15 +86,36 @@
         </ul>
     </li>
     </ul>
-                </li>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../cal_laser_power/">2P Laser Power calibration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../computer_setup/">Rig Setup</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../code/">Code</a>
+                  </li>
               </ul>
+              <p class="caption"><span class="caption-text">Sutter rig</span></p>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../computer_setup/">Rig Setup</a>
-                </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../hardware_sutter/">Hardware</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../setup_sutter/">Rig-specific drivers</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../pupillometry/">Pupillometry</a>
+                  </li>
               </ul>
+              <p class="caption"><span class="caption-text">Scientifica rig</span></p>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../pupillometry/">Pupillometry</a>
-                </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../hardware_scientifica/">Hardware</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../wiring_scientifica/">DAQ wiring</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../setup_scientifica/">Rig-specific drivers</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Appendices</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../appendix_galvo_scan_settings/">Galvo scan settings</a>
+                  </li>
               </ul>
       </div>
     </div>
@@ -135,6 +131,7 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Common</li>
       <li class="breadcrumb-item active">Speaker calibration</li>
     <li class="wy-breadcrumbs-aside">
     </li>
@@ -145,6 +142,11 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="speaker-calibration">Speaker calibration</h1>
+<blockquote>
+<p><strong>Each rig has its own speaker and must be calibrated separately.</strong> The procedure below is the
+same for both, but the calibration is not transferable — and the <strong>Scientifica rig cannot use
+the Sutter rig's stimulus files</strong>. Stimuli must be generated against each rig's own calibration.</p>
+</blockquote>
 <ul>
 <li>Instructions for calibrating rig speaker</li>
 <li><strong>Purpose</strong>: Speaker has nonlinear response across frequencies, must ensure voltage delivered to speaker corresponds to desired dB output for various signals</li>
@@ -221,8 +223,8 @@ G_set = G_ref · (V_want/V_Gref)
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../cal_laser_power/" class="btn btn-neutral float-left" title="2P Laser Power calibration"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../computer_setup/" class="btn btn-neutral float-right" title="Rig Setup">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../alignment/" class="btn btn-neutral float-left" title="2P Laser Alignment"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../cal_laser_power/" class="btn btn-neutral float-right" title="2P Laser Power calibration">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -245,10 +247,10 @@ G_set = G_ref · (V_want/V_Gref)
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../cal_laser_power/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../alignment/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../computer_setup/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../cal_laser_power/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
