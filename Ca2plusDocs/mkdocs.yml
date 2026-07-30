@@ -14,8 +14,6 @@ nav:
       - 2P Laser Power calibration: cal_laser_power.md
       - Rig Setup: computer_setup.md
       - Code: code.md
-  - Appendices:
-      - Galvo scan settings: appendix_galvo_scan_settings.md
   - Sutter rig:
       - Hardware: hardware_sutter.md
       - Rig-specific drivers: setup_sutter.md
@@ -24,6 +22,8 @@ nav:
       - Hardware: hardware_scientifica.md
       - DAQ wiring: wiring_scientifica.md
       - Rig-specific drivers: setup_scientifica.md
+  - Appendices:
+      - Galvo scan settings: appendix_galvo_scan_settings.md
 theme: readthedocs
 plugins:
   - search
