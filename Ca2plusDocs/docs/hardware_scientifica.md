@@ -33,7 +33,8 @@ Full terminal-by-terminal wiring, signal chains and diagram:
 ## PMT
 - Scientifica **2PIMS-PMT-20**
 - Controller: Scientifica 2PIMS-8000
-- Different PMT from the Sutter rig, so the
+- Different PMT **and** a separate controller, unlike the Sutter rig's module with its
+  high-voltage supply built into the detector head. The
   [herringbone artifact](hardware_sutter.md#herringbone-artifact) documented there does **not**
   apply here — an artifact on this rig has another cause
 

@@ -97,7 +97,7 @@ beforehand and work back through steps 1–4.
 
 | Symptom | Cause | Where |
 |---|---|---|
-| Herringbone pattern in the image (Sutter) | Normal for the End-On Hamamatsu PMT; strength is periodic in gain | [Hardware &rarr; Herringbone artifact](hardware_sutter.md#herringbone-artifact) |
+| Herringbone / diagonal stripes (Sutter) | Ripple from the PMT module's built-in HV supply beating against the line rate; periodic in gain | [Hardware &rarr; Herringbone artifact](hardware_sutter.md#herringbone-artifact) |
 | Comb / split artifact across the image | Fast galvo overdriven; scan phase wandering | [Appendix &rarr; If the comb artifact reappears](appendix_galvo_scan_settings.md#if-the-comb-artifact-reappears) |
 | Widefield frame cropped or the wrong size | Wrong `qcam.m` for the installed camera | [Widefield &rarr; qcam.m modification](widefield.md#qcamm-modification) |
 | Camera stops capturing between loop iterations | `External` needs re-arming each iteration | [Widefield &rarr; Looping](widefield.md#looping) |

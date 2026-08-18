@@ -7,7 +7,7 @@
 ![Sutter 2P Rig](tz_2p.jpeg)
 
 - Best person to contact: Rick Ayer of Sutter Instruments: rick@sutter.com
-- Herringbone artifact is normal for End-On [Hamamatsu PMT H10770PA-40](https://www.hamamatsu.com/us/en/product/optical-sensors/pmt/pmt-module/current-output-type/H10770PA-40.html) and is not an alignment fault. Its strength is periodic in the PMT gain setting — adjust gain to reduce it. See [Hardware &rarr; Herringbone artifact](hardware_sutter.md#herringbone-artifact)
+- Herringbone artifact is normal for the [Hamamatsu PMT H10770PA-40](https://www.hamamatsu.com/us/en/product/optical-sensors/pmt/pmt-module/current-output-type/H10770PA-40.html) and is **not** an alignment fault — it is electrical, ripple from the module's built-in high-voltage supply beating against the line rate. Its strength is periodic in the gain setting, so stepping gain reduces it. No beam-path adjustment will change it. See [Hardware &rarr; Herringbone artifact](hardware_sutter.md#herringbone-artifact)
 
 ## References
 - [Sutter 2P Alignment Tutorial Video](https://www.youtube.com/watch?v=hwCFtQ3WHoo&t=452)

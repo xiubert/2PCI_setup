@@ -82,7 +82,7 @@ The system synchronizes two DAQ boards for coordinated 2P imaging and stimulus d
 
 ## Known Issues
 
-- **Herringbone artifact (Sutter rig)**: Normal for the End-On Hamamatsu PMT (H10770PA-40). Its strength is periodic in the PMT gain setting, so adjusting gain reduces it. See [Hardware &rarr; Herringbone artifact](hardware_sutter.md#herringbone-artifact)
+- **Herringbone artifact (Sutter rig)**: Diagonal stripes from ripple on the H10770PA-40 module's built-in high-voltage supply beating against the line rate. Normal for this PMT, not a fault. The ripple frequency follows the gain control voltage, so the artifact is periodic in gain — step the gain to reduce it. See [Hardware &rarr; Herringbone artifact](hardware_sutter.md#herringbone-artifact)
 - **Timing delay**: ~97-99ms (occasionally up to 700ms) between ScanImage acquisition start and `acquisitionStarted` timestamp in user function
 
 ## Maintenance & Support

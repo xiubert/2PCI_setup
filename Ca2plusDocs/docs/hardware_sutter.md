@@ -41,16 +41,32 @@ For the second rig, see [Hardware — Scientifica rig](hardware_scientifica.md).
 
 ### Herringbone artifact
 
-A herringbone pattern in the image is **normal for this End-On PMT** and is not a fault or a
-misalignment.
+Diagonal stripes across the image are **normal for this PMT** and are not a fault, a
+misalignment, or a laser problem.
 
-Its strength varies **periodically with the PMT gain setting** — it is pronounced at some gain
-values and largely absent at others. **Adjusting the gain off the affected value reduces or
-clears it.** Step the gain rather than assuming a higher or lower setting is always better; the
-relationship is periodic, not monotonic.
+**Cause.** The H10770PA-40 is a photosensor *module* — the high-voltage supply is built into the
+detector head, and gain is set by a control voltage fed into it, which is what the
+[PS-2LV](https://www.sutter.com/MICROSCOPES/pmt.html) provides. That built-in switching supply
+puts **ripple** on the PMT output, reported in the **200–300 kHz** range for Hamamatsu GaAsP
+PMTs and present even with no light reaching the detector. Because the ripple frequency is not an
+exact multiple of the line rate, its phase advances slightly on each successive line, so it
+renders as **diagonal stripes** rather than stationary vertical bands.
 
-This is specific to the Sutter rig's PMT — the Scientifica rig uses a different one
-([2PIMS-PMT-20](hardware_scientifica.md#pmt)), so an artifact there is a different problem.
+**Why gain changes it.** The gain control voltage is the input to that same supply, so changing
+gain shifts the supply's operating point and with it the ripple frequency. That in turn changes
+how the ripple beats against the fixed line period, so the artifact strengthens and weakens
+**periodically as gain is stepped**. It is *not* a case of lower gain being better — step through
+gain values and settle on one where the pattern is weakest.
+
+**The cause is electrical, not optical.** It is unrelated to the photocathode geometry
+(end-on / head-on vs side-on), which affects spatial uniformity and quantum efficiency rather
+than producing a gain-dependent temporal pattern. Nothing about the beam path or alignment will
+change it.
+
+Specific to the Sutter rig — the Scientifica rig uses a different PMT and controller
+([2PIMS-PMT-20](hardware_scientifica.md#pmt)), so an artifact there has another cause.
+
+Reference: [Ripple noise on PMTs in 2-photon imaging](https://labrigger.com/blog/2016/05/11/ripple-noise-on-pmts-in-2-photon-imaging/) (Labrigger).
 
 ## Shutter
 - Controller: [ThorLabs SC10 Shutter Controller](https://www.thorlabs.com/thorproduct.cfm?partnumber=SC10)
