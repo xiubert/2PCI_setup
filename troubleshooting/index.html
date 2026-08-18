@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Troubleshooting - Ca<sup>2+</sup> imaging in vivo</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Troubleshooting";
+        var mkdocs_page_input_path = "troubleshooting.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Ca<sup>2+</sup> imaging in vivo
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../about/">About</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Common</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../software/">Software</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../drivers/">Drivers</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../configuration/">Configuration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../operation/">Operation</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Troubleshooting</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#1-refresh-the-daqs-in-ni-max">1. Refresh the DAQs in NI MAX</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#2-disconnect-and-reconnect-the-usb-daq">2. Disconnect and reconnect the USB DAQ</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#3-close-other-programs-holding-com-ports">3. Close other programs holding COM ports</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#4-qcam-ephus-power-cycle-the-camera-and-qcam-board">4. QCam / Ephus — power-cycle the camera and QCam board</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#5-restart-the-computer">5. Restart the computer</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#symptoms-with-a-documented-fix">Symptoms with a documented fix</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../widefield/">Widefield Epifluorescence</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../laser_power_control/">2P Laser Power control</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../alignment/">2P Laser Alignment</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../cal_speaker/">Speaker calibration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../cal_laser_power/">2P Laser Power calibration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../computer_setup/">Rig Setup</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../vhd_backup/">Disk backups (VHD)</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../code/">Code</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Sutter rig</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../hardware_sutter/">Hardware</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../setup_sutter/">Rig-specific drivers</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../pupillometry/">Pupillometry</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Scientifica rig</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../hardware_scientifica/">Hardware</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../wiring_scientifica/">DAQ wiring</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../setup_scientifica/">Rig-specific drivers</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Appendices</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../appendix_galvo_scan_settings/">Galvo scan settings</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Ca<sup>2+</sup> imaging in vivo</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Common</li>
+      <li class="breadcrumb-item active">Troubleshooting</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="troubleshooting">Troubleshooting</h1>
+<p>General recovery steps when the rig stops talking to its hardware — Ephus or ScanImage failing to
+find a DAQ, a serial device refusing to open, or the widefield camera not responding.</p>
+<p><strong>Work through these in order.</strong> They escalate from cheapest to most disruptive, and a restart
+often hides the actual cause, so leave it until last.</p>
+<p>For problems with a known specific cause, skip ahead to
+<a href="#symptoms-with-a-documented-fix">Symptoms with a documented fix</a>.</p>
+<h2 id="1-refresh-the-daqs-in-ni-max">1. Refresh the DAQs in NI MAX</h2>
+<p>Open <strong>NI MAX</strong> (Measurement &amp; Automation Explorer) and refresh <strong>Devices and Interfaces</strong>.</p>
+<p>Both rigs use the same two boards, and <strong>both are referenced by name</strong> in the configuration files:</p>
+<table>
+<thead>
+<tr>
+<th>Device</th>
+<th>Model</th>
+<th>Used by</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Dev1</code></td>
+<td>NI PCI-6110 (BNC-2090A breakout)</td>
+<td>ScanImage — galvos, PMTs, shutter</td>
+</tr>
+<tr>
+<td><code>Dev2</code></td>
+<td>NI USB-6229</td>
+<td>Ephus — sound, LEDs, camera trigger</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Confirm the names are still <code>Dev1</code> and <code>Dev2</code> after the refresh.</strong> If a board re-enumerates
+under a different name, nothing will work even though the hardware is present — the Ephus startup
+file addresses the board as <code>/dev2/...</code> and by <code>acqBoardIDs</code> / <code>stimBoardIDs</code>, and the ScanImage
+machine data file as <code>deviceNameAcq = 'Dev1'</code>. Rename the device back in NI MAX rather than
+editing the configs.</p>
+<p>A <strong>self-test</strong> in NI MAX confirms the board itself is healthy.</p>
+<p>See: <a href="../configuration/">Configuration</a>, <a href="../drivers/#imaging">Drivers</a> (NI-DAQmx v15.5.0).</p>
+<h2 id="2-disconnect-and-reconnect-the-usb-daq">2. Disconnect and reconnect the USB DAQ</h2>
+<p>Only the <strong>USB-6229 (<code>Dev2</code>)</strong> is external — the PCI-6110 (<code>Dev1</code>) is an internal card and cannot
+be reseated this way.</p>
+<p>So this step only addresses <strong>Ephus-side</strong> faults: sound output, LED drivers, the camera trigger.
+If the symptom is on the ScanImage side (galvos, PMTs), this will not help.</p>
+<p>After reconnecting, <strong>repeat step 1</strong> and confirm the board still enumerates as <code>Dev2</code>.</p>
+<h2 id="3-close-other-programs-holding-com-ports">3. Close other programs holding COM ports</h2>
+<p>Serial devices are opened <strong>exclusively</strong> — whichever program gets there first keeps the port, and
+everything else fails to connect. Close anything that might be holding one.</p>
+<table>
+<thead>
+<tr>
+<th>Rig</th>
+<th>Program</th>
+<th>Ports it can hold</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Scientifica</td>
+<td><strong>LinLab 2</strong></td>
+<td><code>COM3</code> beam attenuator, <code>COM4</code> XYZ stage, <code>COM5</code> condenser</td>
+</tr>
+<tr>
+<td>Both</td>
+<td><strong>MaiTai Customer GUI</strong></td>
+<td>the laser's CP210x virtual COM port</td>
+</tr>
+<tr>
+<td>Both</td>
+<td>Camera / other vendor UIs</td>
+<td>whatever they were configured for</td>
+</tr>
+</tbody>
+</table>
+<p><strong>On the Scientifica rig this is the common one.</strong> LinLab 2 holds its ports exclusively, so
+ScanImage cannot open the stage on <code>COM4</code> while LinLab is running — and LinLab cannot open the
+attenuator on <code>COM3</code> while ScanImage holds it. Close whichever one you are not using.</p>
+<p>If a MATLAB attempt already failed, it may have left a stale handle on the port. In MATLAB:</p>
+<pre><code class="language-matlab">delete(instrfind); clear s
+</code></pre>
+<p>Ports can also <strong>renumber</strong> after being unplugged into a different USB socket. If a device is
+simply gone rather than busy, re-identify it and pin the number in
+Device Manager &rarr; Port Settings &rarr; Advanced &rarr; COM Port Number.</p>
+<p>See: <a href="../setup_sutter/#com-port-assignments">Sutter COM ports</a> ·
+<a href="../setup_scientifica/#com-port-assignments">Scientifica COM ports</a> ·
+<a href="../wiring_scientifica/#61-how-to-re-identify-the-ports">Re-identifying the ports</a></p>
+<h2 id="4-qcam-ephus-power-cycle-the-camera-and-qcam-board">4. QCam / Ephus — power-cycle the camera and QCam board</h2>
+<p>If the fault is the widefield camera:</p>
+<ol>
+<li>Turn the <strong>camera</strong> off and back on.</li>
+<li>Turn the <strong>QCam board</strong> off and back on.</li>
+<li><strong>Turn the camera board on before launching Ephus</strong> — Ephus expects it to be present at
+   startup.</li>
+<li>Verify with <code>startQCam</code> in MATLAB 2013b.</li>
+</ol>
+<p>The QCam board is what receives the 5 V TTL camera trigger from <code>Dev2</code> <code>AO3</code>, so a board that is
+off or wedged shows up as a camera that never captures frames even though Ephus reports no error.</p>
+<p>See: <a href="../widefield/">Widefield Epifluorescence</a> ·
+<a href="../computer_setup/#software-installation">Rig Setup &rarr; QCam testing</a></p>
+<h2 id="5-restart-the-computer">5. Restart the computer</h2>
+<p>Last resort. It clears stale driver state, orphaned serial handles and locked ports in one go —
+which is also why it hides the cause. If a restart is needed regularly, note what was running
+beforehand and work back through steps 1–4.</p>
+<hr />
+<h2 id="symptoms-with-a-documented-fix">Symptoms with a documented fix</h2>
+<table>
+<thead>
+<tr>
+<th>Symptom</th>
+<th>Cause</th>
+<th>Where</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Herringbone / diagonal stripes (Sutter)</td>
+<td>Ripple from the PMT module's built-in HV supply beating against the line rate; periodic in gain</td>
+<td><a href="../hardware_sutter/#herringbone-artifact">Hardware &rarr; Herringbone artifact</a></td>
+</tr>
+<tr>
+<td>Comb / split artifact across the image</td>
+<td>Fast galvo overdriven; scan phase wandering</td>
+<td><a href="../appendix_galvo_scan_settings/#if-the-comb-artifact-reappears">Appendix &rarr; If the comb artifact reappears</a></td>
+</tr>
+<tr>
+<td>Widefield frame cropped or the wrong size</td>
+<td>Wrong <code>qcam.m</code> for the installed camera</td>
+<td><a href="../widefield/#qcamm-modification">Widefield &rarr; qcam.m modification</a></td>
+</tr>
+<tr>
+<td>Camera stops capturing between loop iterations</td>
+<td><code>External</code> needs re-arming each iteration</td>
+<td><a href="../widefield/#looping">Widefield &rarr; Looping</a></td>
+</tr>
+<tr>
+<td>ScanImage drives the beam attenuator instead of the stage (Scientifica)</td>
+<td><code>motors(1).comPort</code> left at <code>3</code>; must be <code>4</code></td>
+<td><a href="../configuration/#per-rig-differences">Configuration &rarr; Per-rig differences</a></td>
+</tr>
+<tr>
+<td>Machine unrecoverable, or software state badly broken</td>
+<td>—</td>
+<td><a href="../vhd_backup/">Disk backups (VHD)</a></td>
+</tr>
+</tbody>
+</table>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../operation/" class="btn btn-neutral float-left" title="Operation"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../widefield/" class="btn btn-neutral float-right" title="Widefield Epifluorescence">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../operation/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../widefield/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

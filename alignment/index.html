@@ -57,6 +57,8 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../operation/">Operation</a>
                   </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../troubleshooting/">Troubleshooting</a>
+                  </li>
                   <li class="toctree-l1"><a class="reference internal" href="../widefield/">Widefield Epifluorescence</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../laser_power_control/">2P Laser Power control</a>
@@ -167,7 +169,7 @@ procedure does not transfer.</p>
 <p><img alt="Sutter 2P Rig" src="../tz_2p.jpeg" /></p>
 <ul>
 <li>Best person to contact: Rick Ayer of Sutter Instruments: rick@sutter.com</li>
-<li>Herringbone artifact is normal for End-On <a href="https://www.hamamatsu.com/us/en/product/optical-sensors/pmt/pmt-module/current-output-type/H10770PA-40.html">Hamamatsu PMT H10770PA-40</a></li>
+<li>Herringbone artifact is normal for the <a href="https://www.hamamatsu.com/us/en/product/optical-sensors/pmt/pmt-module/current-output-type/H10770PA-40.html">Hamamatsu PMT H10770PA-40</a> and is <strong>not</strong> an alignment fault — it is electrical, ripple from the module's built-in high-voltage supply beating against the line rate. Its strength is periodic in the gain setting, so stepping gain reduces it. No beam-path adjustment will change it. See <a href="../hardware_sutter/#herringbone-artifact">Hardware &rarr; Herringbone artifact</a></li>
 </ul>
 <h2 id="references">References</h2>
 <ul>

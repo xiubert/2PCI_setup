@@ -57,6 +57,8 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../operation/">Operation</a>
                   </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../troubleshooting/">Troubleshooting</a>
+                  </li>
                   <li class="toctree-l1"><a class="reference internal" href="../widefield/">Widefield Epifluorescence</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../laser_power_control/">2P Laser Power control</a>
@@ -87,6 +89,10 @@
     <li class="toctree-l2"><a class="reference internal" href="#widefield-epifluorescence-camera">Widefield epifluorescence camera</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#pmt">PMT</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#herringbone-artifact">Herringbone artifact</a>
+    </li>
+        </ul>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#shutter">Shutter</a>
     </li>
@@ -200,6 +206,28 @@
 <li>Controller: <a href="https://www.sutter.com/MICROSCOPES/pmt.html">Sutter PS-2LV</a></li>
 <li><a href="https://www.hamamatsu.com/jp/en/product/optical-sensors/pmt/pmt-module/current-output-type/H10770PA-40.html">Hamamatsu H10770PA-40</a></li>
 </ul>
+<h3 id="herringbone-artifact">Herringbone artifact</h3>
+<p>Diagonal stripes across the image are <strong>normal for this PMT</strong> and are not a fault, a
+misalignment, or a laser problem.</p>
+<p><strong>Cause.</strong> The H10770PA-40 is a photosensor <em>module</em> — the high-voltage supply is built into the
+detector head, and gain is set by a control voltage fed into it, which is what the
+<a href="https://www.sutter.com/MICROSCOPES/pmt.html">PS-2LV</a> provides. That built-in switching supply
+puts <strong>ripple</strong> on the PMT output, reported in the <strong>200–300 kHz</strong> range for Hamamatsu GaAsP
+PMTs and present even with no light reaching the detector. Because the ripple frequency is not an
+exact multiple of the line rate, its phase advances slightly on each successive line, so it
+renders as <strong>diagonal stripes</strong> rather than stationary vertical bands.</p>
+<p><strong>Why gain changes it.</strong> The gain control voltage is the input to that same supply, so changing
+gain shifts the supply's operating point and with it the ripple frequency. That in turn changes
+how the ripple beats against the fixed line period, so the artifact strengthens and weakens
+<strong>periodically as gain is stepped</strong>. It is <em>not</em> a case of lower gain being better — step through
+gain values and settle on one where the pattern is weakest.</p>
+<p><strong>The cause is electrical, not optical.</strong> It is unrelated to the photocathode geometry
+(end-on / head-on vs side-on), which affects spatial uniformity and quantum efficiency rather
+than producing a gain-dependent temporal pattern. Nothing about the beam path or alignment will
+change it.</p>
+<p>Specific to the Sutter rig — the Scientifica rig uses a different PMT and controller
+(<a href="../hardware_scientifica/#pmt">2PIMS-PMT-20</a>), so an artifact there has another cause.</p>
+<p>Reference: <a href="https://labrigger.com/blog/2016/05/11/ripple-noise-on-pmts-in-2-photon-imaging/">Ripple noise on PMTs in 2-photon imaging</a> (Labrigger).</p>
 <h2 id="shutter">Shutter</h2>
 <ul>
 <li>Controller: <a href="https://www.thorlabs.com/thorproduct.cfm?partnumber=SC10">ThorLabs SC10 Shutter Controller</a></li>

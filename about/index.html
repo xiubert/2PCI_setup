@@ -89,6 +89,8 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../operation/">Operation</a>
                   </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../troubleshooting/">Troubleshooting</a>
+                  </li>
                   <li class="toctree-l1"><a class="reference internal" href="../widefield/">Widefield Epifluorescence</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../laser_power_control/">2P Laser Power control</a>
@@ -228,7 +230,7 @@ laser-power hardware.</p>
 </ul>
 <h2 id="known-issues">Known Issues</h2>
 <ul>
-<li><strong>Herringbone artifact</strong>: Normal for End-On Hamamatsu PMT (H10770PA-40) configuration</li>
+<li><strong>Herringbone artifact (Sutter rig)</strong>: Diagonal stripes from ripple on the H10770PA-40 module's built-in high-voltage supply beating against the line rate. Normal for this PMT, not a fault. The ripple frequency follows the gain control voltage, so the artifact is periodic in gain — step the gain to reduce it. See <a href="../hardware_sutter/#herringbone-artifact">Hardware &rarr; Herringbone artifact</a></li>
 <li><strong>Timing delay</strong>: ~97-99ms (occasionally up to 700ms) between ScanImage acquisition start and <code>acquisitionStarted</code> timestamp in user function</li>
 </ul>
 <h2 id="maintenance-support">Maintenance &amp; Support</h2>
@@ -244,7 +246,7 @@ laser-power hardware.</p>
 <li>Hardware or software modifications</li>
 </ul>
 <hr />
-<p><strong>Last updated:</strong> December 11, 2025</p>
+<p><strong>Last updated:</strong> August 18, 2026</p>
               
             </div>
           </div><footer>
