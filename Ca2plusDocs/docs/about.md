@@ -102,4 +102,4 @@ This documentation is maintained as a living document. Updates should include:
 
 ---
 
-**Last updated:** December 11, 2025
+**Last updated:** August 18, 2026
