@@ -7,6 +7,7 @@ nav:
       - Drivers: drivers.md
       - Configuration: configuration.md
       - Operation: operation.md
+      - Troubleshooting: troubleshooting.md
       - Widefield Epifluorescence: widefield.md
       - 2P Laser Power control: laser_power_control.md
       - 2P Laser Alignment: alignment.md

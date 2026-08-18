@@ -24,6 +24,7 @@ Applies to both rigs.
 - [Drivers](drivers.md) - Required drivers and installation
 - [Configuration](configuration.md) - Ephus (widefield + sound stimuli) and ScanImage (2P) settings
 - [Operation](operation.md) - Reference for acquisition loops etc.
+- [Troubleshooting](troubleshooting.md) - Ordered recovery steps when the rig stops talking to its hardware
 - [Widefield Epifluorescence](widefield.md) - QCam widefield imaging for mapping cortical subfields to target A1
 - [2P Laser Power control](laser_power_control.md) - Motorised waveplate attenuation on both rigs
 - [2P Laser Alignment](alignment.md) - Alignment procedures with safety protocols
