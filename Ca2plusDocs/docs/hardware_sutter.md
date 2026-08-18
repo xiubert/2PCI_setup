@@ -39,6 +39,19 @@ For the second rig, see [Hardware — Scientifica rig](hardware_scientifica.md).
 - Controller: [Sutter PS-2LV](https://www.sutter.com/MICROSCOPES/pmt.html)
 - [Hamamatsu H10770PA-40](https://www.hamamatsu.com/jp/en/product/optical-sensors/pmt/pmt-module/current-output-type/H10770PA-40.html)
 
+### Herringbone artifact
+
+A herringbone pattern in the image is **normal for this End-On PMT** and is not a fault or a
+misalignment.
+
+Its strength varies **periodically with the PMT gain setting** — it is pronounced at some gain
+values and largely absent at others. **Adjusting the gain off the affected value reduces or
+clears it.** Step the gain rather than assuming a higher or lower setting is always better; the
+relationship is periodic, not monotonic.
+
+This is specific to the Sutter rig's PMT — the Scientifica rig uses a different one
+([2PIMS-PMT-20](hardware_scientifica.md#pmt)), so an artifact there is a different problem.
+
 ## Shutter
 - Controller: [ThorLabs SC10 Shutter Controller](https://www.thorlabs.com/thorproduct.cfm?partnumber=SC10)
 
