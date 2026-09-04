@@ -7,3 +7,6 @@ ref/
 
 #site build
 site/
+
+# Full-resolution MOM manual (16 MB); a compressed copy lives in Ca2plusDocs/docs/mom/
+/MOM_Assembly_Manual_2021.pdf

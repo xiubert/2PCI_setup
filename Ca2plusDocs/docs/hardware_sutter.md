@@ -16,6 +16,59 @@ For the second rig, see [Hardware — Scientifica rig](hardware_scientifica.md).
 - dichroic splitter (Di02-R561, Semrock)
 - green emission filter (FF03-525/50, Semrock)
 - objective: 40 0.8 NA objective (Olympus)
+- [MOM Assembly Manual, June 2021](mom/MOM_Assembly_Manual_2021.pdf) (compressed copy, 67 pages)
+  &mdash; head rotation on pp. 4–6, detector paths in Appendices A (short-path) and B
+  (wide-path / Janelia), objective rings on p. 12
+- The scan head can be **rotated about the tube-lens axis** to image a non-horizontal surface
+  such as auditory cortex with the mouse upright. Manual, never used on this rig so far. See
+  [Head rotation](#head-rotation).
+
+### Head rotation
+
+Confirmed with Rick Ayer (Sutter) on 2026-09-04. The MOM's rotation is a standard feature but
+was not documented on this rig until then.
+
+**Mechanism.** In the assembly manual's terms, the main microscope body carries a split-clamp
+**rotator** that slides over a fixed **bronze stator**: the brass tube on the X-95 rail slider
+that holds the tube lens. The whole scan head, including the dichroic slider and detector path,
+rotates about that tube. A **clamp-screw lever** on the underside of the head locks the rotator
+to the stator. There is no motor and no readout.
+
+![MOM scan head off the rail, showing the clamp-screw lever under the head (photo: Rick Ayer, Sutter)](mom/mom_head_rotation_lever.jpg)
+
+*Head alone, objective removed. The lever at the bottom right tightens the rotator's clamp
+screw; the large bore at the centre is where the tube-lens tube passes through.*
+
+![MOM assembly manual p.4: the main body mounts and rotates on the bronze stator](mom/mom_manual_p4_stator.png)
+
+![MOM assembly manual p.6: the rotator slides over the stator; tighten the clamp-screw lever to fix it](mom/mom_manual_p6_rotator_clamp.png)
+
+**Range.** Clockwise: to fully upside down (180°). Counter-clockwise: about 15–20°.
+
+**Procedure** (Rick Ayer's instructions):
+
+1. Remove the objective, the first time at least.
+2. **Support the head with your other hand before loosening the lever.** Do not loosen it
+   unsupported.
+3. Loosen the lever, rotate the head about the tube-lens tube, retighten.
+4. The lever is spring-loaded: if it hits something before it is tight or loose, pull it out at
+   its centre, re-seat it on the bolt at a new angle, and continue.
+5. To read the angle, put a phone level app on the flat surface of the sideways (Y) axis.
+6. Depending on the angle, the axis drive may need **external springs** to keep the internal
+   spring tension high enough; without them the cable that pulls the axis can go slack. Ask
+   Sutter for the spring kit once the angle is chosen.
+7. Re-run the pollen-grain and fluorescent-slide checks at the new angle
+   ([2P Laser Alignment](alignment.md)). Alignment upstream of the scan head is unchanged.
+
+**Notes.**
+
+- The pivot axis does not pass through the focal point, so rotating swings the focus through
+  an arc. Set the angle once and re-target with the objective XYZ rather than adjusting the
+  angle per session.
+- ScanImage's `objectiveResolution` (angle-to-micron factor at the objective) is unaffected;
+  stage-coordinate bookkeeping for revisiting fields of view is not.
+- Sutter's video of the rotation, without procedural detail:
+  [mom_rotation.mov](https://www.sutter.com/hubfs/WEB%20-%20Videos/mom_rotation.mov).
 
 ## DAQs
 1. [NI USB-6229](https://www.ni.com/en-us/support/model.usb-6229.html) (ID: `Dev2`)
